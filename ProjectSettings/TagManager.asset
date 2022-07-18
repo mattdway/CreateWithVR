@@ -19,7 +19,7 @@ TagManager:
   - Wrist Items
   - Model House
   - Raycasts
-  - Cabinet Door
+  - Door
   - Hands
   - Bottle Lid
   - Polaroid Photos
@@ -31,9 +31,9 @@ TagManager:
   - Pseudo Body
   - Room
   - Furtiture
-  - Door
   - Floor
   - PostProcessing
+  - 
   - 
   - 
   - 
