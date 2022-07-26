@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class opendoor : MonoBehaviour
+public class OpenDoor : MonoBehaviour
 {
     public bool open;
     public float minRotation;

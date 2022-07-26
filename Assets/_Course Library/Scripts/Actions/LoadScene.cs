@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -6,6 +7,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class LoadScene : MonoBehaviour
 {
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.name == "XR Rig")
+        {
+            ReloadCurrentScene();
+        }
+    }
+
     public void LoadSceneUsingName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
