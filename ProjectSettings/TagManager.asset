@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Lighter
   - Photograph
+  - Furniture
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - Room
   - Furtiture
   - Floor
-  - PostProcessing
+  - Drawer
   - 
   - 
   - 

@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4760703065110212425}
   - component: {fileID: 649412327838237644}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Leg_Collider_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4760703065110212425
 Transform:
@@ -54,12 +54,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1626112197927641373}
   - component: {fileID: 3962626635880670520}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Back_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1626112197927641373
 Transform:
@@ -98,12 +98,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4860344227814498415}
   - component: {fileID: 7344228025766918047}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Leg_Collider_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4860344227814498415
 Transform:
@@ -142,12 +142,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1906025600759985340}
   - component: {fileID: 7232940422623250563}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Leg_Collider_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1906025600759985340
 Transform:
@@ -186,12 +186,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8433050150035391903}
   - component: {fileID: 2547890788510143127}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Leg_Collider_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8433050150035391903
 Transform:
@@ -231,12 +231,12 @@ GameObject:
   - component: {fileID: 8632090301300553980}
   - component: {fileID: 7351960177695912151}
   - component: {fileID: 1737185306748298909}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Chair_Modern_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8632090301300553980
 Transform:
@@ -317,12 +317,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5707316573939530995}
   - component: {fileID: 437768346973987520}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: Seat_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5707316573939530995
 Transform:
