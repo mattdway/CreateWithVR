@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Load scene using name, or reload the active scene
 /// </summary>
-public class LoadScene : MonoBehaviour
+public class Load_Scene_Peaceful_Nowhere: MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
