@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using UnityEngine.SceneManagement;
 
-public class PhysicsButton_Reset_Peaceful : MonoBehaviour
+public class PhysicsButton_Reset_World : MonoBehaviour
 {
     [SerializeField] private float threshold = .1f;
     [SerializeField] private float deadZone = 0.025f;
@@ -25,7 +26,7 @@ public class PhysicsButton_Reset_Peaceful : MonoBehaviour
     {
         if (!_isPressed && GetValue() + threshold >= 1)
             Pressed();
-        if (!_isPressed && GetValue() - threshold <= 0)
+        if (_isPressed && GetValue() - threshold <= 0)
             Released();
     }
 
@@ -43,13 +44,20 @@ public class PhysicsButton_Reset_Peaceful : MonoBehaviour
     {
         _isPressed = true;
         onPressed.Invoke();
+        GetComponent<AudioSource>().Play();
         Debug.Log("Pressed");
+        Debug.Log(_isPressed);
     }
 
     private void Released()
     {
-        _isPressed = false;
-        onReleased.Invoke();
-        Debug.Log("Released");
+        Debug.Log(_isPressed);
+        if (_isPressed == true)
+        {
+            _isPressed = false;
+            onReleased.Invoke();
+            SceneManager.LoadScene(0);
+            Debug.Log("Released");
+        }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+public class OpenDoor_Original : MonoBehaviour
 {
     public bool open;
     public float minRotation;
@@ -17,7 +17,8 @@ public class OpenDoor : MonoBehaviour
         rotationY = this.transform.localEulerAngles.y;
     }
 
-    public void OpenDaDoor()
+    // Update is called once per frame
+    void Update()
     {
         if (open == true)
         {

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using System;
 using UnityEngine.SceneManagement;
 
-public class PhysicsButton_Reset_World : MonoBehaviour
+public class PhysicsButton_Open_Door: MonoBehaviour
 {
     [SerializeField] private float threshold = .1f;
     [SerializeField] private float deadZone = 0.025f;
@@ -13,6 +13,8 @@ public class PhysicsButton_Reset_World : MonoBehaviour
     private ConfigurableJoint _joint;
 
     public UnityEvent onPressed, onReleased;
+
+    public OpenDoor openDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,7 @@ public class PhysicsButton_Reset_World : MonoBehaviour
     {
         var value = Vector3.Distance(_startPos, transform.localPosition) / _joint.linearLimit.limit;
 
-        if (Math.Abs(value)< deadZone)
+        if (Math.Abs(value) < deadZone)
             value = 0;
 
         return Mathf.Clamp(value, -1f, 1f);
@@ -56,7 +58,7 @@ public class PhysicsButton_Reset_World : MonoBehaviour
         {
             _isPressed = false;
             onReleased.Invoke();
-            SceneManager.LoadScene(0);
+            openDoor.OpenDaDoor();
             Debug.Log("Released");
         }
     }
