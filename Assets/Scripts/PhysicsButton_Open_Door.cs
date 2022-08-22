@@ -13,8 +13,7 @@ public class PhysicsButton_Open_Door: MonoBehaviour
     private ConfigurableJoint _joint;
 
     public UnityEvent onPressed, onReleased;
-
-    public OpenDoor openDoor;
+    public MotorizedFrontDoorOpen openDoor;
 
     // Start is called before the first frame update
     void Start()

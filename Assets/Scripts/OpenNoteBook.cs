@@ -6,6 +6,7 @@ public class OpenNoteBook : MonoBehaviour
 {
     public GameObject Cover;
     public HingeJoint myHinge;
+
     // Start is called before the first frame update
     void Start()
     {
