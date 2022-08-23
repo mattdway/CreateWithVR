@@ -10373,7 +10373,7 @@ ConfigurableJoint:
   m_LinearLimit:
     limit: 0.015
     bounciness: 0
-    contactDistance: 0
+    contactDistance: 1
   m_AngularXLimitSpring:
     spring: 0
     damper: 0
@@ -10389,11 +10389,11 @@ ConfigurableJoint:
     spring: 0
     damper: 0
   m_AngularYLimit:
-    limit: 0
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_AngularZLimit:
-    limit: 0
+    limit: 3
     bounciness: 0
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
@@ -10405,13 +10405,13 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_YDrive:
     serializedVersion: 3
-    positionSpring: 50
+    positionSpring: 30
     positionDamper: 10
     maximumForce: 3.4028233e+38
   m_ZDrive:
     serializedVersion: 3
-    positionSpring: 0
-    positionDamper: 0
+    positionSpring: 30
+    positionDamper: 10
     maximumForce: 3.4028233e+38
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
@@ -10456,7 +10456,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!65 &256259119
 BoxCollider:
@@ -10564,7 +10564,7 @@ GameObject:
   - component: {fileID: 260579333}
   m_Layer: 13
   m_Name: LeftHand Controller With Physics
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89549,7 +89549,7 @@ GameObject:
   - component: {fileID: 2123423675}
   m_Layer: 13
   m_Name: RightHand Controller With Physics
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
