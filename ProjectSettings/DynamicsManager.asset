@@ -10,15 +10,15 @@ PhysicsManager:
   m_DefaultMaxDepenetrationVelocity: 10
   m_SleepThreshold: 0.005
   m_DefaultContactOffset: 0.01
-  m_DefaultSolverIterations: 30
-  m_DefaultSolverVelocityIterations: 1
+  m_DefaultSolverIterations: 25
+  m_DefaultSolverVelocityIterations: 15
   m_QueriesHitBackfaces: 0
   m_QueriesHitTriggers: 1
-  m_EnableAdaptiveForce: 0
+  m_EnableAdaptiveForce: 1
   m_ClothInterCollisionDistance: 0
   m_ClothInterCollisionStiffness: 0
   m_ContactsGeneration: 1
-  m_LayerCollisionMatrix: ffffdfffffffffff0b0000fcfffffffffbffdffffbffdfff7b38d8ffbbffdbffbb29d8ffbb2818fcbb2818fcfbdfdffffbf8fffdfbf7dfffbb38daffbbb8d8ffbb38dbffbb78dbff3b38c4fffbffdbfffbffdbff0a10c0fdfbf9fffffbf9fffffbf9fffefbe9dfffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_LayerCollisionMatrix: ffffdfefffffffef0b0000ecfffffffffbffdfeffbffdfef7b38d8efbbffdbefbb29d8efbb2818ecbb2818ecfbdfdfeffbf8ffedfbd7dfffbb38daefbbb8d8efbb38dbefbb78dbef3b38c4effbffdbeffbffdbef0a10c0e1fbf9ffeffbf9ffeffbf9ffeefbe9dfefffffdfebffffdfe7082000e0ffffffffffffffffffffffff
   m_AutoSimulation: 1
   m_AutoSyncTransforms: 0
   m_ReuseCollisionCallbacks: 1
@@ -30,8 +30,8 @@ PhysicsManager:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 250, y: 250, z: 250}
   m_WorldSubdivisions: 8
-  m_FrictionType: 0
+  m_FrictionType: 1
   m_EnableEnhancedDeterminism: 0
   m_EnableUnifiedHeightmaps: 1
-  m_SolverType: 0
+  m_SolverType: 1
   m_DefaultMaxAngularSpeed: 7
