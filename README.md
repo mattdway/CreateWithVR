@@ -184,3 +184,20 @@ I still need to fix the reset bug that reverts the objects in play mode back to 
 I also need to work more on the bug which sometimes causes the pushback on the body Player Controller capsule collider when leaning over furniture.  This is ideally only supposed to push back when leaning forward against a wall, door or window and sometimes the tag read works first time and sometimes only after 3-4 collisions.  I'm not yet sure why.
 @mattdway
 mattdway committed on Nov 27
+
+11-29-22	v2.4.0
+11-29-22 Commit
+
+I merged my True Physics Hands Setup.unity scene with my Matt Room.unity scene today. So now when using the reset menu and/or the reset button you start over with physics hands (as the original scene without full physics hands doesn't exist. Only the one with physics hands).
+
+My teleport anywhere buffers weren't quite positioned or sized right and I found one spot where I was able to teleport outside the room between the cabinet with the drawer and the window. I found another where I could teleport out by teleporting by the trash bin and the window. I adjusted the buffer on what I am calling the west window and I added a new buffer to the south wall from the corner behind the stove to the lamp by the window. 
+
+I made sure all buffers were inside the room walls and adjusted to be near the walls so that you couldn't teleport near any walls where there are objects that can possibly push you outside the walls. So far I haven't been able to teleport out, since.
+
+I also fixed the pushback code by ditching the bool variable idea and instead running the pushback code inside OnCollisonEnter and OnCollisionTrigger methods directly.  The height adjustment code is still running under the FixedUpdate.  Tested and the pushback still occurs for walls, windows and doors (anything with a tag of "wall") but not anywhere internal to the room.
+
+I also fixed an issue where the photograph collision was causing the polaroid camera to spin while holding it by turning off the photograph and interactive physics in the physics matrix.  Tested OK.
+
+Play tested and the interactive hands and interactive objects all seem to be working well, as well.
+@mattdway
+mattdway committed on Nov 29
