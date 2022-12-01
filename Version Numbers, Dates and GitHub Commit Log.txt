@@ -201,3 +201,23 @@ I also fixed an issue where the photograph collision was causing the polaroid ca
 Play tested and the interactive hands and interactive objects all seem to be working well, as well.
 @mattdway
 mattdway committed on Nov 29
+
+11-30-22	v2.5.0
+11-30-22 Commit
+* I fixed the MotorizedFrontDoorOpen.cs script, which I rewrote on 11-29-30 but that wasn't working correctly yet.  
+* This script now fully toggles the door open if closed and toggles the door closed if open.  
+* I changed the TextMeshPro text for the button to the left of the door from: OPEN to DOOR to reflect this change.
+* If the door is partially open the button press will fully open the door first.  Then a second press will close the door again.  This is also true behavior if the door starts as closed.
+* There is a small bug in the button in that if the user manually opens the door completely (including pushing on it slightly with their physics hands) and then press the DOOR button the door will start by trying to open.  Because the door is already open it will look like the button doesn't do anything.
+* I played with the idea of using a EulerLocalAngle to evaluate the starting position of the door so that I could set the open variable appropiately.  
+
+This change was in place and didn't cause any errors but... Euler angles are sort of weird when it comes to accuracy. 
+
+I also couldn't decide on the best place to have this evaluation. If I set it at start obviously the value is going to reflect a closed door, every time and if I set it to evaluate at the start of the button press, that ends up messing with the toggle of my button. 
+
+Because it's hard to get the door all the way open by hand anyway I decided to leave that evaluation out of the equation for now. I think it works well enough as is and I don't think there is much chance someone would open the door all the way (including pushing on it to make sure it is as open as possible) then would press the button. If they do the worst that will happen is the button won't do anything on first press but would close on second. I'll leave it as is now and if I have an ah-ha moment later I'll modify the code.
+* I also added my physics hands to the "This is the End" hidden scene so when someone finds that area, they'll have the same full physics hands and ghost hands as in the main area.
+* Odd door physics when pressing against the hinge the wrong direction is still an issue that will need to be addressed at some point in the future.
+* I also removed/archived to a different drive the "Not Working or Not Used" sub-folder under scripts.  This still gives me access to old scripts should I need to reference or revive one of these old scripts while these don't need to be stored in my project folder.
+@mattdway
+mattdway committed on Nov 30
