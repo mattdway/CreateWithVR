@@ -1,4 +1,4 @@
-06-11-22	v1.0.0
+﻿06-11-22	v1.0.0
 Initial commit
  main
 @mattdway
@@ -245,3 +245,9 @@ mattdway committed on Nov 30
 	- The door when I lean against it the Player Control still pushes the door out of the way (against the hinges). This doesn't seem to happen when just pressing myself against the door and this also doesn't happen with my hands. I started to research this on Friday so I have some ideas of what to look at and what may or may not help.
 @mattdway
 mattdway committed on Dec 4
+
+12-5-22	v2.5.1
+12-5-22 Commit
+Installed Git LFS (Large File Support) and I used this to track and upload MP4 video files to an LFS server as part of my workflow.
+@mattdway
+mattdway committed on Dec 5
