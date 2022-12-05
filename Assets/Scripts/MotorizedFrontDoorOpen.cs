@@ -20,6 +20,13 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
         rotationY = this.transform.localEulerAngles.y;
     }
 
+    // Start is called before the first frame update
+    void Update()
+    {
+        // Get the initial rotation of the door
+        rotationY = this.transform.localEulerAngles.y;
+    }
+
     public void OpenDaDoor()
     {
         var myHingeTop = Door.GetComponent<HingeJoint>();
@@ -68,6 +75,18 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
             open = !open;
             Debug.Log("The bool open has been changed to: " + open);
             Debug.Log("Ending the open the door routine");
+
+            Debug.Log("The Door Rotation is at: " + rotationY);
+            
+            if (rotationY == 0.05041158)
+            {
+                myHingeTop.useMotor = false;
+                myHingeMiddle.useMotor = false;
+                myHingeBottom.useMotor = false;
+          
+                Debug.Log("useMotors Set to False");
+            }
+
             return;
         }
 
@@ -97,6 +116,18 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
             open = !open;
             Debug.Log("The bool open has been changed to: " + open);
             Debug.Log("Ending the close the door routine");
+
+            Debug.Log("The Door Rotation is at: " + rotationY);
+
+            if (rotationY == 225.8905)
+            {
+                myHingeTop.useMotor = false;
+                myHingeMiddle.useMotor = false;
+                myHingeBottom.useMotor = false;
+
+                Debug.Log("useMotors Set to False");
+            }
+
             return;
         }
     }

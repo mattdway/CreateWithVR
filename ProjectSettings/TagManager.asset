@@ -8,6 +8,7 @@ TagManager:
   - Photograph
   - Furniture
   - Wall
+  - Whiteboard
   layers:
   - Default
   - TransparentFX
@@ -18,11 +19,11 @@ TagManager:
   - Hats
   - Art
   - Bookshelf Book
-  - Wrist Items
-  - Model House
+  - 
+  - 
   - Raycasts
   - Door
-  - 
+  - Whiteboard
   - Bottle Lid
   - Polaroid Photos
   - Punch List
