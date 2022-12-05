@@ -51,9 +51,6 @@ ExportedObj/
 # Unity3D generated file on crash reports
 sysinfo.txt
 
-# MP4 Video files
-*.mp4
-
 # Builds
 *.apk
 *.unitypackage
