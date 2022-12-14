@@ -53,13 +53,17 @@ public class HandPhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //position
+        // Position
         rb.velocity = (target.position - transform.position) / Time.fixedDeltaTime;
 
-        //rotation
+        // Rotation
+        // Calculate the difference between the rotations of the target and the current object
         Quaternion roationDifference = target.rotation * Quaternion.Inverse(transform.rotation);
+
+        // Convert the rotation difference to an angle and axis representation
         roationDifference.ToAngleAxis(out float angleInDegree, out Vector3 rotationAxis);
 
+        // Calculate the angular velocity needed to rotate by the rotation difference over a single frame
         Vector3 rotationDifferenceInDegree = angleInDegree * rotationAxis;
 
         rb.angularVelocity = (rotationDifferenceInDegree *Mathf.Deg2Rad / Time.fixedDeltaTime);

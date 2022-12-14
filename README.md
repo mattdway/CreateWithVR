@@ -251,3 +251,63 @@ mattdway committed on Dec 4
 Installed Git LFS (Large File Support) and I used this to track and upload MP4 video files to an LFS server as part of my workflow.
 @mattdway
 mattdway committed on Dec 5
+
+12-13-22 v2.5.2
+12-13-22 Commit
+I was able to work out a many of the remaining issues with my physics hands tonight.
+
+Being able to spam select things is now gone by changing Select Action Trigger on the XR Interactable from State to State Selected on the "LeftHand Controller With Physics" and the "RightHand Controller With Physics" controller game objects.
+
+Not only can't you spam the select button to select something over and over again, this also prevents being able to pick up multiple objects with the same hand and it also prevents being able to grab an interactable with a single grab point with both hands at once, which also eliminates the obnoxious haptic and sound feedback that would happen when grabbing an object with a single grab point with both hands at once. Now, the behavior is that it simply switches hands.
+
+I also turned off physics hands on the opposite hand in one instance by adding some additional Interactable Events for "Select Entered" and "Select Exited" on the XR Interactable on the "LeftHand Controller With Physics" and the "RiightHand Controller With Physics" controller game objects.
+
+Each controller object now has the following:
+
+Select Entered
+LeftHandPhysics Hand.ToggleVisiibility
+LeftHandPhysics HandPhysics.DisableHandCollider
+RightHandPhysics HandPhysics.DisableCollider
+
+Select Exited
+LeftHandPhysics   Hand.ToggleVisiibility
+LeftHandPhysics   HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+RightHandPhysics  HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+
+This means whenever something is picked up in the right hand, the right hand disappears and both the right hand colliders are disabled as are the left hand colliders. When something is dropped from the right hand the right hand reappears and both the right hand colliders and left hand colliders are re-enabled again after a wait duration of 0.5ms.
+
+The same is true when something is picked up in the left hand.
+
+The only instance where this isn't true is when you pick something up in the right hand and then switch to the left hand. It appears in this instance the "Selected Exit" executes and the collider for the opposite hand turns back on but this switching of an object in hands for whatever reason doesn't register as a "Select Entered", which means that opposite hand collider isn't turned off again. 
+
+If the object is dropped completely and picked back up this triggers Select Entered. I'm not entirely sure why but I haven't found many instances where having the opposite hand physics turned off when holding something is much of a problem. Sometimes you can bump it with a hand and it'll move slightly but even with large objects like the painting, that doesn't cause any severe physics issues, it simply nudges the object slightly. So maybe I'll even allow physics in the opposite hand to remain when picking up an object and only have it disabled for the hand holding the item. We'll see.
+
+I re-enabled distance grab for both hands. At one point I had turned this off on the left hand and I don't remember why. It wasn't a problem that I recall and being able to pick up objects with either hands is helpful. Especially when picking up two items (such as the bottle and the lid) from a table where getting close enough to the object to direct pick up is difficult.
+
+I thought there was a collision issue with distance grab to where I would distance grab an object and it would hit my hand and fly in an odd direction before grabbing. I went ahead and set the same "Select Entered" and "Select Exited" as with the XR Direct Interaction to disable collisions when using the rays. 
+
+Select Entered
+LeftHandPhysics Hand.ToggleVisiibility
+LeftHandPhysics HandPhysics.DisableHandCollider
+RightHandPhysics HandPhysics.DisableCollider
+
+Select Exited
+LeftHandPhysics   Hand.ToggleVisiibility
+LeftHandPhysics   HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+RightHandPhysics  HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+
+While I'll keep those Interactor Events enabled what I found in play testing is that this wasn't a problem with the collisions but with the thumbstick press to toggle the ray. It's very easy to let go too soon, thus breaking the distance grab before it completes. Pressing down on the thumbstick is an alternative technique that in some ways works better for distance grabbing. However, pressing on the thumbstick can also accidently engage the snap turning and/or continuous movement when unintended. So distance grabbing with either continuous movement or snap turning can be persnickety and takes some practice and patience on the part of the user. There is maybe a better way to do this to avoid conflicts and to have less work or annoyance on the part of the player. I'll have to research this more and/or pay more attention to how this works in commercial games.
+
+I tried to duplicate the wall glitch by the fireplace but was unable to. I'm not entirely sure what the sequence of events were that allowed this glitch to happen, at this point in time. I'm checking with the student who found this glitch to see how I can reproduce it.
+
+All in all things are working pretty well with the hands and they seem less glitchy than before with these changes made.
+
+I also turned off the Direct Interactor for the ghost hands. Those hands now animate but are not capable of directly picking anything up.
+
+I have tried (using ChatGPT to spitball ideas) to troubleshoot and add 90 degree hand rotation on the physics hands so that these start rotated with the palms facing in. So far any start rotation I add to these interferes with the constant rotation being applied and this causes the hand assets (target per the C# code) to shake. There is most likely a coding solution to this but I haven't found it yet. I'll come back to this one again later.
+
+While it is possible to sometimes get into weird situations where the physics hands will get stuck on something, with collisions with most every object, including walls, floors, interactables, non-interactables, furniture, etc. this is somewhat rare. While I am confident those glitches can occur, I don't know if I can code around every instance of that happening and I don't currently have a known repeatable method of making the physics hands get stuck on something, which would be an instance where I could then further troubleshoot and fix those issues.
+
+I also, at some point, want to add hand-poses for different objects to these hands instead of making the hand disappear.
+@mattdway
+mattdway committed on Dec 13

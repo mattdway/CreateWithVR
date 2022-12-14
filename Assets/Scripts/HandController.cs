@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandController : MonoBehaviour
 {
-
     ActionBasedController controller;
     public Hand hand;
 

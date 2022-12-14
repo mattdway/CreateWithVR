@@ -56,15 +56,16 @@ public class WhiteboardMarker : MonoBehaviour
                 {
                     _whiteboard.texture.SetPixels(x, y, _penSize, _penSize, _colors);
                     
-                    for (float f = 0.01f; f < 1.00f; f += 0.03f)
+                    for (float f = 0.01f; f < 1.00f; f += 0.01f)
                     {
                         var lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
                         var lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
                         _whiteboard.texture.SetPixels(lerpX, lerpY, _penSize, _penSize, _colors);
                     }
 
+                    Debug.Log("Locking Rotation To " + _lastTouchRot);
                     transform.rotation = _lastTouchRot;
-
+                     
                     _whiteboard.texture.Apply();
                 }
 
