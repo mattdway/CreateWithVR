@@ -12,14 +12,14 @@ Initial Commit 07-10-22 11:37 PM
 mattdway committed on Jul 10 
 
 7-13-22		v1.0.1
-07-13-22 Scene Removal Committ
+07-13-22 Scene Removal Commit
 I removed a temporary scene I created while testing colliders and physics on my hand objects.  Those assets are now part of the main scene (still in beta testing) so having a second scene for testing is unnecessary.
  main
 @mattdway
 mattdway committed on Jul 17 
 
 7-17-22		v1.1.0
-07-17-22 Committ
+07-17-22 Commit
 * Updated Interaction Board
 * Updated Welcome Boards
 * Hid Interactive Menu and Added Button In Welcome Menu to Show
@@ -32,7 +32,7 @@ mattdway committed on Jul 17
  main
 
 7-25-22		v1.2.0
-07-25-22 Committ
+07-25-22 Commit
 This commit has a working XR Rig Character Controller that follows the main camera's X and Z axis.  This prevents peeking through walls and clipping through walls as well as shrinking the Y transform of the character controller while physically ducking.
 
 The collision script to reload the scene when walking through the front door continues and recent changes need to be tested with the HMD.
@@ -41,7 +41,7 @@ The collision script to reload the scene when walking through the front door con
 mattdway committed on Jul 25 
 
 8-1-22		v1.2.1
-08-01-22 Committ
+08-01-22 Commit
 Fixed the crashing when going through the front door transporter (loading another scene).
 Found the ideal position for the front door transporter collider.
 Fixed the anti-cheating script so that this only occurs when colliding with walls and not furniture.
@@ -50,7 +50,7 @@ Fixed the anti-cheating script so that this only occurs when colliding with wall
 mattdway committed on Aug 1 
 
 8-2-22		v1.3.0
-08-02-22 Committ
+08-02-22 Commit
 Collider Scene Loader Script Unity Editor Crash Bug Squashed.
 Set the collider to the ideal position in the white lightbox room outside the front door.
 Added a pushable button to the peaceful nowhere scene that takes users can press down with their hand.  It makes a click noise when pressed down and it loads the Matts Room scene upon release.
@@ -60,7 +60,7 @@ main
 mattdway committed on Aug 2 
 
 8-2-22		v1.4.0
-08-02-22 Committ
+08-02-22 Commit
 Worked on trying to fix the front door rubber banding hinge problem but didn't completely solve it.  I did make changes to the hinges, door and surrounding wall in the process.
 Fixed various other bugs including "X" button position on Settings, Welcome and Interaction boards.
 Fixed a few interaction board font issues (to remove glow effect on text mesh pro).
@@ -70,7 +70,7 @@ main
 mattdway committed on Aug 2 
 
 8-4-22		v2.0.0
-08-04-22 Committ
+08-04-22 Commit
 This commit contains the physical hands being activated (they were always part of the hierarchy but not previously activiated and not linked in the hand controllers due to a  bug that caused your physical body to raise up to the ceiling whenever an interactable was grabbed.  That bug is squashed and the hands with colliders and physics are now enabled by default and the non-physics hands are disabled and unlinked.
 
 I also changed the structure by duplicating my left and right hand controllers and linking the physical hands to two and the non-physical hands to the other two.  This way linking each time wasn't necessary.  Now I've disabled the non-physical hand controllers and hands and if I ever need to enable them again, I can do so in the hierarchy without any other setup.
@@ -311,3 +311,21 @@ While it is possible to sometimes get into weird situations where the physics ha
 I also, at some point, want to add hand-poses for different objects to these hands instead of making the hand disappear.
 @mattdway
 mattdway committed on Dec 13
+
+12-18-22 v2.5.3
+12-18-22 Commit
+With the help of Paul in a forum, the physics hands now start rotated 90/-90 degrees inward so that the palms are facing inward (as opposed to palms facing towards the ground) on start.  This orients the hands in the same direction as the player's physical hands while holding the VR hand controllers.  This rotation is also stable and is no longer causing the hands to shake uncontrolably due to that rotation every frame, which was part of the solution Paul helped me with.
+
+As part of this solution I renamed my HandPhysics.cs script to HandPhysicsPosRight and I duplicated this script and I renamed it to HandPhyisicsPosLeft.  The then assigned these to the proper left and right physics hands and I relinked the proper game object and mesh render to each.  The only difference between these two scripts is that one script has a rotation of 90 degrees and the other script has a rotation of -90 degrees.
+
+I also rotated adjusted the starting rotation of the non-physics hands to match so that when the non-physics hands are shown, the rotation matches those of the physics hand model at the time of collision. 
+
+I fixed the reset button in the Peaceful Nowhere scene by changing the Clicker's threshold from 1.0f to 1.5f so that the button pressed a little further and registered as a click and release (thus triggering the script that resets the scene).
+
+I fixed the spinning ghost hands at the start of a new scene and when restarting a scene using a button by changing the Y and X position transform of the physics hands and then matching the position transform of the non-physics controllers to match. The hands are now closer to the actual starting position that the physical controllers are likely to be and not on the floor at the start of the scene.  
+
+Lastly, I also updated these physics and non-physics hand changes in the Peaceful Nowhere scene by updating my -- XR -- prefab.  I then unpacked the -- XR -- prefab in my Hierarchy completely in my Matt's Room scene.  I then loaded the Peaceful Nowhere scene where I deleted -- XR -- from the Hierarchy pane and I brought back in -- XR -- from the prefabs.  I then unpacked the -- XR -- prefab in my Hierarchy completely in my Peaceful Nowhere scene.
+
+I also made my Projectiles parent object a prefab so that my custom dart gun and stapler could be exported or duplicated, if need be.
+@mattdway
+mattdway committed on Dec 18

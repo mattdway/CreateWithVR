@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandPhysics : MonoBehaviour
+public class HandPhysicalPosLeft : MonoBehaviour
 {
-    public Transform target;
+    public Transform controller;
     private Rigidbody rb;
     public Renderer nonPhysicalHand;
     public float showNonPhysicalHandDistance = 0.05f;
@@ -40,7 +40,7 @@ public class HandPhysics : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector3.Distance(transform.position, target.position);
+        float distance = Vector3.Distance(transform.position, controller.position);
 
         if (distance > showNonPhysicalHandDistance)
         {
@@ -54,11 +54,11 @@ public class HandPhysics : MonoBehaviour
     void FixedUpdate()
     {
         // Position
-        rb.velocity = (target.position - transform.position) / Time.fixedDeltaTime;
+        rb.velocity = (controller.position - transform.position) / Time.fixedDeltaTime;
 
         // Rotation
-        // Calculate the difference between the rotations of the target and the current object
-        Quaternion roationDifference = target.rotation * Quaternion.Inverse(transform.rotation);
+        // Calculate the difference between the rotations of the controller and the current object
+        Quaternion roationDifference = controller.rotation * Quaternion.Euler(new Vector3(0, 0, 90)) * Quaternion.Inverse(transform.rotation);
 
         // Convert the rotation difference to an angle and axis representation
         roationDifference.ToAngleAxis(out float angleInDegree, out Vector3 rotationAxis);
