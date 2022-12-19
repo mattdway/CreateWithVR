@@ -45,8 +45,8 @@ public class PhysicsButton_Reset_World : MonoBehaviour
         _isPressed = true;
         onPressed.Invoke();
         GetComponent<AudioSource>().Play();
-        Debug.Log("Pressed");
-        Debug.Log(_isPressed);
+        //Debug.Log("Pressed");
+        //Debug.Log(_isPressed);
     }
 
     private void Released()
@@ -57,7 +57,7 @@ public class PhysicsButton_Reset_World : MonoBehaviour
             _isPressed = false;
             onReleased.Invoke();
             SceneManager.LoadScene(0);
-            Debug.Log("Released");
+            //Debug.Log("Released");
         }
     }
 }

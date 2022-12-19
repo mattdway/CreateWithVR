@@ -329,3 +329,13 @@ Lastly, I also updated these physics and non-physics hand changes in the Peacefu
 I also made my Projectiles parent object a prefab so that my custom dart gun and stapler could be exported or duplicated, if need be.
 @mattdway
 mattdway committed on Dec 18
+
+12-18-22 v2.5.4
+12-18-22 Commit
+Fixed left physics hand flipping when rotated issue.
+Fixed hands jittering when walking issue.
+Colliders may no longer be disabling when picking up an item on opposite hand.  Need to check on this tomorrow.
+Troubleshot XR Rig (head) when leaning into door causing the door to push against its hinges issue but I came to no definite conclusions or solutions.  The catalyst seems to be both the Player Controller and/or either my consumer game object or my head socket or all three.  I tried modifying my pushback script to push back more aggressively when colliding with any object with the tag of door, but this did not solve the issue.
+I also archived the handAnim.cs script by Oculus as I am not using this in my project.
+@mattdway
+mattdway committed on Dec 18

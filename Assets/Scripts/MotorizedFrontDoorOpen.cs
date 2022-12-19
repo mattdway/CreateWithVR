@@ -52,8 +52,8 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
         //open the door
         if (open == false)
         {
-            Debug.Log("Starting the open the door routine");
-            Debug.Log("The bool open is currently: " + open);
+            //Debug.Log("Starting the open the door routine");
+            //Debug.Log("The bool open is currently: " + open);
 
             myHingeTopMotor.targetVelocity = -200;
             myHingeTopMotor.force = 100;
@@ -73,8 +73,8 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
             myHingeBottom.useMotor = true;
 
             open = !open;
-            Debug.Log("The bool open has been changed to: " + open);
-            Debug.Log("Ending the open the door routine");
+            //Debug.Log("The bool open has been changed to: " + open);
+            //Debug.Log("Ending the open the door routine");
 
             Debug.Log("The Door Rotation is at: " + rotationY);
             
@@ -84,7 +84,7 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
                 myHingeMiddle.useMotor = false;
                 myHingeBottom.useMotor = false;
           
-                Debug.Log("useMotors Set to False");
+                //Debug.Log("useMotors Set to False");
             }
 
             return;
@@ -93,8 +93,8 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
         //closed the door
         if (open == true)
         {
-            Debug.Log("Starting the close the door routine");
-            Debug.Log("The bool open is currently: " + open);
+            //Debug.Log("Starting the close the door routine");
+            //Debug.Log("The bool open is currently: " + open);
 
             myHingeTopMotor.targetVelocity = 200;
             myHingeTopMotor.force = 100;
@@ -114,8 +114,8 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
             myHingeBottom.useMotor = true;
 
             open = !open;
-            Debug.Log("The bool open has been changed to: " + open);
-            Debug.Log("Ending the close the door routine");
+            //Debug.Log("The bool open has been changed to: " + open);
+            //Debug.Log("Ending the close the door routine");
 
             Debug.Log("The Door Rotation is at: " + rotationY);
 
@@ -125,7 +125,7 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
                 myHingeMiddle.useMotor = false;
                 myHingeBottom.useMotor = false;
 
-                Debug.Log("useMotors Set to False");
+                //Debug.Log("useMotors Set to False");
             }
 
             return;

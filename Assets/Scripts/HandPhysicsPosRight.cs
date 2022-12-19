@@ -56,7 +56,10 @@ public class HandPhysicsPosRight : MonoBehaviour
         // Position
         rb.velocity = (controller.position - transform.position) / Time.fixedDeltaTime;
 
-        // Rotation
+        // Rotation Using Controller Rotation
+        //transform.rotation = controller.rotation * Quaternion.Euler(0, 0, 90);
+
+        // Rotation Using Target Velocity
         // Calculate the difference between the rotations of the controller and the current object
         Quaternion roationDifference = controller.rotation * Quaternion.Euler(new Vector3(0, 0, -90)) * Quaternion.Inverse(transform.rotation);
 

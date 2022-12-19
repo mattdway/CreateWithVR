@@ -22,7 +22,7 @@ public class RoomScalePlayerControllerFix : MonoBehaviour
         {
             _character.Move(new Vector3(0.001f, -0.001f, 0.001f));
             _character.Move(new Vector3(-0.001f, -0.001f, -0.001f));
-            Debug.Log("Pushback Happened.");
+            //Debug.Log("Pushback Against a Wall Happened.");
         }
     }
 
@@ -32,7 +32,7 @@ public class RoomScalePlayerControllerFix : MonoBehaviour
         {
             _character.Move(new Vector3(0.001f, -0.001f, 0.001f));
             _character.Move(new Vector3(-0.001f, -0.001f, -0.001f));
-            Debug.Log("Pushback Happened.");
+            //Debug.Log("Pushback Against a Wall Happened.");
         }
     }
 
