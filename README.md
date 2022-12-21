@@ -329,3 +329,38 @@ Lastly, I also updated these physics and non-physics hand changes in the Peacefu
 I also made my Projectiles parent object a prefab so that my custom dart gun and stapler could be exported or duplicated, if need be.
 @mattdway
 mattdway committed on Dec 18
+
+12-20-22 v2.5.5
+12-20-22 Commit
+Bug fixes.
+
+The No Teleport Zone on the east wall (by the front door) now runs from the corner behind the fireplace to the door without any gaps.  This has cut off the ability to teleport out of the room anywhere around the stove.
+
+I double checked that my hidden mat (with the Mesh Render off) was on top of the No Teleport Zone.  It is.
+
+I duplicated that mat by the punch lists so that when teleporting in a limited area, it is possible to teleport anywhere in front of any of the four punch lists to be able to easily reach this.
+
+I double checked that my hidden mats by the punch list were back far enough and that this prevented teleporting out, it did.
+
+I fixed the bug where when going from Continuous Motion to Teleport Anywhere and then back to Continuous Motion again in the Settings menu this kept the teleport anywhere plane turned on so that it appeared like you could teleport anywhere, even though you couldn't because you were in Continuous Motion (the teleportation provider was turned off so this gave the effect of showing the reticle even though you couldn't complete the teleportation).  The fix was to set the teleportation area to be disabled whenever Continuous Motion is selected from the settings menu.
+
+The toggle colliders for my left and right physics hands were in Select Enter and Select Exit for direct interactor and ray casting were lost in a previous save when making changes to my physics hands.  Thus, colliders on those physics hands were staying on, on both left and right hand regardless of which hand picked up the item).  I re-set this up for the direct interactor and for the rays.
+
+There is still a bug that needs to be fixed in the C# code for these physics hands and I have a coding solution I can implement and test.  But this will have to wait until tomorrow.  The bug is both when an item is dropped and picked up again and I suspect that this same bug happens when switching items between hands (due to the timing of dropping something and then picking it back up again before the duration timer is up).  The bug allows the hand colliders to be turned back on, on both hands, again in both instances while still holding an item.  This causes certain items to act buggy due to collisions between the hand colliders and the interactable colliders.  Implementing this change should fix this issue.
+
+I play tested the stapler and the balls again and neither acted buggy when the hand colliders were turned off so no changes need to be made to the interactables themselves.  In short, these ended up not colliding with themselves (at one point they had but I had previously fixed this and that piece is still in place) but with the hands.  The above last fix should help to prevent any bugginess when picking up items.
+
+I also increased the scale of the table by 1.15 on the z-axis.  This allowed me to move the right chair over a little to make a little more room to get up to the table.  I also adjusted the lamp's transform (with the baked in shadows) so that it again matched the shadows and those shadows didn't look out of place.
+
+However, while that gap increase between chairs was needed to the user to be able to get up to the table in Continuous Motion, there is still a collision happening before reaching the table.  I've disabled both the chairs and the table and play tested to confirm that collisions aren't happening with any of those three items.  They are not.  So I will need to investigate this further to see what other object's collider is preventing getting up to the table.  That investigation will also need to be tomorrow.
+I play tested and found that this problem only occurs when the setting is set to Continuous Motion.  This problem is non-existent when on Teleport Anywhere or Teleport (Limited Area).
+
+I moved the invisible mat by the study over to the right a little bit more (this was inadvertently to far to the left and under the watering can).
+
+I checked the rigidbody of my XR Rig and I tried changing the mass from 1 to .4 to see if that prevented me from being able to open the door by leaning into it.  It did not.  Leaning into the door causes the door to rubber band or the hinge joint to break (both are great Google search terms to use when investigating this problem further).  Leaning into the door handle causes the door handle to freak out and to rapidly glitch and rotate and even clip in and out of the door.  This is something I still need to investigate.
+
+I haven't yet come up with any solutions as to why the white board marker is so glitchy when moving the marker certain directions and/or why its rotation lock doesn't always happen (per the C# code).
+ 
+That's all for tonight! Most of those are fixed now with the exception of the front door leaning, the whiteboard marker (I didn't do any further troubleshooting of it this evening -- no time, but I hope to dive into it again over break) and the mysterious invisible collider in front of the table.  The table collider piece I'm pretty sure I'll be able to resolve pretty easily.  The front door and marker, may be much more difficult to pin down what is happening and/or a fix.  I have a discord post (of the YouTuber who made the video) asking for help with the marker glitch that currently has no replies.  I may post back to see if there is anyone who might have any ideas for me there.
+@mattdway
+mattdway committed on Dec 20
