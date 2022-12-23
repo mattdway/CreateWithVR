@@ -364,3 +364,29 @@ I haven't yet come up with any solutions as to why the white board marker is so 
 That's all for tonight! Most of those are fixed now with the exception of the front door leaning, the whiteboard marker (I didn't do any further troubleshooting of it this evening -- no time, but I hope to dive into it again over break) and the mysterious invisible collider in front of the table.  The table collider piece I'm pretty sure I'll be able to resolve pretty easily.  The front door and marker, may be much more difficult to pin down what is happening and/or a fix.  I have a discord post (of the YouTuber who made the video) asking for help with the marker glitch that currently has no replies.  I may post back to see if there is anyone who might have any ideas for me there.
 @mattdway
 mattdway committed on Dec 20
+
+12-23-22 v2.6.1
+12-23-22 Commit
+On 12-21-22 I found the hidden colliders that were preventing players from reaching the desk using continuous motion.  When I had moved the chairs I neglected to also move the hidden mats with the teleportation anchors that sit on top the chair bottom.  By using filters and gismos I was able to expose and see all colliders, which lead me to the cause.  I turned on the mesh render to see the mats, I moved these back over and then turned off the mesh render again.
+
+On 12-22-22 I fixed and added the following:
+
+I researched and made some changes to the door to try and fix the hinge joint buckling/breaking/rubber banding but in the end none of those changes helped.  This is still a bug with my door when the player leans against the door or the door handle that needs to be fixed.
+
+I also found another bug in which the chair colliders are allowing my hands to clip through them.
+
+I tested the bottle and the lid and physics are still going amok when the lid is placed on the bottle using a socket.  I looked at the physics matrix to see if I could find an answer there, but I have not yet fixed this bug.  In the mean time it makes for a great game of bottle flip.  So maybe I keep it as a hidden easter egg?
+
+I fixed the whiteboard marker not drawing properly issue.  I can now draw well with my whiteboard marker! Martin Kjær's reply in the comment section of Justin's tutorial video is what solved the issue for me. The comment by Itama, when I read it, was the same behavior that I recognized in my marker in that when I drag from right to left, only one corner was touching/writing. Martin's solution of changing the _tip.transform.position.up to _tip.transform.position.forward helped my pen to write smoothly on the board. Apparently my tip was facing a different direction than was expected by the code. My pen is writing well now.
+
+I also added an eraser and a red marker to my whiteboard out of 3D shapes.  The red marker is working as expected in that it writes with red ink. The eraser isn't yet erasing and I am in the middle of troubleshooting the game object's transform and C# code to determine why.
+
+I also fixed the tennis racket attach transform so that it's at a much more natural position (both height, distance to the right of your body and rotation (I think this is a more natural starting position now -- I tried to use tennis player images as references but I don't play tennis so it's hard to know for sure until someone who plays tennis is able to play test for me).
+
+I also tested that I can walk up to the dinning room table now and that I am not hitting any colliders.  
+
+I fixed the physics hand starting position transform, which was causing an issue where the hands sometimes started out where the dart gun is, before snapping in place.  That caused the dart gun to fly which sometimes also had a chain reaction of other things being knocked over or about too.
+
+I rearranged things on the dinning room table to make it easier to grab things without having to rely on distance grabbing.
+@mattdway
+mattdway committed on Dec 23
