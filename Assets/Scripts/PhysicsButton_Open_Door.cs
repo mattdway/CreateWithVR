@@ -46,19 +46,19 @@ public class PhysicsButton_Open_Door: MonoBehaviour
         _isPressed = true;
         onPressed.Invoke();
         GetComponent<AudioSource>().Play();
-        Debug.Log("Pressed");
-        Debug.Log(_isPressed);
+        //Debug.Log("Door Button Pressed");
+        //Debug.Log(_isPressed);
     }
 
     private void Released()
     {
-        Debug.Log(_isPressed);
+        //Debug.Log(_isPressed);
         if (_isPressed == true)
         {
             _isPressed = false;
             onReleased.Invoke();
             openDoor.OpenDaDoor();
-            Debug.Log("Released");
+            //Debug.Log("Door Button Released");
         }
     }
 }

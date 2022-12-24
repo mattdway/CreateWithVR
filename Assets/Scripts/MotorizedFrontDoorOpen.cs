@@ -11,20 +11,15 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
     public float rotationY;
     public float minRotation;
     public float maxRotation;
-    public bool open;
+    private Door_Open_Collision_Detection _doorOpen;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get the initial rotation of the door
-        rotationY = this.transform.localEulerAngles.y;
-    }
+        //Get Public Bool doorOpen From "Door_Open_Collider.cs" Script
+        _doorOpen = GameObject.Find("Door_Open_Collider").GetComponent<Door_Open_Collision_Detection>();
 
-    // Start is called before the first frame update
-    void Update()
-    {
-        // Get the initial rotation of the door
-        rotationY = this.transform.localEulerAngles.y;
+        //Debug.Log("_doorOpen.doorOpen is set to: " + _doorOpen.doorOpen);
     }
 
     public void OpenDaDoor()
@@ -50,10 +45,10 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
         myHingeBottom.useMotor = false;
 
         //open the door
-        if (open == false)
+        if (_doorOpen.doorOpen == false)
         {
             //Debug.Log("Starting the open the door routine");
-            //Debug.Log("The bool open is currently: " + open);
+            //Debug.Log("The bool _doorOpen.doorOpen is currently: " + _doorOpen.doorOpen);
 
             myHingeTopMotor.targetVelocity = -200;
             myHingeTopMotor.force = 100;
@@ -72,29 +67,16 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
             myHingeMiddle.useMotor = true;
             myHingeBottom.useMotor = true;
 
-            open = !open;
-            //Debug.Log("The bool open has been changed to: " + open);
-            //Debug.Log("Ending the open the door routine");
-
-            Debug.Log("The Door Rotation is at: " + rotationY);
-            
-            if (rotationY == 0.05041158)
-            {
-                myHingeTop.useMotor = false;
-                myHingeMiddle.useMotor = false;
-                myHingeBottom.useMotor = false;
-          
-                //Debug.Log("useMotors Set to False");
-            }
+            StartCoroutine(StopMotor());
 
             return;
         }
 
         //closed the door
-        if (open == true)
+        if (_doorOpen.doorOpen == true)
         {
             //Debug.Log("Starting the close the door routine");
-            //Debug.Log("The bool open is currently: " + open);
+            //Debug.Log("The bool _doorOpen.doorOpen is currently: " + _doorOpen.doorOpen);
 
             myHingeTopMotor.targetVelocity = 200;
             myHingeTopMotor.force = 100;
@@ -113,22 +95,22 @@ public class MotorizedFrontDoorOpen : MonoBehaviour
             myHingeMiddle.useMotor = true;
             myHingeBottom.useMotor = true;
 
-            open = !open;
-            //Debug.Log("The bool open has been changed to: " + open);
-            //Debug.Log("Ending the close the door routine");
-
-            Debug.Log("The Door Rotation is at: " + rotationY);
-
-            if (rotationY == 225.8905)
-            {
-                myHingeTop.useMotor = false;
-                myHingeMiddle.useMotor = false;
-                myHingeBottom.useMotor = false;
-
-                //Debug.Log("useMotors Set to False");
-            }
+            StartCoroutine(StopMotor());
 
             return;
+        }
+
+        IEnumerator StopMotor()
+        {
+            //Debug.Log("Entered Coroutine");
+
+            //Wait for 25 seconds
+            yield return new WaitForSeconds(25);
+
+            myHingeTop.useMotor = false;
+            myHingeMiddle.useMotor = false;
+            myHingeBottom.useMotor = false;
+            //Debug.Log("useMotors Set to False");
         }
     }
 }

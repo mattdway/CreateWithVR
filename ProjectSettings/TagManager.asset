@@ -9,6 +9,7 @@ TagManager:
   - Furniture
   - Wall
   - Whiteboard
+  - DoorHandle
   layers:
   - Default
   - TransparentFX
