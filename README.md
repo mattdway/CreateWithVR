@@ -396,38 +396,57 @@ mattdway committed on Dec 23
 
 On 12-23-22 I came up with a solution for the front door physics and being able to lean into the door.  What I ended up doing was I duplicated the door and I removed everything except for the collider from that object.  I then moved that in front of the actual door and I resized it slightly to be a little wider and a little deeper than the door.  I then set its tag to Wall and its layer to Room.  This made it so that when I lean into this new collider in front of the door, I am repelled using the same pushback code that I have for all the other walls.  Note that setting the door with this tag and layer was tested and didn't work.  The physics between my pseudo body and the hinges didn't allow the code to push back.
  
+
 I then set up a collider that filled the space from when the door is half open to all the way open with a script I write that checks for OnCollisionEnter.  When entered, and if the tag match is DoorHandle, the collider is disabled.  When exited, and if the tag match is DoorHandle, the collider is re-enabled. 
  
+
 This collider's depth and width prevents not only leaning into the door to push and break the hinges open (causing janky physics as your head pushes against the door) but it also prevents the door knob from going crazy when pushing against it.  Locking the position and rotation of the door handle wasn't a solution because of how the physics of the door handle and door interact with one another to open the door (the only way around that would be to script a hidden object you pull on instead of the door handle to open the door).  
  
+
 Note that because your hands can go through this new collider you can still open the door with your hand grabbing the handle, in addition to pressing the button.  What this collider does is it stops your pseudo body from colliding with the door (especially when leaning forward) causing adverse physics interactions that cause the hinge joints to rubber band and to eventually break from the physics.  
  
+
 I also added a hidden cube with a collider and rigidbody to the back of the chairs just to give these chair backs physics.  It doesn't serve any purpose except to give these chairs more of a physical presence in the room to go with the physics hands.
  
+
 I am thinking I may use the collider idea with a public variable to determine if the door is open or closed.  This would allow me to be able to set a bool variable in my door button that detects the initial state of the door when pressing the button which could then close the door immediately if physically opened by hand.  
  
+
 I added a collision game object that collides with the door handle when the door is all the way open.  This triggers a script that sets a public bool doorOpen to from false to true.  When the door handle exits this collider it changes that book from true to false.
  
+
 I then modified my motorized front door script to read that public bool from the other script and to react in two ways.
  
+
 1.) My motorized front door script now uses that bool to determine the opening state of the door.  If open the button closes the door first.  If closed the button opens the door first.  If the door is partially open the bool still reads as closed and it opens the door fully upon press.  No longer does a Door button press ever result in trying to open the door while already open or to close the door when already closed, resulting in what looks like nothing happening when the button is pressed.
  
+
 2.) I added a coroutine to my motorized front door script and that script now waits 25 seconds for the door to fully open or close then it shuts off the motors of all three hinge joints.  This way when the button is used to either open or close the door, the user can manually adjust the door using the door nob without having the motor change that state afterwards.  Before the motor checkboxes were still checked after pressing the button and were never unchecked after the desired open or close action had completed.
  
+
 At some point I may learn what property of the angular velocity can help determine if the motor is currently in motion or not and to use that (instead of a set wait time) to turn off the motors.  But for now waiting 25 seconds seems to give the motor enough time to complete (even if pressed multiple times in a row) before turning off the motors and seems OK (at least on my home gaming rig I play tested on).
  
+
 So the door and the Door button both seem to be working as expected now.
  
+
 Up next to fix:
  
+
 Physics hands and putting in a bool variable to prevent the collisions from reenacting when dropping and picking something up quickly in succession. 
  
+
 Figuring out why the whiteboard eraser is not detecting that it is touching the whiteboard, thus not erasing properly.
+
 
 Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more.  
 
+
 I still need to add the version number to the opening Welcome (tutorial) board so that it's easier to see the version number and the last commit date of the version being run.
  
+
 If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.
+
 @mattdway
+
 mattdway committed on Dec 24
