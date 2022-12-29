@@ -449,6 +449,8 @@ Fixed whiteboard eraser so that it now properly erases and that erased texture i
 
 I added the current version number and commit date to the left side of the Welcome menu so that it is easier, moving forward, to see which version of the project we are running.
 
+I went through my created C# scripts and I commented out all Debug.Logs no longer needed, as troubleshooting of those scripts are complete.
+
 Up next to fix:
  
 Physics hands and putting in a bool variable to prevent the collisions from reenacting when dropping and picking something up quickly in succession. 
