@@ -441,3 +441,22 @@ I still need to add the version number to the opening Welcome (tutorial) board s
 If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.
 @mattdway
 mattdway committed on Dec 24
+
+12-29-22 v2.7.2
+12-29-22 Commit
+
+Fixed whiteboard eraser so that it now properly erases and that erased texture is the reapplied texture of the whiteboard itself, wherever the eraser touches.  I also troubleshot and fixed a serious visual stutter due to an FPS drop when erasing.  I optimized my code as best I could and I lowered the set resolution of the whiteboard texture from 2048x2048 to 1024x1024 and I set the eraser size to 200, which helped to reduce this greatly.
+
+I added the current version number and commit date to the left side of the Welcome menu so that it is easier, moving forward, to see which version of the project we are running.
+
+Up next to fix:
+ 
+Physics hands and putting in a bool variable to prevent the collisions from reenacting when dropping and picking something up quickly in succession. 
+ 
+Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more.  
+
+Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).
+ 
+If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
+@mattdway
+mattdway committed on Dec 29
