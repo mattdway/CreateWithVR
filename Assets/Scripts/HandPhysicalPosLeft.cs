@@ -9,6 +9,7 @@ public class HandPhysicalPosLeft : MonoBehaviour
     public Renderer nonPhysicalHand;
     public float showNonPhysicalHandDistance = 0.05f;
     private Collider[] handColliders;
+    private bool isGrabbed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +20,19 @@ public class HandPhysicalPosLeft : MonoBehaviour
 
     public void EnableHandCollider()
     {
-        foreach (var item in handColliders)
+        if (!isGrabbed)
         {
-            item.enabled = true;
+            foreach (var item in handColliders)
+            {
+                item.enabled = true;
+            }
         }
     }
 
     public void EnableHandColliderDelay(float delay)
     {
         Invoke("EnableHandCollider", delay);
+        isGrabbed = false;
     }
 
     public void DisableHandCollider()
@@ -35,6 +40,7 @@ public class HandPhysicalPosLeft : MonoBehaviour
         foreach (var item in handColliders)
         {
             item.enabled = false;
+            isGrabbed = true;
         }
     }
 

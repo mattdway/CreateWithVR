@@ -462,3 +462,90 @@ Updating the Interactive board and/or punch lists.  I'm running out of room on m
 If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
 @mattdway
 mattdway committed on Dec 29
+
+12-30-22 v2.8.1
+12-30-22 Commit
+
+Dev Log For 12/29/22 and 12/30/22 (into the evening):
+
+I added an isGrabbed bool, per the suggestion of Nemu in the comment section of Valem Tutorials video on physics hands.  Grabbing an item still disables all colliders on both hands and dropping an item re-enables all colliders on both hands after a .5 second delay.  The real change to adding the bool is that when dropping an item and grabbing an item again quickly before that .5 second countdown concludes, the collider does not re-enable.  
+
+Before when dropping and picking up an item within short succession (for example when switching an item from the left hand to the right hand or vice versa or when dropping and picking up an item again, such as to reload the darts or the staples, the collider would re-enable while still holding the item.  
+
+This caused two distinct and noticeable bugs.  First, your opposite hand could suddenly interact with the item you are holding which, for larger items, caused all sorts of physics issues -- especially if accidently bumping the item in your hand around while carrying it.  This was most noticeable when carrying larger items such as a piece of art off the walls or the watering can (which can be somewhat annoying when tipped).  Secondly, when holding an item and having the collider enabled on the same hand, when letting go of the item a collision could (and often) did occur causing the item you dropped to be unintentionally flung across the room in a violent fashion instead of dropping to the ground where you stood.
+
+I tested this with both switching an item between the right and left hand and in dropping and immediately picking the object up again and the colliders stay off for both hands in both scenarios now, which is much more stable and works a lot better from a mechanic stand-point.
+
+Another idea I had for my room.  The water bottle already spins uncontrollably whenever you are both holding it and you put on the lid.  The collisions cause it to spin in a circle in your hand and when you let it go sometimes the water bottle lands right side up and sometimes not.  Rather than fix this (as this is an interesting and amusing bug) I think I'm going to keep it as a fun little easter egg interaction for the room.  Tonight I created a note out of a white plane and a text mesh pro component that says "Can you complete the water bottle flip challenge?" and I placed that under the bottle and the lid.  I also created an empty  game object to house all three and I moved these closer to the table's edge to make it easier to reach without having to use distance grabbing.  I made this note a XR Grab Interactable with a collider and rigidbody.
+
+What I'd also like to do is add a quick script so that if the water bottle is in the air and then drops right side up (collider on the bottom of the bottle on the Y axis) then a cheering sound plays.  And if it lands on either side axis (I'd put colliders there too) a booing sound plays.  It would be a fun way to add a silly little interaction.  Maybe later I'd even come back and add a scoring system to it to count how many times it lands right side up vs. not.
+
+I didn't specify that you put the lid on to spin it but if I hope the subtle hint of having the lid and bottle on top of the bottle would be a clue that you can get some real spin by putting it on and I don't want to spell it all out but for there to be a little self discovery there.
+
+I also added the colliders necessary to determine if the bottle has hit right side up or on any other plane and I also added a script component to this bottle (but I haven't yet written the script that will go with this).
+
+I fixed the north wall collider, which was back too far and allowed objects to partially clip when pressed against the wall (this is because the collider was behind the mesh render rather than in front of it).
+
+I fixed the decretive record_blue so that you can now pick this up by recreating this item and setting it as an XR Interactable with a collider and a rigid body and configuring.
+
+I fixed all of the locomotion settings on the Settings menu: Continuous_Movement_Settings_Toggle, Teleportation_Anywhere_Settings_Toggle and Teleportation_Limited_Settings_Toggle.  In the On Value Change (Boolean) section of each of these UI toggles I hadn't updated and added in the all of the new teleportation mats (with the mesh render turned off) I'd added to my room since.  There are 12 of these teleportation mats and 1 rug in my room now.  Thus, when selecting Continuous Motion not all of these teleportation anchors were being disabled and when selecting this toggle and when selecting Teleportation (Limited) and Teleportation (Anywhere) those teleportation anchors were not being re-enabled.
+
+For neatness and tracking sake I went ahead and relinked all the teleportation mats and the teleportation rug in the exact same alphabetical order listed in the hierarchy, within the On Value Change (Boolean) for each of these three toggle menus I mentioned.  This makes it easier to see if I am missing any linked game objects in the future.  I also added TeleportAnchorWithFade.enabled (TeleportationAnchorWithFade > bool enabled) and I made sure that the currect checkbox was checked for each toggle.
+
+I re-adjusted the collider on the back of the two dinning room chairs.  It was too far forward and I was able to move my hand through those chairs at will.  Readjusting the rotation and the X position helped.
+
+Of note, I find that with the chairs and the dinning room table that if I move my hand fast enough I can still phase my hand through those objects.  This is not true on the outside walls/windows nor the couch arm.  No matter how fast I move my controller my hand hits those solidly.  I started to investigate and troubleshoot why (colliders and rigidbody settings are all the same and I experimented with does the collider's thickness make a difference so I increased the Y size of the collider but found that this did not solve the issue).  I've tabled this investigation for another day but I would like to figure it out.
+
+I added a secret message to the back of the clock (Job Sim inspired) and I gave the clock a box collider, a rigidbody, and a XR Grab Interactable component so that this can be picked up.
+
+I also added a socket hook (a duplicate of the art hook and socket) and I adjusted the settings on both the socket and on the clock so that this should work for socketing the clock to the wall.  I also adjusted the size of the sphere collider to be smaller and more akin to the size of the clock.
+
+I also moved the clock from under the -- INTERACTIVE STATIC -- menu to the -- DYNAMIC -- menu, now that this clock is fully 
+
+A few things need fixing with the clock.
+
+1.) That socket isn't working correctly and the clock falls down when starting the game.  This needs to be troubleshot and fixed.
+
+2.) The clock does not respond to distance grabbing and the raycast, currently and this needs to also be fixed.
+
+3.) The shadow for the clock is currently baked and I need to set this back to dynamic so that that shadow is no longer baked now that the clock is an interactable.  This also needs to be fixed.
+
+4.) When picking up the clock for the first time rotating the clock is difficult.  I'm not sure why this is but when I drop the clock and re-pick up everything is fine again.  I also notice the first time I pick this up (albeit it is half-way clipped through the wall after falling) the attach is not being used.  Maybe once the other pieces have been fixed this will resolve itself.  If not I need to investigate, troubleshoot and fix this too.
+
+The art socket on the north wall was way too large.  I resized it to be an appropriate radius and more akin to the other art sockets.
+
+The north wall art can be picked up via distance grabbing while the art on the east and south walls cannot.  I don't recall if I disabled those on purpose due to collisions while being pulled towards you or not.  I need to test that and to at least make all the art work the same.  This is something I need to fix.
+
+I fixed the cabinet door's rigidbody settings to be Continuous Speculative so that these would properly collide with the shelf colliders inside the cabinets.  I choose Continuous Speculative as I notice that my pseudo body collider (and more specifically the Character Controller that tilts forward when I lean forward) also has the ability to push in on these doors hard enough it skips through the collider (where as pushing with the physics hands does not) and I wanted to see ifi Continuous Speculative had the ability to better stop this from happening.  This had little to no effect on the cabinets when pushing against them with my pseudo collider so I may change this back to Continuous Dynamic later.  
+
+I don't have a great solution for the character controller pushing on the doors.  I could make these not interact but then any door (including the front door, at least when opened -- as I have a wall collider in front of the closed front door, currently to prevent this behavior) you'd be able to walk through.  Including when the front door is open, and that isn't a behavior I necessarily want unless this is really problematic.  I may need to come up with a different solution for this.
+
+I ran into one weird bug in which when play testing I am facing the wall (punch lists) and all of the Continuous Motion controls are reversed (right is left, left is right, forwards is backwards and backwards is forwards.  I thought this was either a bug introduced at random or something I inadvertently changed in the project.  I closed and reopened the project and the same behavior persisted.  I then closed Unity, Unity Hub, Oculus and I turned off my Oculus Quest 2 headset.  I then turned my Oculus Quest 2 back on and I reopened Unity Hub, Unity (and my project), connected via Airlink and play tested again and the problem went away and everything was normal again.  I think taking my headset off and letting it go to sleep while making changes in Unity caused the issue.  Maybe something to do with my standing play space in the headset.  I've seen this once before and it also reverted itself.  I'll watch out for this in the future.
+
+I also updated the version number and the commit date on the Welcome Menu screen.
+
+Up next to fix:
+ 
+The four clock pieces listed above.
+
+1.) That socket isn't working correctly and the clock falls down when starting the game.  This needs to be troubleshot and fixed.
+
+2.) The clock does not respond to distance grabbing and the raycast, currently and this needs to also be fixed.
+
+3.) The shadow for the clock is currently baked and I need to set this back to dynamic so that that shadow is no longer baked now that the clock is an interactable.  This also needs to be fixed.
+
+4.) When picking up the clock for the first time rotating the clock is difficult.  I'm not sure why this is but when I drop the clock and re-pick up everything is fine again.  I also notice the first time I pick this up (albeit it is half-way clipped through the wall after falling) the attach is not being used.  Maybe once the other pieces have been fixed this will resolve itself.  If not I need to investigate, troubleshoot and fix this too.
+ 
+Some of the art being able to be grabbed via distance grabbing while others can not.  While I the idea of distance grabbing the art for the ease of use, I'm not sure how much destruction that may cause if distance grabbing from half way around the room and having it collide with everything in-between the player and the art.  So it may be better to just turn this off for all art instead of turning it on.  I can play test both to see which is better.
+
+Determine if there is a good solution for the character controller colliding with the cabinet doors when leaning forward. 
+
+Determine why my physics hands can clip through the dinning room table and chairs when at a fast enough speed.  Try and make this work more like the couch or outside colliders.  Test with other furniture to see if anything else in the room allows this to happen.  Compare and contrast to troubleshoot.
+
+Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more to try and fix.
+
+Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).
+
+If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
+@mattdway
+mattdway committed on Dec 30
