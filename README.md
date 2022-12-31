@@ -557,3 +557,67 @@ Updating the Interactive board and/or punch lists.  I'm running out of room on 
 If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
 @mattdway
 mattdway committed on Dec 30
+
+12-31-22 v2.8.2
+12-31-22 Commit
+Up next to fix:
+ 
+These four clock pieces have been fixed.
+
+1.) The clock socket has been fixed.  This was a combination of the socket's Interaction Layer Mask settings to include the clock, the positioning of the socket on the wall (it needed to come forward away from the wall just a tad) and adjusting the rotation of the socket on the wall (180, 180, 180) so that when the clock did socket it didn't socket to the outside of the wall.  Adjustining these three pieces allowed the clock to socket to the wall without any further issue.
+
+2.) I also adjusted the LeftHand Ray and Righthand Ray Interaction Layer Mask to include the clock and to exclude Art.  This way the art could not be picked up via raycast (I tested and this did cause a lot of distruction when calling for the large painting from across the room -- anything it hit between its original position and my position went flying) and so that I could grab the clock from afar.  
+
+This was also a great reminder to be sure to update these Interaction Layer Masks (as these are not set to Everything) whenever a new item has been added to the room otherwise these won't be able to be picked up via distance grabbing.  I checked and all items that should be able to be grabbed with distance grabbing can be and anything not able to be grabbed by distance grabbing: the doors, the drawer and the art) cannot.
+
+3.) I rebaked my lighting to get rid of the static shadow behind the clock, now that the clock is dynamic and is able to be grabbed.
+
+To do this, I adjusted my lighting to make sure that every light in my room (minus the flashlight) were set to baked.  This includes: Chandellers, Entire_Room_Point_Light (which I had thought was legacy and should be set to real time and disabled but in doing this I found out that most of my room was in shadows, so I changed this back to baked and rebaked my lighting for my room to correct), Outside_Directional_Light, Fireplace_Modern, Lamp_Floor_Double, Lamp_Table_Red and Sconces.  
+
+I also went through and made sure that all of my "-- STATIC --" and all of my "-- STATIC INTERACTIVE --" and that all of my "-- LIGHTS --" game objects were set to "Static" in the inspector, to the right of each game object's name.  Under "-- DYNAMIC --" I also checked that nothing there was set to static with the exception of these items: 
+
+Under "-- DYNAMIC --" > "Cabinets" > the following items were set to static:
+"Cabinet With Drawer"
+"Left side panel"
+"Shelf"
+"Top"
+"Right side panel"
+"Bottom panel"
+
+"Door and "Drawer" do not have the "Static" checkmark, however, since those objects are grabable and are ment to move.
+
+Under "-- DYNAMIC --" > "Cabinets" > "Cabinets With Two Doors" > "Cabinet_Modern_Left" and "Cabinet_Modern_Right" the following items were set to static:
+"Cabinet_Body"
+
+"Cabinet_Door_Left" and "Cabinet_Door_Right" and their child object "Handle" do not have the "Static" checkmark, however, since those objects are grabable and are ment to move.
+
+I used the trick of searchingi for t:light in the Hierarchy search bar to expose all the lights, I then used "Ctrl" + "A" to select all, I held down the "Ctrl" key and then single left-clicked on "Lightsource_FLashlight_Yellow_Spot Light" and then in the "Inspector" pane under "Light" I changed the "Mode" parameter from "Realtime" to "Baked."  
+Then, under the "Lighting" tab or "Windows" > "Rendering" > "Lighting" I single left-clicked on the "Generate Lighting" button to render a new lightmap.
+
+I made the mistake of under the "Lighting" tab > "Enviorment" > "Skybox Material" of having the "MegaSun" skybox selected.  When baking a lightmap the lightbox light color and reflection colors are included and this gave a very washed out orange tint to everything in my lightmap.  To fix this I had to temporarily change the "Skybox Material" back to "Sky-Default" then rebaking my lightmap again.  After this baked I then changed the "Skybox Material" back to my "MegaSun" skybox, of choice.
+
+4.) I fixed the roation on of the clock when picking it up.  I had to go into "Edit" > "Project Settings" > "Physics" and I had to disable the physics interactions for both "Clock/Clock" and "Clock/Pseudo Body" so that the clock couldn't interact with either.  Once set this object rotated as normal.  I also doublechecked that "Smooth Position" and "Smooth Rotation" were both checked in the "XR Grab Interactable" component settings.  They were.
+ 
+I turned off raycast distance grabbing for all objects of the "Art" layer.  Due to the large size of this art and its collisions this caused too many issues distance grabbing from across the room.  Art must be grabbed using "Direct Interactable", now, only.
+
+I moved the dinning room chairs and the hidden teleportation anchor mats back so that it is easier to climb onto the chairs to climb onto the table to reach the shelf where the record player, record, and books live.  From this vantage point players can also directly reach the clock and the painting, if they so wish.
+
+I moved the "Measuring Stick" game object from static to "-- DYNAMIC --" as this is a grabable object and this is where this should live.  The "Measuring Stick" is a disabled game object used as a quick referene for sizing objects to all be the same.  Yesterday I changed the height of this measuring stick to 0.3048 meters, which is 12 inches.  The same length of a standard ruler. 
+
+I also updated the version number and the commit date on the Welcome Menu screen.
+
+To Fix Next:
+
+Writing a script for the Water Bottle Flip Challenge to detect when there is a floor collision with either the top, sides or bottom and to play a corresponding sound when that happens.
+
+Determine if there is a good solution for the character controller colliding with the cabinet doors when leaning forward. 
+
+Determine why my physics hands can clip through the dinning room table and chairs when at a fast enough speed.  Try and make this work more like the couch or outside colliders.  Test with other furniture to see if anything else in the room allows this to happen.  Compare and contrast to troubleshoot.
+
+Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more to try and fix.
+
+Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).
+
+If I get that working I feel like I have a lot of the bug pieces for all the current items added to my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
+@mattdway
+mattdway committed on Dec 31
