@@ -6,6 +6,7 @@ public class Magnify_Glass_Mat_Change : MonoBehaviour
 {
     public Material Clear;
     public Material MagnifyGlass;
+
     // Start is called before the first frame update
     void Start()
     {

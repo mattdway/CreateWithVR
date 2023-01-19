@@ -500,7 +500,7 @@ I added a secret message to the back of the clock (Job Sim inspired) and I gave 
 
 I also added a socket hook (a duplicate of the art hook and socket) and I adjusted the settings on both the socket and on the clock so that this should work for socketing the clock to the wall.  I also adjusted the size of the sphere collider to be smaller and more akin to the size of the clock.
 
-I also moved the clock from under the -- INTERACTIVE STATIC -- menu to the -- DYNAMIC -- menu, now that this clock is fully dynamic game object.
+I also moved the clock from under the -- INTERACTIVE STATIC -- menu to the -- DYNAMIC -- menu, now that this clock is fully 
 
 A few things need fixing with the clock.
 
@@ -550,51 +550,42 @@ If I get that working I feel like I have a lot of the bug pieces in my room fixe
 @mattdway
 mattdway committed on Dec 30
 
-12-31-22 v2.8.2
-12-31-22 Commit
-Up next to fix:
- 
+12-31-22 v2.8.2 12-31-22 Commit Up next to fix:
+
 These four clock pieces have been fixed.
 
-1.) The clock socket has been fixed.  This was a combination of the socket's Interaction Layer Mask settings to include the clock, the positioning of the socket on the wall (it needed to come forward away from the wall just a tad) and adjusting the rotation of the socket on the wall (180, 180, 180) so that when the clock did socket it didn't socket to the outside of the wall.  Adjustining these three pieces allowed the clock to socket to the wall without any further issue.
+1.) The clock socket has been fixed. This was a combination of the socket's Interaction Layer Mask settings to include the clock, the positioning of the socket on the wall (it needed to come forward away from the wall just a tad) and adjusting the rotation of the socket on the wall (180, 180, 180) so that when the clock did socket it didn't socket to the outside of the wall. Adjustining these three pieces allowed the clock to socket to the wall without any further issue.
 
-2.) I also adjusted the LeftHand Ray and Righthand Ray Interaction Layer Mask to include the clock and to exclude Art.  This way the art could not be picked up via raycast (I tested and this did cause a lot of distruction when calling for the large painting from across the room -- anything it hit between its original position and my position went flying) and so that I could grab the clock from afar.  
+2.) I also adjusted the LeftHand Ray and Righthand Ray Interaction Layer Mask to include the clock and to exclude Art. This way the art could not be picked up via raycast (I tested and this did cause a lot of distruction when calling for the large painting from across the room -- anything it hit between its original position and my position went flying) and so that I could grab the clock from afar.
 
-This was also a great reminder to be sure to update these Interaction Layer Masks (as these are not set to Everything) whenever a new item has been added to the room otherwise these won't be able to be picked up via distance grabbing.  I checked and all items that should be able to be grabbed with distance grabbing can be and anything not able to be grabbed by distance grabbing: the doors, the drawer and the art) cannot.
+This was also a great reminder to be sure to update these Interaction Layer Masks (as these are not set to Everything) whenever a new item has been added to the room otherwise these won't be able to be picked up via distance grabbing. I checked and all items that should be able to be grabbed with distance grabbing can be and anything not able to be grabbed by distance grabbing: the doors, the drawer and the art) cannot.
 
 3.) I rebaked my lighting to get rid of the static shadow behind the clock, now that the clock is dynamic and is able to be grabbed.
 
-To do this, I adjusted my lighting to make sure that every light in my room (minus the flashlight) were set to baked.  This includes: Chandellers, Entire_Room_Point_Light (which I had thought was legacy and should be set to real time and disabled but in doing this I found out that most of my room was in shadows, so I changed this back to baked and rebaked my lighting for my room to correct), Outside_Directional_Light, Fireplace_Modern, Lamp_Floor_Double, Lamp_Table_Red and Sconces.  
+To do this, I adjusted my lighting to make sure that every light in my room (minus the flashlight) were set to baked. This includes: Chandellers, Entire_Room_Point_Light (which I had thought was legacy and should be set to real time and disabled but in doing this I found out that most of my room was in shadows, so I changed this back to baked and rebaked my lighting for my room to correct), Outside_Directional_Light, Fireplace_Modern, Lamp_Floor_Double, Lamp_Table_Red and Sconces.
 
-I also went through and made sure that all of my "-- STATIC --" and all of my "-- STATIC INTERACTIVE --" and that all of my "-- LIGHTS --" game objects were set to "Static" in the inspector, to the right of each game object's name.  Under "-- DYNAMIC --" I also checked that nothing there was set to static with the exception of these items: 
+I also went through and made sure that all of my "-- STATIC --" and all of my "-- STATIC INTERACTIVE --" and that all of my "-- LIGHTS --" game objects were set to "Static" in the inspector, to the right of each game object's name. Under "-- DYNAMIC --" I also checked that nothing there was set to static with the exception of these items:
 
-Under "-- DYNAMIC --" > "Cabinets" > the following items were set to static:
-"Cabinet With Drawer"
-"Left side panel"
-"Shelf"
-"Top"
-"Right side panel"
-"Bottom panel"
+Under "-- DYNAMIC --" > "Cabinets" > the following items were set to static: "Cabinet With Drawer" "Left side panel" "Shelf" "Top" "Right side panel" "Bottom panel"
 
 "Door and "Drawer" do not have the "Static" checkmark, however, since those objects are grabable and are ment to move.
 
-Under "-- DYNAMIC --" > "Cabinets" > "Cabinets With Two Doors" > "Cabinet_Modern_Left" and "Cabinet_Modern_Right" the following items were set to static:
-"Cabinet_Body"
+Under "-- DYNAMIC --" > "Cabinets" > "Cabinets With Two Doors" > "Cabinet_Modern_Left" and "Cabinet_Modern_Right" the following items were set to static: "Cabinet_Body"
 
 "Cabinet_Door_Left" and "Cabinet_Door_Right" and their child object "Handle" do not have the "Static" checkmark, however, since those objects are grabable and are ment to move.
 
-I used the trick of searchingi for t:light in the Hierarchy search bar to expose all the lights, I then used "Ctrl" + "A" to select all, I held down the "Ctrl" key and then single left-clicked on "Lightsource_FLashlight_Yellow_Spot Light" and then in the "Inspector" pane under "Light" I changed the "Mode" parameter from "Realtime" to "Baked."  
+I used the trick of searchingi for t:light in the Hierarchy search bar to expose all the lights, I then used "Ctrl" + "A" to select all, I held down the "Ctrl" key and then single left-clicked on "Lightsource_FLashlight_Yellow_Spot Light" and then in the "Inspector" pane under "Light" I changed the "Mode" parameter from "Realtime" to "Baked."
 Then, under the "Lighting" tab or "Windows" > "Rendering" > "Lighting" I single left-clicked on the "Generate Lighting" button to render a new lightmap.
 
-I made the mistake of under the "Lighting" tab > "Enviorment" > "Skybox Material" of having the "MegaSun" skybox selected.  When baking a lightmap the lightbox light color and reflection colors are included and this gave a very washed out orange tint to everything in my lightmap.  To fix this I had to temporarily change the "Skybox Material" back to "Sky-Default" then rebaking my lightmap again.  After this baked I then changed the "Skybox Material" back to my "MegaSun" skybox, of choice.
+I made the mistake of under the "Lighting" tab > "Enviorment" > "Skybox Material" of having the "MegaSun" skybox selected. When baking a lightmap the lightbox light color and reflection colors are included and this gave a very washed out orange tint to everything in my lightmap. To fix this I had to temporarily change the "Skybox Material" back to "Sky-Default" then rebaking my lightmap again. After this baked I then changed the "Skybox Material" back to my "MegaSun" skybox, of choice.
 
-4.) I fixed the roation on of the clock when picking it up.  I had to go into "Edit" > "Project Settings" > "Physics" and I had to disable the physics interactions for both "Clock/Clock" and "Clock/Pseudo Body" so that the clock couldn't interact with either.  Once set this object rotated as normal.  I also doublechecked that "Smooth Position" and "Smooth Rotation" were both checked in the "XR Grab Interactable" component settings.  They were.
- 
-I turned off raycast distance grabbing for all objects of the "Art" layer.  Due to the large size of this art and its collisions this caused too many issues distance grabbing from across the room.  Art must be grabbed using "Direct Interactable", now, only.
+4.) I fixed the roation on of the clock when picking it up. I had to go into "Edit" > "Project Settings" > "Physics" and I had to disable the physics interactions for both "Clock/Clock" and "Clock/Pseudo Body" so that the clock couldn't interact with either. Once set this object rotated as normal. I also doublechecked that "Smooth Position" and "Smooth Rotation" were both checked in the "XR Grab Interactable" component settings. They were.
 
-I moved the dinning room chairs and the hidden teleportation anchor mats back so that it is easier to climb onto the chairs to climb onto the table to reach the shelf where the record player, record, and books live.  From this vantage point players can also directly reach the clock and the painting, if they so wish.
+I turned off raycast distance grabbing for all objects of the "Art" layer. Due to the large size of this art and its collisions this caused too many issues distance grabbing from across the room. Art must be grabbed using "Direct Interactable", now, only.
 
-I moved the "Measuring Stick" game object from static to "-- DYNAMIC --" as this is a grabable object and this is where this should live.  The "Measuring Stick" is a disabled game object used as a quick referene for sizing objects to all be the same.  Yesterday I changed the height of this measuring stick to 0.3048 meters, which is 12 inches.  The same length of a standard ruler. 
+I moved the dinning room chairs and the hidden teleportation anchor mats back so that it is easier to climb onto the chairs to climb onto the table to reach the shelf where the record player, record, and books live. From this vantage point players can also directly reach the clock and the painting, if they so wish.
+
+I moved the "Measuring Stick" game object from static to "-- DYNAMIC --" as this is a grabable object and this is where this should live. The "Measuring Stick" is a disabled game object used as a quick referene for sizing objects to all be the same. Yesterday I changed the height of this measuring stick to 0.3048 meters, which is 12 inches. The same length of a standard ruler.
 
 I also updated the version number and the commit date on the Welcome Menu screen.
 
@@ -602,14 +593,187 @@ To Fix Next:
 
 Writing a script for the Water Bottle Flip Challenge to detect when there is a floor collision with either the top, sides or bottom and to play a corresponding sound when that happens.
 
-Determine if there is a good solution for the character controller colliding with the cabinet doors when leaning forward. 
+Determine if there is a good solution for the character controller colliding with the cabinet doors when leaning forward.
 
-Determine why my physics hands can clip through the dinning room table and chairs when at a fast enough speed.  Try and make this work more like the couch or outside colliders.  Test with other furniture to see if anything else in the room allows this to happen.  Compare and contrast to troubleshoot.
+Determine why my physics hands can clip through the dinning room table and chairs when at a fast enough speed. Try and make this work more like the couch or outside colliders. Test with other furniture to see if anything else in the room allows this to happen. Compare and contrast to troubleshoot.
 
 Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more to try and fix.
 
-Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).
+Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).
 
-If I get that working I feel like I have a lot of the bug pieces for all the current items added to my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
-@mattdway
-mattdway committed on Dec 31
+If I get that working I feel like I have a lot of the bug pieces for all the current items added to my room fixed. I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning. @mattdway mattdway committed on Dec 31
+
+01-18-23 v2.9.1 01-18-23 Commit
+
+01/17/23 -
+So far, looking at the door intensely hasn't solved the issue.  Maybe if I were The Rock.  Looking at the door layers, hinge joint settings, connected articulated and rigidbodies, checking position, checking the door handle settings haven't worked either.  Nor are there any major differences between the hinge joints on the cabinets and the hinge joints on the door.  
+ 
+I tried removing the connected articulated and the rigidbodies from the hinge joints, that didn't work.  I tried resetting the hinge settings and re-setting up and that didn't work.  I tried deleting and recreatring the hinge joints from scratch and that didn't work.  
+I tried copying the hinge joint component from the cabinet, flipping its rotation to match the door and testing and that didn't work.  I tried deleting and re-adding the motorized script and re-setting up and that also didn't work.  
+ 
+I also tried deleting the door prefab files and re-adding from the starter file from Unity but that also didn't work.  So far I'm batting 100%.
+ 
+Short of drawing myself a key and a keyhole in hopes that this will magicly open the door, I'm running out of ideas.
+ 
+At the moment I am downloading the 12-30-22 commit from GitHub to see if the door was working on this date.  I'll just keep going with commits until I find one that works and then I'll see if I can take the door and export that as a package I can bring into my current project.  Not sure if that will work since the Environment is already a prefab and unpacking that breaks more than it fixes.  But I can maybe bring that into the current prefab and delete within the prefab editor.  It's a working theory at least.  Something is off about this door and I am not visually figuring out what that something is (at least not yet).
+ 
+So the good news is that my door in my VR project was working perfectly on 12-30-22 but not on 12-31-22 and beyond.  So now I just have to figure out how to export this from one project and into the other.  Or to have both projects open at the same time to see if I can figure out what is causing the issue in the first place.   
+ 
+It's already a child of a prefab (and thus a prefab itself) but not in the sense this is in the prefabs folder.  So my other changes aren't currently captured in that prefab (they are on top of the prefab in my Hierarchy).  So I can't simply drag the door parent to the prefabs folder.  It also wouldn't help to take the \Assets\_Course Library\_Prefabs door prefab and to export that as that only contains the original door prefab as provided by the course (a door frame, a door and a door handle) and not any of my changes.  So it's a puzzle and a challenge.
+
+01/18/23 -
+Heh, so I stayed up half the night but I got my door working, finally.  
+ 
+I compared side by side with my original project and every setting was the same so I still don't know what the problem was.  But I started off taking the entire door structure, I figured out how to make that a prefab and then I copied that prefab over to my other project.  
+But then, because I had to unpack my Environment prefab, which also included my room prefab, in order to make the door a prefab, my lighting was all messed up.  So I tried undoing but the lightmap was still messed up.  So I tried rebaking my lightmap, but that didn't fix it and the colors and lack of realistic shadows was weird.  
+ 
+I also noticed issues at this point with my two door colliders.  The collider that prevents you from walking through the door and that pushes back if you lean into the door never deactivated , the door button did nothing (although opening and closing the door manually was OK at this point).  My door open detection script was also not working.
+ 
+At this point I decided to adopt the 12-30-22 project as my main project because I was unsure how to fix the lighting issue that had occurred from unpacking my prefabs.  
+It seemed even though I did Ctrl + Zs the lightmap was still irreparably changed.  So at this point I went into my old project, I made prefabs out of everything I had modified with a script or some setting change and I moved all those things over to the 12-30-22 folder.  I also went into my github folder (where my old project was), I selected all and I copied those items over to my 12-30-22 folder but I told Windows to skip any files that were already there.  The purpose of this was to simply make sure that all the other files not in the 12-30-22 folder were copied there, including all the extra git files like my readme.md, my log file and the gitignore files.  This way hopefully I have a complete project that doesn't freak GitHub out when I go to replace my old project with the new one (currently this is in a completely separate folder structure) and I make my next commit.
+ 
+So, in my 12-30-22 project.  I've made all the same changes I'd made on 12-31-22 (thanks to my dev log and record keeping of all the changes made) and by making use of things like my sockets prefab and my clock prefab and my cabinet prefab, so that I didn't have to try and make all the same changes again (or possibly miss making a change needed).
+ 
+I fixed all three cabinets with the freeze position and rotation script and I also changed all the cabinet doors and drawers with a "Wall" tag, which means there is also pushback when trying to lean into any of (just those) items.
+ 
+I found an issue with corrupt Unity ad video files for the TV and tablet so I copied my entire _Course folder from my old project to the 12-30-22 project, replacing all files.
+ 
+This reminds me, I need to check the Super Mario World video file tomorrow to make sure that is still working.
+ 
+This also reminds me that tomorrow I need to update the version number on the main tutorial board.
+ 
+I also fixed the tablet black attach point angle and orientation as I was having to twist my wrist in a weird way to use it.  This is probably because my hand model orientation has since changed since the days where I had static hands.
+ 
+A lot of my door scripts/colliders weren't working at this point and some hidden collider was preventing my raycast from reaching the tutorial board from the starting position, so I troubleshot those.  I found my door collider, my door open detection collider and my disable door colliders were not correctly in place and in the middle of my room so I repositioned and resized each to be the right shape and size to catch the door just where I wanted it.  Those misplaced colliders were also duplicated (part of my prefab and part of my 12-30-22 project) so I deleted the prefab versions and kept the other.  But then I also had to relink all the scripts and game objects to get these to work again.
+ 
+Now there are no colliders in the middle of the room and my Door button correctly opens and closes the door again, it correctly detects if the door is open or closed and it correctly disabled the door collider when opened part way (starting about at the point and angle of being opened where the player could slip past the door).
+ 
+I fixed the "Matt's Photos" red pushpin that was stretched to unrealistic proportions to make this look more like the object it is, a pushpin.
+ 
+I double checked the Bon Apatite sign to make sure this was readable (I had apparently fixed this prior to my 12-30-22 commit by making this text larger and making sure it wasn't stretched via the scale and adjusting the font color and font properties), but I couldn't find mention of this in my previous log, so I might have forgotten to note that previous change.
+ 
+I play tested as much as I could in the room and eveyrthing so far is looking pretty good.  I'll play test some more tomorrow before commiting this new version to GitHub.  I want to try and make sure any other known bugs have been addressed before pushing to the cloud.
+ 
+That's it for tonight.
+
+I added random sounds to my Dalek figure, just because I could. :-D  When you pick up the Dalek and activate (press the trigger on the VR controller) a random Dalek clip plays (out of ten total).  I was going to write my own script to play random sounds but Unity had included their own in the CreateWithVR course so I just ended up using it instead.
+
+Everything looks good!
+ 
+Door and Door button are working correctly, my two three colliders are working correctly.  
+ 
+I fixed the attach transform for the dart gun (as it was being picked up and pushed/clipping through where the body would be and tilted upward.  I changed this so it's straight and away from the body.  
+I added an attach transform to the Dalek so that when you pick it up, it's facing you.  Pressing the trigger button plays a random clip of about 10.  
+ 
+I fixed the magnifying glass so that it now magnifies either direction.  There's an attach transform on it so you have to sort of bend your wrist to see the other side but before it was like a mirror (showing what was behind you) on the backside instead of being identical to the front side.  I also fixed the magnification so that it magnified more without clipping through the wall and showing outside the room.
+ 
+I fixed the Mario clip (which was corrupt from the download from the LFS (Large File Storage) so I copied the videos back over from my other project (the one that went pear shape) and that is working well now.
+ 
+I fixed the tablet so that it's rotation is correct (not upside down) and so that it's tilted slightly back and at about the same angle as the hand holding it.
+ 
+I didn't go through the physics tutorials today (I've watched them before -- I just haven't built them) - making sure my project was restored and again whole and working was more important - so the climbing mechanic is still yet to come. 
+ 
+I'm going to move this over to the folder where my CreateWithVR room was before, I'm going to make up the log files and change the version number on the welcome (tutorial) screen and then I'm going to make sure this commits and pushes OK.  That'll be a good stopping point for tonight.  But everything is looking good again. 
+
+If I didn't have version control I'd probably be spending weeks trying to get everything broken fixed again so it's a good thing that I was able to find and download a former commit that was working and that I had the dev log to be able to see exactly what I had done since that commit so I could put everything back together again.
+
+One of my favorite scripts I've ever written.  
+ 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+ 
+public class WateringCanDropUpright : MonoBehaviour
+{
+    void OnCollisionEnter(Collision other)
+    {
+        //Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.gameObject.tag == "Floor" | other.gameObject.tag == "Floor" | other.gameObject.tag == "Furniture" | other.gameObject.tag == "Untagged")
+        {
+            //Debug.Log("Rotating Game Object");
+            float currentY = transform.localEulerAngles.y;
+            transform.localEulerAngles = new Vector3(0, currentY, 0);
+        }
+    }
+}
+ 
+This is attached to the watering can and It causes the watering can's X and Z axis to reset to 0 whenever it collides with another object.  Maybe not realistic (although I am ***THAT*** good at the water bottle flip challenge.   ) but now there is no more listening to "glug glug glug" every time the watering can is dropped.  Yes, with physics you can still knock it over and it sometimes doesn't detect that collision but now if you pick it up and drop it, it drops upright, which fixes the issue.   I just spent the last 8 minutes throwing the watering can at every object I could and watching it land and upright.  Sometimes there is a slight jitter (where it may detect more than one collision depending on how it lands, correcting itself twice) but it's still better than before.
+ 
+I also tested everything and so far it's looking pretty good.  I found one slight glitch on the cabinet doors.  If the doors are open and push against them with your pseudo body instead of locking the rotation it's pushing all the way open.  The script was working and I think what I'm going to do is to use the above script to better this.
+ 
+I also added attach transforms to the Bon Apatite sign and to the Polaroid Camera.  
+
+OK, I fixed the open cabinet doors breaking when pushing against them.  The cabinet doors and drawers are using OnCollisionEnter with a tag check now instead of OnTriggerEnter with a tag check.  This allows me to keep the collider as a collider for physics and to make sure objects don't fall through while also locks the x, y, z position and the x, y, z rotation of the rigidbody for the duration of the collision.  
+I also set these doors and drawers with the tag "Walls" which also invokes Justin's code for pushback if leaning into those doors or drawers.  The pushback only happens when the doors and drawers are shut but it adds and addition bit of protection against the cabinet doors from being knocked around by the big brute of a player who otherwise might have run into it.
+ 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+ 
+public class CollisionFreezeRotCol : MonoBehaviour
+{
+    Rigidbody m_Rigidbody;
+ 
+    //Start is called before the first frame update
+    void Start()
+    {
+        m_Rigidbody = GetComponent<Rigidbody>();
+    }
+ 
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Freeze Position and Rotation
+            m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        }
+    }
+ 
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Unfreeze Position and Rotation
+            m_Rigidbody.constraints = RigidbodyConstraints.None;
+        }
+    }
+ 
+    void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Freeze Position and Rotation
+            m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        }
+    }
+ 
+    void OnCollisionExit(Collision other)
+    {
+        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Unfreeze Position and Rotation
+            m_Rigidbody.constraints = RigidbodyConstraints.None;
+        }
+    }
+}
+
+To Fix Next:
+
+Writing a script for the Water Bottle Flip Challenge to detect when there is a floor collision with either the top, sides or bottom and to play a corresponding sound when that happens.
+
+Determine why my physics hands can clip through the dinning room table and chairs when at a fast enough speed. Try and make this work more like the couch or outside colliders. Test with other furniture to see if anything else in the room allows this to happen. Compare and contrast to troubleshoot.
+
+Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more to try and fix.
+
+Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).  I'm about 1/3 of the way through laying this out but moved onto other parts of the project - just because of the amount of work involved and in not knowing if everything will fit or what the end result of this may look like.
+
+If I get that working I feel like I have a lot of the bug pieces for all the current items added to my room fixed. I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning. 
+@mattdway mattdway committed on Jan 18

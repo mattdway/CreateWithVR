@@ -12,7 +12,7 @@ public class Door_Open_Collision_Detection : MonoBehaviour
         if (other.gameObject.tag == "DoorHandle")
         {
             doorOpen = true;
-            Debug.Log("We have collision! doorOpen Bool set to true");
+            //Debug.Log("We have collision! doorOpen Bool set to true");
         }
     }
 
@@ -22,7 +22,7 @@ public class Door_Open_Collision_Detection : MonoBehaviour
         if (other.gameObject.tag == "DoorHandle")
         {
             doorOpen = false;
-            Debug.Log("Leaving collision! doorOpen Bool set to false");
+            //Debug.Log("Leaving collision! doorOpen Bool set to false");
         }
     }
 }
