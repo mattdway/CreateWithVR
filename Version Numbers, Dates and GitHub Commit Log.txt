@@ -777,3 +777,28 @@ Updating the Interactive board and/or punch lists.  I'm running out of room on m
 
 If I get that working I feel like I have a lot of the bug pieces for all the current items added to my room fixed. I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning. 
 @mattdway mattdway committed on Jan 18
+
+01-23-23 v2.10.1 01-23-23 Commit
+A fun little weekend project that started off as an example of how to write C# code that detects collisions turned into a creative project of my own to see how far I could flesh out all the different ideas I had in my head.
+
+The original question was how to turn on a piece of machinery by pressing on the screen using collision.  I gave several examples of how to do this using OnTriggerEnter and OnCollisionEnter then I created a laptop of my own I could turn on using collision with a power button.  For this project I decided I'd make the laptop turn on and play a video when the power button was pressed.
+
+The laptop asset I sourced from: https://assetstore.unity.com/packages/3d/props/electronics/hq-laptop-computer-42030
+
+The Rick Astley video I got from: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+The broken laptop wallpapers I sourced from:
+https://www.geckoandfly.com/19230/broken-screen-wallpaper-prank-iphone-ipod-windows-mac-laptop/ and https://wallpapersafari.com/realistic-broken-screen-wallpaper/
+
+The laptop drop sound I sourced from: https://pixabay.com/sound-effects/search/dropped%20laptop/?manual_search=1&order=None but I shorted this and changed it's pitch and volume slightly.
+
+I added my own screen object to this laptop, to replace the one that came with the asset.  I also added a reflection probe to that screen so that it looks like glass with blurry partial reflections as it moves around the room in different lights.
+
+The laptop asset works as such.  It sits on the couch.  When you press the power button above the keyboard, the 'Rick Roll' "Never Gonna Let You Down" video plays on the screen.  It is set to play in a constant loop.  If you take the laptop and throw it against the wall or the floor the screen breaks and the video stops playing.  The broken screen here is lit but obviously broken.  If you press the power button again the Rick Roll video starts playing again but because the screen is broken you obviously can no longer see the video, you can just listen to the audio.  There is a counter involved and once the collider has reached a count of 4 the material of the screen is changed to a broken screen that is obviously off and the isBroken public variable is invoked, making it impossible to turn the laptop on further past this point.
+
+Some of the ideas of having it continue to play past the first screen breaking and the counter were pitched to me by students.
+
+I updated the version number and date on the welcome tutorial screen to reflect the current version.
+
+I also was thinking about having one punch list in the future with interactive UI using a scrollbar and I found this video that will help me, I think, to achieve this: https://www.youtube.com/watch?v=wwInYfwD7q0 as well as this video: https://www.youtube.com/watch?v=TCixKyOGTRU
+@mattdway mattdway committed on Jan 23

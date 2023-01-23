@@ -12,6 +12,8 @@ TagManager:
   - DoorHandle
   - Watering Can
   - Floor
+  - Laptop Screen
+  - Hand
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Art
   - Bookshelf Book
   - Clock
-  - 
+  - Laptop
   - Raycasts
   - Door
   - Whiteboard

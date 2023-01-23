@@ -14,10 +14,10 @@ public class CollisionFreezeRotCol : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        //Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
             //Freeze Position and Rotation
             m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
@@ -25,10 +25,10 @@ public class CollisionFreezeRotCol : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        //Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
             //Unfreeze Position and Rotation
             m_Rigidbody.constraints = RigidbodyConstraints.None;
         }
@@ -36,10 +36,10 @@ public class CollisionFreezeRotCol : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        //Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
             //Freeze Position and Rotation
             m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
@@ -47,10 +47,10 @@ public class CollisionFreezeRotCol : MonoBehaviour
 
     void OnCollisionExit(Collision other)
     {
-        Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        //Debug.Log("Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
+            //Debug.Log("Player Tag Check Passed.  Freezing Position and Rotation");
             //Unfreeze Position and Rotation
             m_Rigidbody.constraints = RigidbodyConstraints.None;
         }
