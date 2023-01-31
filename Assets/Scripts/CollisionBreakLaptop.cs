@@ -41,7 +41,7 @@ public class CollisionBreakLaptop : MonoBehaviour
             playVideoScript = GameObject.Find("Laptop_Screen").GetComponent<PlayVideo>();
 
             //Play Video
-            playVideoScript.Stop();
+            //playVideoScript.Stop();
 
             //Increment the counter by one
             counter++;
@@ -50,6 +50,9 @@ public class CollisionBreakLaptop : MonoBehaviour
             {
                 Renderer renderer = GameObject.Find("Broken_Laptop_Screen").GetComponent<Renderer>();
                 renderer.material = brokenLaptopScreenOff;
+
+                //Play Video
+                playVideoScript.Stop();
 
                 //Set the isBroken Bool to true
                 isBroken = true;
