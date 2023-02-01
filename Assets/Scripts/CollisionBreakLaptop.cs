@@ -46,7 +46,7 @@ public class CollisionBreakLaptop : MonoBehaviour
             //Increment the counter by one
             counter++;
 
-            if(counter > 4)
+            if(counter > 8)
             {
                 Renderer renderer = GameObject.Find("Broken_Laptop_Screen").GetComponent<Renderer>();
                 renderer.material = brokenLaptopScreenOff;

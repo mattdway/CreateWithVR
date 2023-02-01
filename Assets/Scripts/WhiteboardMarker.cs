@@ -45,6 +45,7 @@ public class WhiteboardMarker : MonoBehaviour
     {
         //Execute the Draw method
         Draw();
+        _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
     }
 
     private void Draw()

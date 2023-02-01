@@ -811,3 +811,282 @@ I updated the version number and date on the welcome tutorial screen to reflect 
 
 I also was thinking about having one punch list in the future with interactive UI using a scrollbar and I found this video that will help me, I think, to achieve this: https://www.youtube.com/watch?v=wwInYfwD7q0 as well as this video: https://www.youtube.com/watch?v=TCixKyOGTRU
 @mattdway mattdway committed on Jan 23
+
+02-01-23 v2.11.2 02-01-23 Commit
+
+Changes made between 01-27-23 and 02-01-23.
+
+I changed the script for the laptop so that when the laptop is dropped the screen breaks but the video does not stop.  The screen may be broken but the video keeps on playing the Rick Roll audio.  I also increased the counter to 8 before entering the if statement so that the laptop need to be dropped (on average) 4 times before the laptop no longer boots. On average the laptop registers about 2 collisions per drop so this increases the number of drops before reaching the non-boot state to about 4 drops, from 2 before.
+
+In this version I also added a whiteboard marker picker that stemmed from a question on Justin P. Barnett's Discord server here: https://discord.com/channels/830805044030079046/1068519782992850965  The question was how to change the marker's materials using three sliders, representing the red, green and blue (RGB) values seperately.  I jumped in to help and got stuck at a particular point and the user choccy was able to get take my script and to get a final version of his own working.  I decided to implement this in my project as I had previously thought about adding a feature like this, only I had envisioned having static materials that would be swapped out via some sort of interface (maybe some spheres via collision detection).  But I liked this idea much better because the code is shorter and simplier and because there are multiple copies of the same material attached to different parts of the same marker.  
+
+In my case the material are attached to the large cylinder and small cylinder of the marker lid, to the middle part of the handle, to the visible tip (which is a ProBuilder shape (for show only) that mimics the shape of an actual Expo marker tip) the invisible tip (which is sphere shaped for better and more consistant movement across the whiteboard material).  
+
+Previously my Expo whiteboard marker label was made up of a material containing a 2D texture wrapped around the shape.  But because that material's wrapped color and font were set via a jpg graphic I made the change to the handle, recreating this as three parts that fit perfectly together without any overlap.  This allowed me to apply the color material (named Marker_One and Marker_Two) to the middle section of that handle.  I then applied two sprites brought in as .png (that consisted of a circle with a line above and below in a graphics program) into the project.  I set the remainder of the graphic as transparent, within the graphics program, with the exception of the white circle, which remained white, and I copied this over to the Assets folder in Windows Explorer of my Unity project.  The transparent pieces were so that the material color on the middle section of the handle would still show through.
+
+After bringing in the sprint I changed the "Texture Type" of the png, in the Inspector window, to "Sprite (2D and UI)."  I then was able to assign this to a new UI Image game object I created in the Hierarchy.  I then scaled this UI Image game object until it was an oval of about the right shape and size. 
+
+I then rotated that oval down and I sunk it back as far as I could into the handle.  This way it was not floating in front of the handle but looks to be a part of it.
+
+I duplicated that oval and then moved it to the other side of the marker (as Expo markers have the logo on both sides of the marker).
+
+The left and right handles I applied a Faded_White material to.
+
+Lastly, I imported a new Expo font into Unity that I downloaded from a font website.  Under the Assets folder I created a sub-folder called "Fonts" and I moved the two font .ttf files into this folder.  This makes those fonts available to import into Windows.  Then, in Unity via the Windows menu > TextMeshPro > Font Asset Creator I set up the Exposition and Exposition Shadow as new fonts in TextMeshPro.  
+I created a new TextMeshPro text box and I used that to write out the word EXPO.  I bolded this and duplicated that TextMeshPro textbox to double up and make the font thicker.  I then played with its scale until I got it looking roughly the same shape and size as the original logo.  The red marker is using TextMeshPro and a material whereas the blue marker hasn't been set up yet and is still the imported graphic.
+
+My  Marker One Color Picker sliders script is as follows and I also added code to change the font at the same time as I change the materials.  I had to play with the shader lighting of those TextMeshPro game objects in order to have this match the color of the Marker_One material.  This appeared as lighter and neon prior.  
+
+The Whiteboard Marker Color Pickers was placed under the -- INTERFACES -- game object and the Whiteboard placed under the -- DYNAMIC -- game object.  The Whiteboard Accessories child object contains the two marker and eraser game object.
+
+My next idea was that there would be two markers and buttons for toggling the showing and hiding of the Marker Color Picker slider interface (canvas) for the first marker and then the second marker. I created two UI buttons named Marker One and Marker Two and I set their background color the same as the the wall color.  I then set up the OnClick() event of each button to show and hide the appropiate interfaces.  The Marker Two Color Picker was then keyed into the second marker and the Marker One Color Picker was keyed into the first marker via the script's listeners and link boxes that linked to the specific components of the first marker and second marker that contained those color materials.  
+
+For the sliders working in VR piece (per https://www.youtube.com/watch?v=BZt74PVb7sM) I needed to add a "Tracked Device Graphic Raycaster" component to the canvas hosting my sliders.  Because I already had working UI interfaces in my VR project I already had the "XRUI Input Module" added as a component of my EventSystem game object.  Lastly, through troubleshooting I disovered my TextMeshPro headers to the left ("Red Value", "Blue Value", "Green Value") were too large (width of either 100 or 200) and that these overlapped over the sliders, making it impossible to grab the sliders.  I resized these appropiately and tested.  I found that scaling wasn't an issue and I also found that a known bug that could interfer with the ability to be able to detect the slider in a VR project (due to depth issues and how the sliders work) was not an issue.  I did end up increasing the Slider Background (game object) "Raycast Padding" from 0 (for Left, Right, Top and Bottom) to 1 across the board, just as a precaution, however (per this forum post here: https://forum.unity.com/threads/vr-ui-slider-issues.1025887/). I also needed to change my raycast masking to allow the sliders to be manipulated using my raycasts.
+
+I also added three TextMeshPro game objects that I positioned to the right of the sliders and I added code to my MarkerColorPickerSlider script that grabbed the value of each slider, updated using listeners so that this would update real time, and wrote that to each textbox.  I made all of my text and my slider handles match as being either red text, green text or blue text to signify the value being displayed). 
+
+I also went into play mode and I moved the RGB sliders until I arrived at the same shade red (by looking at the values of each material for the red color and the blue color under Assets > Materials).  I then noted the slider value for each of the three: RGB and then I stopped play mode and I set those slider values in my Inspector.  This way when the user starts the game the first marker is the same shade red and the second marker is the same shade blue as seen in the scene view.  The user can then adjust the colors of the markers using the slider but because those changes are being applied to the material on the marker game object and not the material in the Assets > Materials folder that material color change is not saved when play mode is exited in the Unity Editor.  
+
+Both the marker color and the values update in real time as the sliders are moved across the screen using the raycast.
+
+There was also a missing piece to having that material color update to where the render line would use the newly selected color changed by the RGB sliders.  While the material color and font color both updated visually on screen, in real time, the material was still drawing in red and blue, the original set material color.  The change needing to be made (thanks to choccy on Discord, who knew immediately what change needed to be made) was adding _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray(); to the Update() method of the WhiteboardMarker.cs script.
+
+My oval sprite files somehow were removed from my Images folder so I had to download those from my GitHub repository (from yesterday's commit) where I moved these back into the assets folder and re-set back up.
+
+I tested and everything regarding the marker color picker now worked from having the marker start out the same red and blue as in the scene view, changing the color or marker one and two, from switching between the two sliders succesfully, from changing each to different colors and drawing on the board with those same colors, with the Expo label being positioned correctly, with having that font color change at the same time as the material and matching that material color, to being able to erase the board using the eraser.
+
+MarkerColorPickerSlider.cs:
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class MarkerColorPickerSlider : MonoBehaviour
+{
+    public GameObject largerCylinderLid;
+    public GameObject smallerCylinderLid;
+    public GameObject handleMiddle;
+    public GameObject visibleTip;
+    public GameObject hiddenTip;
+    public GameObject expoFontOneOvalFront;
+    public GameObject expoFontTwoOvalFront;
+    public GameObject expoFontOneOvalBack;
+    public GameObject expoFontTwoOvalBack;
+    public Slider redSlider;
+    public Slider greenSlider;
+    public Slider blueSlider;
+    public TextMeshProUGUI redValueDisplay;
+    public TextMeshProUGUI greenValueDisplay;
+    public TextMeshProUGUI blueValueDisplay;
+    private Material largerCylinderLidMaterial;
+    private Material smallerCylinderLidMaterial;
+    private Material handleMiddleMaterial;
+    private Material visibleTipMaterial;
+    private Material hiddenTipMaterial;
+    private TextMeshProUGUI expoFontOneOvalFrontTMP;
+    private TextMeshProUGUI expoFontTwoOvalFrontTMP;
+    private TextMeshProUGUI expoFontOneOvalBackTMP;
+    private TextMeshProUGUI expoFontTwoOvalBackTMP;
+
+    void Start()
+    {
+        Renderer largerCylinderLidRenderer = largerCylinderLid.GetComponent<Renderer>();
+        largerCylinderLidMaterial = largerCylinderLidRenderer.material;
+
+        Renderer smallerCylinderLidRenderer = smallerCylinderLid.GetComponent<Renderer>();
+        smallerCylinderLidMaterial = smallerCylinderLidRenderer.material;
+
+        Renderer handleMiddleRenderer = handleMiddle.GetComponent<Renderer>();
+        handleMiddleMaterial = handleMiddleRenderer.material;
+
+        Renderer visibleTipRenderer = visibleTip.GetComponent<Renderer>();
+        visibleTipMaterial = visibleTipRenderer.material;
+
+        Renderer hiddenTipRenderer = hiddenTip.GetComponent<Renderer>();
+        hiddenTipMaterial = hiddenTipRenderer.material;
+
+        expoFontOneOvalFrontTMP = expoFontOneOvalFront.GetComponentInChildren<TextMeshProUGUI>();
+        expoFontTwoOvalFrontTMP = expoFontTwoOvalFront.GetComponentInChildren<TextMeshProUGUI>();
+        expoFontOneOvalBackTMP = expoFontOneOvalBack.GetComponentInChildren<TextMeshProUGUI>();
+        expoFontTwoOvalBackTMP = expoFontTwoOvalBack.GetComponentInChildren<TextMeshProUGUI>();
+
+        redSlider.onValueChanged.AddListener(UpdateRedValueDisplay);
+        greenSlider.onValueChanged.AddListener(UpdateGreenValueDisplay);
+        blueSlider.onValueChanged.AddListener(UpdateBlueValueDisplay);
+    }
+
+    void Update()
+    {
+        Color color = new Color(redSlider.value, greenSlider.value, blueSlider.value, 1.0f);
+        color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+
+        largerCylinderLidMaterial.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        smallerCylinderLidMaterial.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        handleMiddleMaterial.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        visibleTipMaterial.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        hiddenTipMaterial.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+
+        expoFontOneOvalFrontTMP.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        expoFontTwoOvalFrontTMP.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        expoFontOneOvalBackTMP.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+        expoFontTwoOvalBackTMP.color = new Color(Mathf.GammaToLinearSpace(color.r), Mathf.GammaToLinearSpace(color.g), Mathf.GammaToLinearSpace(color.b));
+    }
+
+    private void UpdateRedValueDisplay(float value)
+    {
+        redValueDisplay.text = value.ToString();
+    }
+
+    private void UpdateGreenValueDisplay(float value)
+    {
+        greenValueDisplay.text = value.ToString();
+    }
+
+    private void UpdateBlueValueDisplay(float value)
+    {
+        blueValueDisplay.text = value.ToString();
+    }
+}
+
+WhiteboardMarker.cs:
+
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class WhiteboardMarker : MonoBehaviour
+{
+    //The transform component of the marker's tip
+    [SerializeField] private Transform _tip;
+    //The size of the pen, in pixels
+    [SerializeField] private int _penSize = 5;
+
+    //The renderer component of the marker's tip
+    private Renderer _renderer;
+    //An array of the marker's color, repeated _penSize * _penSize times
+    private Color[] _colors;
+    //The height of the marker's tip
+    private float _tipHeight;
+
+    //The result of the raycast from the marker's tip
+    private RaycastHit _touch;
+    //The Whiteboard component of the object that the marker's tip is touching
+    private Whiteboard _whiteboard;
+    //The texture coordinates of the point where the marker's tip is touching the whiteboard
+    //The texture coordinates of the point where the marker's tip was touching the whiteboard on the previous frame
+    private Vector2 _touchPos, _lastTouchPos;
+    //Whether the marker's tip was touching the whiteboard on the previous frame
+    private bool _touchedLastFrame;
+    //The rotation of the marker on the previous frame when the marker's tip was touching the whiteboard
+    private Quaternion _lastTouchRot;
+
+    //Start is called before the first frame update
+    void Start()
+    {
+        //Get the renderer component of the marker's tip
+        _renderer = _tip.GetComponent<Renderer>();
+        //Set _colors to an array of the marker's color, repeated _penSize * _penSize times
+        _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+        //Set _tipHeight to the height of the marker's tip
+        _tipHeight = _tip.localScale.y;
+    }
+
+    //Update is called once per frame
+    void Update()
+    {
+        //Execute the Draw method
+        Draw();
+        _colors = Enumerable.Repeat(_renderer.material.color, _penSize * _penSize).ToArray();
+    }
+
+    private void Draw()
+    {
+        //Cast a ray from the marker's tip in the direction the marker is facing
+        if (Physics.Raycast(_tip.position, transform.forward, out _touch, _tipHeight))
+        {
+            //Debug.Log("Marker is Touching Something");
+            //If the ray hits an object with the "Whiteboard" tag
+            if (_touch.transform.CompareTag("Whiteboard"))
+            {
+                //Debug.Log("Marker is Touching the Whiteboard");
+                //Get the Whiteboard component of the object that the marker's tip is touching
+                if (_whiteboard == null)
+                {
+                    _whiteboard = _touch.transform.GetComponent<Whiteboard>();
+                }
+
+                //Get the texture coordinates of the point where the ray hit the whiteboard
+                _touchPos = new Vector2(_touch.textureCoord.x, _touch.textureCoord.y);
+
+                //Convert the texture coordinates to pixel coordinates on the whiteboard's texture
+                var x = (int)(_touchPos.x * _whiteboard.textureSize.x - (_penSize / 2));
+                var y = (int)(_touchPos.y * _whiteboard.textureSize.y - (_penSize / 2));
+
+                //Checks if the x and y pixel coordinates are within the bounds of the whiteboard's texture. If either x or y is less than 0 or greater than the width or height of the whiteboard's texture, exits method
+                if (y < 0 || y > _whiteboard.textureSize.y || x < 0 || x > _whiteboard.textureSize.x) return;
+
+                //Checks if the marker's tip was touching the whiteboard on the previous frame
+                if (_touchedLastFrame)
+                {
+                    //Set a square of pixels on the whiteboard's texture to the color of the marker
+                    _whiteboard.texture.SetPixels(x, y, _penSize, _penSize, _colors);
+
+                    //Interpolate between the current pixel coordinates and the pixel coordinates from the last frame to create a line between the two points
+                    for (float f = 0.01f; f < 1.00f; f += 0.01f)
+                    {
+                        //Calculate the interpolated pixel coordinates
+                        var lerpX = (int)Mathf.Lerp(_lastTouchPos.x, x, f);
+                        var lerpY = (int)Mathf.Lerp(_lastTouchPos.y, y, f);
+                        //Set a square of pixels on the whiteboard's texture to the color of the marker
+                        _whiteboard.texture.SetPixels(lerpX, lerpY, _penSize, _penSize, _colors);
+                    }
+
+                    //Debug.Log("Locking Rotation To " + _lastTouchRot);
+                    //Lock the rotation of the marker to the rotation on the previous frame when the marker's tip was touching the whiteboard
+                    transform.rotation = _lastTouchRot;
+
+                    //Apply the changes to the whiteboard's texture
+                    _whiteboard.texture.Apply();
+                }
+
+                //Update the last touch position and rotation
+                _lastTouchPos = new Vector2(x, y);
+                _lastTouchRot = transform.rotation;
+                //Set _touchedLastFrame to true
+                _touchedLastFrame = true;
+                return;
+            }
+        }
+
+        //If the marker's tip is not touching the whiteboard
+        _whiteboard = null;
+        //Set _touchedLastFrame to false
+        _touchedLastFrame = false;
+    }
+}
+
+Lastly I fixed the physics issue with the brown notebook when picking it up.  I had internal pages set to the Interactable layer as well as the outside and those physics were allowing physic interactions and collisions to occur.  The fix was to set all internal components of that notebook to the Non-Interactable layer.  Those two layers aren't allowed to interact with one another via the Physics Matrix.
+
+This fixed the book jumping around in your hand but I also noticed there is a bug/issue with the text showing up as black when tilting the pages away from the player.  So if the book is held back at an agle the text fades and is no longer visible.  I'll have to look into this to see if TextMeshPro has occulsion when not looking at it directly on and to see if there is a way to fix that.  I played with lighting settings for that TMP component but that wasn't the issue.
+
+I updated the version number and date on the tutorial welcome board.
+
+To Fix Next:
+
+Writing a script for the Water Bottle Flip Challenge to detect when there is a floor collision with either the top, sides or bottom and to play a corresponding sound when that happens.
+
+Determine why my physics hands can clip through the dinning room table and chairs when at a fast enough speed. Try and make this work more like the couch or outside colliders. Test with other furniture to see if anything else in the room allows this to happen. Compare and contrast to troubleshoot.
+
+Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and the area rug and I need to troubleshoot that more to try and fix.
+
+Updating the Interactive board and/or punch lists.  I'm running out of room on my punch lists and I have no more room to add additional punch lists, so I'll have to decide how I wish to use these moving forward.  I still love the idea of having bugs and/or future features viewable in VR and I have a lot of future ideas (both from ideas I've come up with and that my students have come up with that could be added).  I'm about 1/3 of the way through laying this out but moved onto other parts of the project - just because of the amount of work involved and in not knowing if everything will fit or what the end result of this may look like.
+
+I also was thinking about having one punch list in the future with interactive UI using a scrollbar and I found this video that will help me, I think, to achieve this: https://www.youtube.com/watch?v=wwInYfwD7q0 as well as this video: https://www.youtube.com/watch?v=TCixKyOGTRU
+
+If I get that working I feel like I have a lot of the bug pieces for all the current items added to my room fixed. I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.  At this point I may choose a new feature to add to this room, just to continue my (and my student's) learning.
+
+Something I started to dig into was a climbing mechanic and I've created a duplicate scene of my room, I scaled it up to make it larger, I rebaked the lighting (using the MegaSun Eviorment, which gave the entire room a very cool, soothing, golden glow. I removed all the furniture and other interactables keeping only the overhead lighting and the mirror and I added a vertical ladder, horizontal ladder (across the ceiling) a climbing poll and a rock climbing wall on the east window made of different shapes and colors.  However, in writing the script I realized that my version of XRIT for this room is not new enough to contain a namespace and methods needed to create a climbing anchor and it doesn't appeear that there was a different method avaialable before.  So to proceed I'm going to have to puzzle out how to upgrade XRIT and all other Project Manager plugins and to fix all errors that occur in upgrading, before building a climbing mechanism will be possible.  This is something on my short list of things to learn sooner rather than later.
+@mattdway mattdway committed on Feb 01
