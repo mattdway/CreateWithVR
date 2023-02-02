@@ -1081,3 +1081,83 @@ If I get that working I feel like I have a lot of the bug pieces for all the cur
 
 Something I started to dig into was a climbing mechanic and I've created a duplicate scene of my room, I scaled it up to make it larger, I rebaked the lighting (using the MegaSun Eviorment, which gave the entire room a very cool, soothing, golden glow. I removed all the furniture and other interactables keeping only the overhead lighting and the mirror and I added a vertical ladder, horizontal ladder (across the ceiling) a climbing poll and a rock climbing wall on the east window made of different shapes and colors.  However, in writing the script I realized that my version of XRIT for this room is not new enough to contain a namespace and methods needed to create a climbing anchor and it doesn't appeear that there was a different method avaialable before.  So to proceed I'm going to have to puzzle out how to upgrade XRIT and all other Project Manager plugins and to fix all errors that occur in upgrading, before building a climbing mechanism will be possible.  This is something on my short list of things to learn sooner rather than later.
 @mattdway mattdway committed on Feb 01
+
+02-02-23 v2.11.2 02-01-23 Commit
+I added scripts and logic for my bottle flip challenge.
+
+using UnityEngine; public class BottleFlipChallengeWin : MonoBehaviour
+{
+    private bool _collisionActive = false;
+    private float _collisionStartTime = 0f;
+    private AudioSource _audioSource;     private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }     private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log("Collision detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.tag == "Floor")
+        {
+            //Debug.Log("Tag check passed. Setting _collisionActive and _collisionStartTime");
+            _collisionActive = true;
+            _collisionStartTime = Time.time;
+        }
+    }     private void OnTriggerStay(Collider other)
+    {
+        if (_collisionActive && Time.time - _collisionStartTime >= 1f)
+        {
+            if (other.tag == "Floor")
+            {
+                //Debug.Log("Collision active for more than 1 second. Playing audio source file.");
+                _audioSource.Play();
+                _collisionActive = false;
+            }
+        }
+    }     private void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("Setting _collisionActive to false");
+        _collisionActive = false;
+    }
+}
+
+using UnityEngine; public class BottleFlipChallengeLose : MonoBehaviour
+{
+    private bool _collisionActive = false;
+    private float _collisionStartTime = 0f;
+    private AudioSource _audioSource;     private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }     private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log("Collision detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
+        if (other.tag == "Floor")
+        {
+            //Debug.Log("Tag check passed. Setting _collisionActive and _collisionStartTime");
+            _collisionActive = true;
+            _collisionStartTime = Time.time;
+        }
+    }     private void OnTriggerStay(Collider other)
+    {
+        if (_collisionActive && Time.time - _collisionStartTime >= 1f)
+        {
+            if (other.tag == "Floor")
+            {
+                //Debug.Log("Collision active for more than 1 second. Playing audio source file.");
+                _audioSource.Play();
+                _collisionActive = false;
+            }
+        }
+    }     private void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("Setting _collisionActive to false");
+        _collisionActive = false;
+    }
+}
+
+So the logic of the water bottle challenge is that I have a weird bug with my water bottle in that if you put the lid on the water bottle and then pick it up the physics go wild and it starts to flip end over end in your hand.  Rather than figure out what was causing the bug and fixing it I decided to instead spend all my time making a sheet of paper asking "Can you complete the water bottle challenge" and placing the water bottle and lid on top of that note. I then added a large collider around the sides and a sphere collider on the bottom and the script is using an OnCollisionTrigger method with a tag check to make sure the item colliding with the water bottle is something with the tag "Floor" (which is obviously the ceiling.  Just kidding.  It's obviously the floor).     That then starts a 1 second timer and if the water bottle is on it's side colliding with the floor for a whole second then it plays the audio clip of clapping and cheering.  If the water bottle is on it's side and colliding with the floor for a whole second it plays a booing audio clip. The player could pick up the bottle and throw it in the air, flipping it manually or if they figure out that the lid makes the water bottle really spin they can try that way.
+
+I got the idea putting the lid on (it's only happened a few times so far) and having the water bottle land right side up when it hit the floor.  I thought that was hilarious and kind of cool, so I made a mini game out of it.
+
+I got the idea putting the lid on (it's only happened a few times so far) and having the water bottle land right side up when it hit the floor.  I thought that was hilarious and kind of cool, so I made a mini game out of it.
+
+There is a slight bug that the water bottle has enough velocity to sometimes clip through the wall or floor when the lid is on, despite the colliders and the rigid body being set to Continuous Speculative.  I don't have a good solution for that bug yet as I've already set physics between the bottle and lid and nearly everything else and I have the rigidbody collision detection set to the mode that best handles high velocity.
+@mattdway mattdway committed on Feb 02
