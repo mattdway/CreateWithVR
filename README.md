@@ -1170,3 +1170,298 @@ I got the idea putting the lid on (it's only happened a few times so far) and ha
 
 There is a slight bug that the water bottle has enough velocity to sometimes clip through the wall or floor when the lid is on, despite the colliders and the rigid body being set to Continuous Speculative.  I don't have a good solution for that bug yet as I've already set physics between the bottle and lid and nearly everything else and I have the rigidbody collision detection set to the mode that best handles high velocity.
 @mattdway mattdway committed on Feb 02
+
+02-12-23 v3.0.0 Commit
+Updated this project to Unity 2021.3.11f1 and I also updated all of the Project Manager plugins to their latest versions including XRIT to version 2.3-pre1.  I fixed a slew of bugs that occured as part of that upgrade and I've done a lot of beta testing.
+
+I also added a new feature where the players can now set the area rug on fire using the lighter as a little easter egg.
+
+To follow is the dev log for those changes.
+
+[2/5 10:38 PM] Way, Matt - PRE
+So here is the short list of problems I ran into after creating a copy of my current working CreateWithVR room (with all the features I've recently created included) and then re-upgrading the Unity Editor version, XRIT version and all other Project Manager plugins to their latest version. In fairness, I'm pretty sure the broken functionality is also that I downloaded and updated the prefabs from Unity Learn's CreateWithVR For Educators page.  Some of those prefabs had scripts or other modifications that I essentially wrote over.  I was able to fix all the locomotion issues except for one problem with the raycast depth for teleport anywhere and also my tiny height (my head is slightly taller than the couch cushions when walking) with the new XR Origin game object.  So that's good. This is all a copy of my project (not my original) so I can either copy back those prefabs and see if that fixes the issues with things like the stapler, polaroid camera, dart gun, etc. or I can delete that folder, make another copy, upgrade everything again and then fix all the set up and locomotion/turning settings again.  Probably will try the first one, as that'd be the least amount of work. Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1:  
+* Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* XR Origin height waaay too short once moved from original location.  Nearly crawling on ground.
+* Door handle not interactable
+* Door button not working
+* Consumable eaten portion of food not facing towards player (watermelon, maybe others too)
+* Some objects don't have distance grab enacted
+* Cheat system not functioning (not moving with main camera).  Can't find script for this
+* Staples hanging in midair (gravity or kinematic), like Matrix.  There is no velocity on those objects now.  Also no destroy script.  Count on dart gun also no longer subtracting
+* Dart gun darts hanging in midair (gravity or kinematic), like Matrix.  There is no velocity on those objects now.  Also no destroy script.  Count on dart gun also no longer subtracting
+* Polaroid decoupling script no longer working  
+* All screens are faded/red (TV, tablet, laptop screen) when playing video
+* Tablet no longer plays random video/only the one with activate
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result
+* Red wax apple has no collider/grab interactable
+* Hat sockets for head not working
+* Hat physics caused me to be propelled outside room
+* Brown book physics acting sort of funny when in hand (wants to constantly turn/rotate in the direction of the motor for the cover)
+
+[2/5 10:54 PM] Way, Matt - PRE
+Copied my original _prefabs folder back in and this is my list now: Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1: * Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* XR Origin height waaay too short once moved from original location.  Nearly crawling on ground.
+* Door button not working
+* Some objects don't have distance grab enacted
+* Cheat system not functioning (not moving with main camera).  Can't find script for this
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result
+* Red wax apple has no collider/grab interactable
+* Hat sockets for head questionable.  Need more testing after getting to correct height via XR Origin
+* Hat physics caused me to be propelled outside room
+* Brown book physics OK now but TMP text is fading in and out depending on angle* Magnifying glass physics not right (causing the entire magnifying glass to jitter and turn 
+
+[2/5 11:35 PM] Way, Matt - PRE
+Last update for tonight.  I got the XR origin height fixed and I also got the anti-cheat script updated (it had references to the old, replaced, XR Rig game object, which is partly why it wasn't working).  This script was also not attached to my new XR Origin game object, which is the other reason why this wasn't working.  I updated all the references to XR Rig (and some of the methods for camera height and positioning, which changed between these two) and attached and that is working now. Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1: * Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* Door button not working (see next item in list)
+* Door collider to prevent leaning into and breaking door not working correctly.  I'd guess none of the three door colliders are in their correct locations.  This would also explain why the door button isn't working
+* Some objects don't have distance grab enacted/distance grabbing isn't working for all objectsCould maybe adjust consumable food game object orientation slightly to make the eating feel more realistic 
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result (physics collision issue in the physic matrix)
+* Red wax apple has no collider/grab interactable
+* Hat sockets for head questionable.  Need more testing after getting to correct height via XR Origin
+* Hat physics caused me to be propelled outside room (probably a physics collision issue in the physics matrix)
+* Brown book physics OK now but TMP text is fading in and out depending on angle (probably a physics collision issue in the physics matrix)
+* Magnifying glass physics not right (causing the entire magnifying glass to jitter and turn (probably a physics collision issue in the physics matrix) 
+
+The good news is, none of these bugs (outside the mystery of the grab interactables not working -- which I have no idea why yet) should be too difficult to solve.  Then I should have a fully working project that is updated that I can continue to add too -- which will be great. 
+
+I also need to go into the Gym scene so that I can replicate any changes there.  Probably I'll make my XR Origin a prefab to bring all those changes over to the other scene easily.
+
+[2/7 9:32 PM] Way, Matt - PRE
+Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1:  
+* Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* Some objects don't have distance grab enacted/distance grabbing isn't working for all objects
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result (physics collision issue in the physic matrix)
+* Hat sockets for head questionable.  Need more testing after getting to correct height via XR Origin
+* Hat physics caused me to be propelled outside room (probably a physics collision issue in the physics matrix)
+* Brown book physics OK now but TMP text is fading in and out depending on angle (probably a physics collision issue in the physics matrix)
+* Magnifying glass physics not right (causing the entire magnifying glass to jitter and turn (probably a physics collision issue in the physics matrix)
+* Physics hands are cursed.  They want to turn on their own as well as to turn while pressed up against a collider.  The results is two-fold.  The physics hands want to continue to gyrate and rotate and this causes the non-physics hands to appear due to the distance piece.  This only started after the updates.
+* Consume mechanic not activating.  Food collides with head.  Going to start by comparing physics matrix between old project (2020) and new updated project (2021) to see if anything is different.  I can also confirm functionality worked before the upgrade and wasn't an unknown bug there.
+* I also need to go into the Gym scene so that I can replicate any changes there.  Probably I'll make my XR Origin a prefab to bring all those changes over to the other scene easily.
+
+[2/7 10:21 PM] Way, Matt - PRE
+Updated project   Original Project   
+
+[2/7 10:43 PM] Way, Matt - PRE
+OK, so not really much different in the physics matrix.  The only differences in the physics matrix between the original project and the updated project are that I didn't have collisions between Clock/Hats, Hats/Bookshelf Books, and Hats/Art.  I also didn't have any collision between Bookshelf Books/Clock.  Nothing that should break or act janky if collided (those items normally wouldn't interact and I don't see any reason not to have collisions on those items if they were to interact).  And nothing to do with the consumer. 
+
+I also looked and in the original project both the consumer and the food are set to the default layer and default is allowed to interact with default in the original project's physics matrix as well default can interact with default in the upgraded project.  The table below the food is also set to default and if default can't interact with default then not only does the food fall through the table but the collision needed to trigger consume wouldn't happen.  So layers set or physics matrix doesn't appear to be the problem.   
+
+The consumer works in the old project (no collision issues) so differential diagnostics: there is a positioning issue with my colliders/head object (which I'm going to look at next), a script isn't linked.  I'm going to check and document those pieces in the original project next so I can compare to the upgraded project. 
+
+Goal is that i have time to fix one more thing on my above list and getting the colliders working is what I am hoping to complete.  Then I can continue to work on the rest of the list tomorrow.
+
+[2/7 10:48 PM] Way, Matt - PRE
+Also just confirmed that with Clock/Hats, Hats/Bookshelf Books, and Hats/Art, Bookshelf Books/Clock checked in the physics matrix of the original project, this causes no issues.  I also confirmed that consumption still works and I tested and hats do not cause an issue with pushing the player outside the room.  
+
+[2/7 10:51 PM] Way, Matt - PRE
+And no hand instability or turning in the original project.
+
+[2/8 12:05 AM] Way, Matt - PRE
+No luck fixing the consumer issue.  It's definitely a collider issue.  At first I thought it was maybe the consumer collider being positioned with the astro head rather than the camera so I positioned the head's y position to where the camera is lined up with the head's eyes, with the head being behind the camera (so that this head does not partially clip in front of the camera and show pieces of the head in the VR headset view).  But this didn't help.  I then made the collider taller and I increased it's Z axis so that this collider stuck out more.  I can sort of get the consume to happen but not consistently and not when the watermelon is entering the consume collider.  But it also appears some collision is taking place just before the watermelon collides with the consume collider and I can't figure out what it might be hitting.  Even when exposing and showing all collisions at the same time, from the Scene view while in play mode.  I could see my hand controller sphere colliders were huge (0.1 scale) and I halved those.  But those sphere colliders on the hands are "Is Trigger" anyway, so no collisions should be happening with those anyway.  I also made sure all my transforms were the same as in my original project and they are.  For the astro head, colliders, etc.   
+
+So I'm not sure what is going on but I'll have to solve that mystery tomorrow (I hope).
+
+[2/8 12:13 AM] Way, Matt - PRE
+I was able to put right the door script (which wasn't linked), I was able to put all the door related colliders back, which were in the middle of my scene and really just needed to be moved back on the z axis and then tested.  Everything with the door is working OK. I also added the rigidbody, collider and grab interactable to the red (wax) apple in the bowl.  It was simply missing those components. The hat and other physics interactions haven't yet been fixed and will need to be addressed in the days to come.
+
+[2/9 12:19 AM] Way, Matt - PRE
+OK, great news.  I fixed most the physics and layer issues including with the physics hands.  The consumables are also all working now.  I also fixed the hat sockets, the attach transform for all the food items and for the hats and I fixed the grab interactable issue. 
+
+The physics hands issue had to do with the default layer interacting with the physics hands.  But I couldn't simply turn off physics in the matrix between default and my LeftHandPhysics and RightHandPhysics layers because the default layer was set to a bunch of other items in my scene.  So I ended up looking at every game object set to default and I changed those to be on either the Interactable, Furniture or Non-Interactable layer, depending.  I also had a bunch of items under XR Origin that had to do with the camera, my astro head, my consumable, etc. that had accidently been set to Whiteboard.  Obviously that shouldn't have been (that layer is specifically to allow layers to draw on the whiteboard).  So I set those to the layer Pseudobody or default (if an empty game object parent).  All of this fixed the random rotation and jitteriness I was seeing with the physics hands and allowed those to 'calm down.'   
+
+With consumables this was a combination of a few things.  I had consumable attached to an empty game object but with my astrohead having a convex mesh collider too that consumable collider moved to unexpected positions and rotations as I moved the head around.  I was able to observe this looking at my scene view while play testing and trying to eat something.  This was causing the 'hit zone' of that collider to sometimes be to the right of my head, to the left of my head, my forehead, etc.   
+
+The other issue was that the position of the astro head was off (lower than) the main camera whereas the main camera is really the view we are seeing out of when we play 1st person VR.  So using gismos I unchecked all but the main camera and all the colliders and I turned up the 3D icons slightly so I could better see where my camera was in relationship to the 3D head game object.  I then moved the astro head up so that the camera aligned with about where the eyes would be on the head and back (so that the head doesn't appear in the camera view (otherwise we see clipped portions of the head in the view when playing). 
+
+Lastly, having the consumable game object as a parent of main camera seemed redundant with the game object hosting the astro head so I copied the components of that consumable game object (including the collider and script and I pasted these as new components on the astro game object.  I then readjusted the consumable box collider (I kept the astro head convex mesh collider on the head also) so that it was aligned properly from the bridge of the nose to the chin and tested.  The consumable game mechanic is working perfectly again. 
+
+Next, in game I paused, disabled layer 4/4 and enabled layer 3/4 and then I changed the rotation of the attach transform game object so that the object, when held, is rotated/tilted towards the user's face.  This allows the food to look like it is facing the user's mouth when the additional layers are disabled and the new eatten layers are enabled.  This adds to the realism of being an eatting mechanic through having the bit area facing the player (not facing away from the user).  I then noted the rotational transform and changed this when out of play mode, so that this change would stick.  I tested and all the rotations are perfect for everything from the watermelon, to the ham, the bread, the ribs to the potion. 
+
+I also added a Select Enter and Select Exit event for the potion via the Grab Interactable component so that when the user picks up the potion the cork game object is disabled and when dropped the cork game object is put back into place.  This just adds a little extra realism to that drink mechanic. 
+
+The hat socket placements were now all off because I'd adjusted the astro head position so in game mode I adjusted the attach transform position (and with the captain's hat also the rotation because I didn't love how that looked sitting on the head).  The attach transform needed to move the opposite direction than what one would think (if the hat was too far forward then the attach transform needed to move forward (away) from the head to move the hat back).  I adjusted all three hats by placing on my head in play mode and then paused, changed the attach transform, unpaused, took the hat off and put it back on my head and then adjusted more until I had the hat positioned perfectly on my head in every direction (x, y and z axes).  Then I noted the position and rotation transform of each of the three hats in Notepad so that I could then apply those to the attach transform of all three hats in scene view.  I tested and everything looks good on the hooks and when placing these on my head. 
+
+The grab interactable issue was with the XR Grab Interactable Interactable Layer Mask.  I needed to allow Raycast here, as confirmed with just the hats to begin with.  The LeftHandRay and RightHandRay game object's XR Ray Intercator's Interactable Layer Mask was already set correctly to allow interaction with all objects except for art (too large and with collisions and physics enabled - pulling these across the room with a ray collider just caused a mess) doors, door handles and drawers (opening large doors, cabinet doors and drawers with the raycast causes all sorts of bad/undesirable behaviors so those are set to work with direct interactables only.  I used the Hierarchy trick of t:xrgrabinteractable to see all objects that had the XR Grab Interactable component attached.  However, because there are varying Ineractable Layer Masks set, depending on the item, I couldn't select all items (minus those I mentioned above -- door handles, cabinet handles, drawers and art) and make that change to all the objects at once.  If I did then I ended up adding the average of all layer masks listed here and especially on any item with a socket, this caused the sockets to fail and all those socketed items to immediately fall in play mode.  So I just took note of what those items were with XR Grab Interactable and I then undid the Hierarchy t: filter and made those changes per game object. 
+
+I had no sockets for the books under the table, I simply had grab interactable set and those game objects were stacked.  Because that TV media cabinet is so low to the ground, making it hard to place and socket the books there, I suspect I skipped adding sockets in that area. 
+
+The fixes above with the layers fixed the hat and head physics that propelled me outside the room while wearing hats.  That piece is now fixed. 
+
+For the brown notebook I had an Interactive Layer set for the empty parent game object and the cover and I set the empty game object to the default layer.  This fixed the notebook's physics bug, which caused the notebook to want to rotate to the left when holding this notebook open.  There is still an issue with the TextMeshPro text fading when holding the notebook at an angle away from you that I haven't looked at or fixed yet.  This was also an issue in my original (non-upgraded project) and I'll still look into this to see why that is happening and to see what an appropriate fix would be. 
+
+For the plant, it is made up of three parts and the Plant_Fig game object contains the colliders for the leaves themselves.  I set this game object to the Non-Interactable layer.  Because there are no collisions/physics allowed between the Interactable and Non-Interactable layers, this allows the watering can to pass through the leaves, allowing the watering can to be able to tilt over the pot of the plant. 
+
+The magnifying issue was fixed with the above layer changes. 
+
+I had one instance where I picked up the polaroid camera with my physics hands and the hand colliders re-enabled immediately when dropping the items instead of on a delay.  This caused the camera to fling across the room instead of just dropping.  However, on additional tests picking this and other items up I was able to confirm the colliders were disabled on both hands and the colliders enabled but only after the set delay.  Because this bug wasn't repeatable I'll keep an eye on this and if I see it continuing to occur I'll troubleshoot why this is happening and I'll work to try and fix this.
+
+[2/9 12:32 AM] Way, Matt - PRE
+So, this is where this leaves me with my list. 
+
+Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1:  
+
+* Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* Brown book physics OK now but TMP text is fading in and out depending on angle (probably a physics collision issue in the physics matrix)
+* This is an old bug that has been around for a while but I notice that items with thinner colliders (such as the polaroid photos and the punch lists) clip through the (teleport area) rug.
+* I also need to go into the Gym scene so that I can replicate any changes there.  Probably I'll make my XR Origin a prefab to bring all those changes over to the other scene easily.
+* I also need to bring the updated XR Origin as a prefab into the Peaceful Nowhere scene so that all the changes I made tonight to the main scene are carried over to my two other scenes.
+* I still want to implement the idea of having one punch list with an interactive UI scrollbar and interactive checkboxes as opposed to the five static TMP punch lists I have now.
+* I want to do a couple more full rounds of play testing to make sure everything in this version of the project is stable and working as expected.  If it is then I can go ahead and start playing around with learning and trying the new features of the XRIT!
+* I can also start following more Justin P. Barnet, Valem Tutorials and VR With Andrew tutorials and I'll have a much easier time implementing the mechanics they show now that I have an updated XRIT that both matches what they show in their videos but also that include methods I need to be able to implement and code those features!  Starting with finishing Justin's climbing and jumping mechanics!  Yay!
+* Lastly, I want to create a new branch in my Git Hub repository to house this new updated version!  I think I might be able to muddle through this but I might also need to do some quick research.  But I definitely want to make sure I have version control on this version.  The plan is to use and develop this updated version, moving forward.  The previous 2020 with the older XRIT I'll leave at the point that it is at for historical or demonstration purposes.
+
+[2/9 1:45 AM] Way, Matt - PRE
+Some additional thoughts after having worked through this update.  
+Upgrading a project mid-way through to a new version is definitely not for the faint of heart.  
+In addition to converting the project from 2020.3.23f1 to 2021.3.11f1 I also updated XRIT from version 1.0.0-pre2 to the most recent 2.3 version.  I also updated all other plug-ins with updates while I was at it.
+
+I knew upgrading  would break a lot of things and it was interesting to me exactly what changed or broke.  
+Some things that broke were not specific to the XRIT but were layer and other Unity Editor changes that ended up causing major bugs in the project, as a result.
+
+Part of why I wanted to embark on this journey was to be able to continue to build up my demo room project while also being able to utilize and learn about the latest features.  
+
+But another piece was that I also wanted the experience of upgrading so I could better understand and speak about what this process is like.  I feel like I now have a deeper understanding of why it is recommended to not upgrade a major Unity project after having started it and that I can better speak to what the process was like to upgrade, troubleshoot and fix the resulting issues. 
+
+I recommend not upgrading unless you absolutely need to.
+
+Having both version control and a local backup are highly recommended if you feel you need to upgrade.  If all else fails you still have your original project in two other places you can  use as a reference or to revert back to if necessary.   
+
+The first time I updated and started to troubleshoot there were more bugs I had accidentally introduced that I wasn’t happy with.  So I ditched that project folder, made another copy and upgraded again.  
+Being aware of my previous pitfalls the second go at this was much easier.  But without a backup and/or multiple backups it would have been easy to get to a place where the project was in shambles. 
+I’d never attempt this on my one and only copy.
+
+If you decide you have to upgrade make sure you have plenty of time to troubleshoot and know things are going to break.
+
+Be patient with yourself and keep a level head.
+
+Play test everything in that project and take great notes of any bug (major or minor) that you see.  I also prioritized major bugs to fix first at the top and minor bugs at the bottom of my list.
+ 
+Take that list of bugs and problems to fix one item and one step at a time. 
+
+Having a good understanding of how all the Unity Editor and XRIT components work in your project and having experience troubleshooting is always very helpful.  
+
+These bug fixes weren’t a huge deal having an idea of what most likely it was that was breaking.  And almost all my theories ended up being correct, leaving most of tonight’s troubleshooting and fixes (about 3 and a half hours worth) spent implementing fixes as opposed to troubleshooting.
+
+But I I don’t think the me, a year ago, would have been able to fix all these issues nor would have necessary known what was breaking.  
+
+Without having had experience building and troubleshooting my own creations and those of others and without having known the basics if Git I could see the me of yesteryears having easily having ruined my project or getting to a point of being overwhelmed and giving up.  A year is a great amount of time for learning and personal growth. 
+
+I just wanted to share my experience here in case others who hadn’t ever experienced  updating and breaking a Unity project could see exactly what that process looks like and why updating can be a huge PITA.   :-)
+
+[2/9 11:06 PM] Way, Matt - PRE
+Trigger animation for dart gun is still intact. 
+
+Fixed brown notebook text issue.  I needed to add a white background behind each TMP layer and I needed to adjust the background and TMP Y position transform.  Glow oddly works better than black and has a neat effect look to it but it applies to all TMP for the entire scene and I don't yet know a way around that.  I turned off glow for now because that doesn't work for any of the other TMP in the room and isn't the desired effect. 
+
+I fixed the teleport anywhere depth glitch.  I needed to turn off select on hover for both raycasts as that has odd effects when using raycast for teleport (it essentially allows you to point at something and without using the grip button after a set number of seconds it activates the select so long as you continue to also touch the thumbstick.  I also needed to adjust my teleport anywhere plane height and I also discovered it's scale was way too large, allowing players to once again teleport outside the walls. 
+
+I also needed to adjust the no teleport area planes so that it covered the inside of all four walls without any gaps but also so that it wasn't longer than necessary outside the room.  The player should again be confined to the room. 
+
+I made my entire XR structure (with physics hands, character controller, the new XR Origin structure and all my locomotion components) a prefab and I loaded and deleted the old XR Rig (-- XR -- parent) structure and brought in the new -- XR -- from prefab and resaved.  So both my Gym and Peaceful Nowhere now have the new XR Origin too. 
+
+I also had to change the gold glitter reset pedestal and button to the Interaction layer for the same reason - Default no longer allows collision with the pseudo body or physics hands layers.  I'll try not to use Default except for empty parent game objects. 
+
+I also fixed the area rug position and colliders so that photos are no longer clipping through the rug. 
+
+The colliders on the bin are odd and not allowing the darts to fall into the bin.  I need to look at this. 
+
+The physics on the dart gun were weird for one time that I picked it up.  I think when I pick up the gun using distance grabbing that doesn't allow my left hand collider to disengage the same way it does with the direct interactor.  I should look into this more too. 
+
+I haven't done anything with branching Git Hub and committing this new project to the cloud.  I still need to do this. 
+
+But things are looking up.  Everything is working the way it should (and did before with the original project), outside the few minor glitches I mentioned above. 
+
+[6:59 PM] Way, Matt - PRE
+So, I did a thing this afternoon.  The rug in my CreateWithVR room can now be set on fire.  It shouldn’t have made me laugh in glee as much as it did but I admit, it is pretty fun!  
+
+This all started in the brown journal (which is another type of tutorial telling you things you can do). In it I tried to use a wry/dry sense of humor outlining the day in the life of the person inhabiting this appartment and at one point in the journal the struggling inhabitant is trying to light the candles but exclaims he almost set the rug on fire, instead.  
+
+Last summer’s students picked up on this and multiple tried to light the rug in fire.  They were disappointed that this didn’t work and insistent that this be a feature.  So, tonight that wish has come true. 
+
+I used a pyro asset that included (amongst many other types of fires) a camp fire asset that containing scripts, particle effects, lighting and sound effects.  I had to fix a bunch of the materials and shaders that didn’t work and that produced either pink or black boxes where the material wasn’t correct and/or where the shader’s clipping wasn’t correct. 
+
+I then renamed this Rug_Fire and I made this a prefab. 
+
+Next came my custom C# script that used an onCollisionEnter collision detection and a tag check to enter the innards of the if statement.  If all checks pass the script instantiates the rug fire in the location where the collision takes place.  
+
+That last piece (where the collision takes place) I had ChatGPT help me with (so I learned something new today) but the idea itself I came up with myself.  I wanted the fire to instantiate because it needed to start the fire where the lighter hit the rug.  This I attached to the rug so that the rug is the only thing they can set on fire.
+
+I then had to troubleshoot why the collision wasn’t occurring and I realized that when the lighter moves the flame also moves which also means the capsule collider for the flame moves.  
+
+When the lighter is fully upside down the flame and collider are also up and towards the player and this was due to a Unity script on that flame object called face the camera.  
+
+I discovered this by moving the lighter and observing the flame move.  I then paused and looked at the scene view (while paused) to expose and see what the collider was also doing).
+
+I could disable this Unity Script (and that keeps my flame’s rotation from changing at all, but in doing so the flame looks very 2D in a 3D world.  Apparently Unity’s methodology of making the flame look 3D was to rotate that flame according to the parent object.  Making a 2D sprite look 3D without this script is on my to-do list now.  So is learning how to make my own flame/fire particle effect with a script that makes that fire spread.
+
+It is the flame that has the lighter tag and it is the lighter tag that allows the candles to be lit (that tag check can only happen when the red-flame game object is an active game object and you can only activate the red flame game object when activating the lighter by pressing the trigger button on the controller.  So in essence you can only light the candles when the flame is showing on the lighter, never without. 
+
+But in the case of the rug, when the face camera script on the flame is active, that collider moves the opposite way and as a result it is the lighter itself that collides with the rug.
+
+So to work around this I wrote a second script that temporarily adds the Lighter tag to the lighter and I assigned the events that this tag be assigned on Activate and unassigned (tag made Unassigned) on Deactivate.  This way the lighter only has the correct tag when the flame is also exposed.
+
+[7:03 PM] Way, Matt - PRE
+I also set an OnDestroy on the flames so they extinguish after five seconds.  Same script as with the darts and staples.  But so long as you touch the rug in multiple places you can essentially set the rug ablaze and that’s kind of fun.  Just don’t expect the whole room to catch on fire.   
+
+I think I’ll also change this to a collision tag check with the rug to assign and unassign that tag to the lighter because when the lighter has the Lighter tag assigned hitting the side of the candle with the lighter body lights the candle and that is a pretty unrealistic effect.
+
+[7:25 PM] Way, Matt - PRE
+OK, that change has been made and is working well.  The tag is now only set when a collision between the lighter and the floor takes place and it sets that tag back to Unassigned when the lighter has been selected (picked up), deselected (dropped) or whenever the trigger has been deselected (Deactivate), just to make sure that tag doesn't stick around any longer than it needs to -- as it's only function is to make sure the lighter itself can aide in lighting the rug on fire (since the red flame isn't positioned to do so easily when pointed straight down).  
+
+[11:25 PM] Way, Matt - PRE
+I ended up changing/optimizing some of my code and running down a bug in my LighterSetTag.cs script, that was causing the lighter to inherit the Lighter tag, when conditions weren't being met and then a second bug that popped up in which the lighter wasn't being set back to Untagged afterwards.   took a chuck out of the evening, but I got it figured out by 10:43 PM and everything is working now. I probably over-engineered that with an OnSelectExit, OnSelectExitLast and onDeactivate all setting that tag back to Untagged.  Basically an event for every occasion.  But it works.  So I'm stepping away. I'm not so sure it's an eloquent solution any more.  I think in the end I can clean up some of that code (I don't think the OnCollisionExit is currently doing what I wanted it to do).  And I think I can also get rid of OnSelectExit as OnSelectExit seems to be doing the job.  But those are minor cleanup pieces.  I'm also getting some nullpointer errors and I'm not sure if that is the Pyro script or memory issues.  The Pyro script is also throwing its own errors about layers being out of bounds but I don't feel like debugging their scripts at the moment.   That'll be something for another day. In the mean time, they can have fun lighting the rug on fire to until their little hearts are content.   Here is the code involved with today's little project: using UnityEngine; public class InstantiateOnCollision : MonoBehaviour
+{
+    public GameObject prefabToInstantiate;     private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Tag match: " + collision.gameObject.tag);
+        if (collision.gameObject.tag == "Lighter")
+        {
+            foreach (ContactPoint contact in collision.contacts)
+            {
+                Instantiate(prefabToInstantiate, contact.point, Quaternion.identity);
+            }
+        }
+    }
+} using UnityEngine; public class LighterSetTag : MonoBehaviour
+{
+    private bool isActivated = false;     public void Activated()
+    {
+        //Debug.Log("SetTheTag Method Called");
+        isActivated = true;
+        //Debug.Log("isActivated = " + isActivated);
+    }     public void Deactivated()
+    {
+        //Debug.Log("UnsetTheTag Method Called");
+        isActivated = false;
+        //Debug.Log("isActivated = " + isActivated);
+    }     private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Rug")
+        {
+            //Debug.Log("Tag match: " + collision.gameObject.tag);
+            if (isActivated == true)
+            {
+                gameObject.tag = "Lighter";
+            }
+        }
+    }     private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Rug")
+        {
+            //Debug.Log("Tag match: " + collision.gameObject.tag);
+            gameObject.tag = "Untagged";
+        }
+    }     public void JustSetTheTag()
+    {
+        gameObject.tag = "Lighter";
+    }     public void JustUnSetTheTag()
+    {
+        gameObject.tag = "Untagged";
+    }
+}
+@mattdway mattdway committed on Feb 12
