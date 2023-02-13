@@ -1,19 +1,19 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+using Unity.XR.CoreUtils;
 
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(XRRig))]
+[RequireComponent(typeof(XROrigin))]
 
 public class RoomScalePlayerControllerFix : MonoBehaviour
 {
     CharacterController _character;
-    XRRig _xrRig;
+    XROrigin _xrOrigin;
 
     // Start is called before the first frame update
     void Start()
     {
         _character = GetComponent<CharacterController>();
-        _xrRig = GetComponent<XRRig>();
+        _xrOrigin = GetComponent<XROrigin>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,9 +38,9 @@ public class RoomScalePlayerControllerFix : MonoBehaviour
 
     void FixedUpdate()
     {
-        _character.height = _xrRig.cameraInRigSpaceHeight + 0.15f;
+        _character.height = _xrOrigin.CameraInOriginSpaceHeight + 0.15f;
 
-        var centerPoint = transform.InverseTransformPoint(_xrRig.cameraGameObject.transform.position);
+        var centerPoint = transform.InverseTransformPoint(_xrOrigin.Camera.transform.position);
         _character.center = new Vector3(
         centerPoint.x,
         _character.height / 2 + _character.skinWidth, centerPoint.z);

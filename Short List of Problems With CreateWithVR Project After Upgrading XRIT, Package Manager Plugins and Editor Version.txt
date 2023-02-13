@@ -1,0 +1,67 @@
+[Sunday 10:38 PM] Way, Matt - PRE
+So here is the short list of problems I ran into after creating a copy of my current working CreateWithVR room (with all the features I've recently created included) and then re-upgrading the Unity Editor version, XRIT version and all other Project Manager plugins to their latest version. 
+
+In fairness, I'm pretty sure the broken functionality is also that I downloaded and updated the prefabs from Unity Learn's CreateWithVR For Educators page.  Some of those prefabs had scripts or other modifications that I essentially wrote over.  
+
+I was able to fix all the locomotion issues except for one problem with the raycast depth for teleport anywhere and also my tiny height (my head is slightly taller than the couch cushions when walking) with the new XR Origin game object.  So that's good. 
+
+This is all a copy of my project (not my original) so I can either copy back those prefabs and see if that fixes the issues with things like the stapler, polaroid camera, dart gun, etc. or I can delete that folder, make another copy, upgrade everything again and then fix all the set up and locomotion/turning settings again.  
+
+Probably will try the first one, as that'd be the least amount of work. 
+
+Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1:  
+
+* Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* XR Origin height waaay too short once moved from original location.  Nearly crawling on ground.
+* Door handle not interactable
+* Door button not working
+* Consumable eaten portion of food not facing towards player (watermelon, maybe others too)
+* Some objects don't have distance grab enacted
+* Cheat system not functioning (not moving with main camera).  Can't find script for this
+* Staples hanging in midair (gravity or kinematic), like Matrix.  There is no velocity on those objects now.  Also no destroy script.  Count on dart gun also no longer subtracting
+* Dart gun darts hanging in midair (gravity or kinematic), like Matrix.  There is no velocity on those objects now.  Also no destroy script.  Count on dart gun also no longer subtracting
+* Polaroid decoupling script no longer working  
+* All screens are faded/red (TV, tablet, laptop screen) when playing video
+* Tablet no longer plays random video/only the one with activate
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result
+* Red wax apple has no collider/grab interactable
+* Hat sockets for head not working
+* Hat physics caused me to be propelled outside room
+* Brown book physics acting sort of funny when in hand (wants to constantly turn/rotate in the direction of the motor for the cover)
+
+[Sunday 10:54 PM] Way, Matt - PRE
+Copied my original _prefabs folder back in and this is my list now: 
+
+Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1: 
+
+* Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* XR Origin height waaay too short once moved from original location.  Nearly crawling on ground.
+* Door button not working
+* Some objects don't have distance grab enacted
+* Cheat system not functioning (not moving with main camera).  Can't find script for this
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result
+* Red wax apple has no collider/grab interactable
+* Hat sockets for head questionable.  Need more testing after getting to correct height via XR Origin
+* Hat physics caused me to be propelled outside room
+* Brown book physics OK now but TMP text is fading in and out depending on angle* Magnifying glass physics not right (causing the entire magnifying glass to jitter and turn 
+
+[Sunday 11:35 PM] Way, Matt - PRE
+Last update for tonight.  I got the XR origin height fixed and I also got the anti-cheat script updated (it had references to the old, replaced, XR Rig game object, which is partly why it wasn't working).  
+This script was also not attached to my new XR Origin game object, which is the other reason why this wasn't working.  I updated all the references to XR Rig (and some of the methods for camera height and positioning, which changed between these two) and attached and that is working now. 
+
+Things to Fix in Upgraded XRIT CreateWithVR Project to the latest XRIT along with other Project Manager plugins to their latest versions, and converting the project to open in Unity Editor 2021.3.11f1: 
+
+* Teleport Anywhere raycast slightly too long -- have to pull back hand to get distance where reticle shows up
+* Door button not working (see next item in list)
+* Door collider to prevent leaning into and breaking door not working correctly.  I'd guess none of the three door colliders are in their correct locations.  This would also explain why the door button isn't working
+* Some objects don't have distance grab enacted/distance grabbing isn't working for all objects
+* Could maybe adjust consumable food game object orientation slightly to make the eating feel more realistic 
+* No sockets for books at bottom of TV cabinet (Not sure if I kept these under the cabinet.  Will have to check my other project to see)
+* Watering can collides with leaves.  Can't tilt watering can/water plant as a result (physics collision issue in the physic matrix)
+* Red wax apple has no collider/grab interactable
+* Hat sockets for head questionable.  Need more testing after getting to correct height via XR Origin
+* Hat physics caused me to be propelled outside room (probably a physics collision issue in the physics matrix)
+* Brown book physics OK now but TMP text is fading in and out depending on angle (probably a physics collision issue in the physics matrix)* Magnifying glass physics not right (causing the entire magnifying glass to jitter and turn (probably a physics collision issue in the physics matrix)
+* I also need to go into the Gym scene so that I can replicate any changes there.  Probably I'll make my XR Origin a prefab to bring all those changes over to the other scene easily.

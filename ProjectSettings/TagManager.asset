@@ -14,6 +14,10 @@ TagManager:
   - Floor
   - Laptop Screen
   - Hand
+  - Fire
+  - Trail
+  - Box
+  - Rug
   layers:
   - Default
   - TransparentFX
