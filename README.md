@@ -1465,3 +1465,116 @@ I ended up changing/optimizing some of my code and running down a bug in my Ligh
     }
 }
 @mattdway mattdway committed on Feb 12
+
+02-16-23 v3.0.1 Commit
+
+I noticed in a 02-15-23 playthrough and video recording that the ghost hands were no longer rendering on top of all other objects but behind (per the default). This was a bug introduced in the 2021 and Project Manager plugins update that I missed before.  Tonight I fixed this and because I hadn't properly documented how I set this up before, I'm doing so now so that I have a record of what to do the next time I need to make this custom renderer customization.
+
+[12:06 AM] Way, Matt - PRE
+I found another bug playing through last night.  My ghost hands are no longer on top of everything like they were.  So I watched part of the Valem Tutorial video where he set this up, verified everything in mine matches his and I remember that was a tricky one to set up.
+
+Then I looked up ForwardRender in the Unity After Hours Club chat in Teams.  Found this:
+[11/17/2022 12:07 AM] Way, Matt - PRE
+Dev Log, Devdate 43779.3. 
+With only 20 minutes tonight I wasn’t able to get more than the first part of the script written 
+- That is supposed to make the ghost physical hands appear whenever the controllers get to be a certain distance away from the VR physics hands that were stopped by hitting a collider. However, while the script has no errors, a link box (per an exposed variable) that has the renderer objects linked - 
+Those ghost hands aren’t yet showing up. 
+
+I also got stuck on a ForwardRenderer component I could’t find in my Projects Pane, despite having URP game objects. There is a link in his description to a Brackey video that explains this concept better and a possible other way of doing this. This renderer is meant to always force an object to the forefront. In this case the ghost hands should always be in front and not clipping through the object. 
+
+So I have more homework to do here. 
+
+In this same video will also be code to fix the hand grabbing (which is near impossible currently) by turning off and on the colliders. I don’t have that code typed yet but I plan to add it soon. 
+
+So in the last little bit I fixed the clipping outside the room problem (in which teleporting into an object close to a wall collider can sometimes push you outside that collider and the room, where you then fall. 
+
+By creating no teleport plane that I made the same size as the furniture and plant by the window and by setting it slightly above the teleport anywhere plane by about .01 I was able to create a blocked area where teleportation can’t happen. This is neater and easier than trying to shrink the teleport anywhere plane as there are still areas by the window I want people to be able to get to. 
+
+I also duplicated this no teleport plane and positioned it under the desk and table with the food. Essentially any opportunity to teleport under/into an object and/or an object near s collider wall I want to eliminate as a teleport anywhere area. 
+
+Thus no teleporting outside the room (hopefully). 
+
+I also organized my hands, hands controllers and hand rays into child objects of parent objects for neatness and organization sake. 
+
+[11/17/2022 8:47 PM] Way, Matt - PRE
+I'm not all the way through the second physics hand video yet but I did "unlock an achievement" tonight. Rather, a personal goal which was to get the ghost hands working. I also had to watch part of a Brackley video (linked by Valem) to understand how custom shaders and custom renders work in Unity Editor - but once I understood that I was able to use it to override and make my ghost hands always appear on top! Yay!
+
+So while I don't have the solution listed there I guess I'm off to rewatch that Brackley video again.
+
+[12:12 AM] Way, Matt - PRE
+
+Got the ghost hands fixed.  Brackey's videos are so well explained.  I'd love for him to come back and continue doing more modern Unity Editor videos, just because his current videos will soon become out of date and that'd be a shame.  But hopefully he's doing lots of cool stuff.
+ 
+https://www.youtube.com/watch?v=szsWx9IQVDI&t=0s
+ 
+So everything is set up correctly with my CustomForwardRendererData settings under Assets > Settings and all the below settings are still correct in the 2021 version of Unity Editor, so that's great.
+ 
+Filtering:
+Opaque Layer Mask: Everything
+Transparent Layer Mask: Mixed... (Everything selected and then uncheck Non-Physics Hand Layer).
+ 
+Rendering:
+Rendering Path: Forward (default)
+    Depth Printing Mode: Disabled (default)
+    Depth Texture Mode: After Opaques (default)
+ 
+RenderPass:
+Native RenderPass: unchecked (default)
+ 
+Shadows:
+Transparent Receive Shadows: checked (default)
+ 
+Post-processing:
+Enabled: checked (default)
+Data: PostProcessData (Post Process Data) (default)
+ 
+Overrides:
+Stencil: unchecked (default)
+ 
+Compatibility:
+Intermediate Texture: Always (default)
+ 
+Renderer Features:
+ 
+(Add Renderer Feature button at the bottom of the Inspector window > Renderer Objects (Experimental)
+ 
+Name: HolographicHands (descriptive name I gave)
+Event: AfterRenderingOpaques (default)
+ 
+Filters:
+Queue: Transparent (I set)
+Layer Mask: Non-Physics Hand Layer (I set)
+LightMode Tags: List is Empty (default)
+ 
+Overrides:
+Material: Holographic Blue (I selected from the selection box -- this is the material used for the ghost hands)
+Depth: checked (I checked)
+Depth Test: Greater (I selected)
+Stencil: unchecked (default)
+Camera: unchecked (default)
+ 
+So the part that I needed to change tonight to fix the ghost hands depth (so that these always appear in front of all object and not behind when they appear) came from Brackey's video at the 1:35 mark (https://youtu.be/szsWx9IQVDI?t=95)  Essentially I needed to find the correct Pipeline Asset setting file in Assets > Settings and I needed to set that to my CustomForwardRenderData (Universal Renderer Data) setting file.
+ 
+But what Brackley shows in his video isn't correct for more modern versions of Unity (when he made this video 3 years ago he was using Unity 2019.1.0b9) and he also installed the "Lightweight Pipeline Asset" (where as I am using Unity 2021.3.11f1 and the URP - Universal Renderer Pipeline, at least I had thought -- I'm using the starter files that Unity provided so I didn't set this project up completely from scratch myself).  
+ 
+So I have multiple different PipelineAsset setting files in Assets > Settings:
+ 
+Hight_PipelineAsset
+Low_PipelineAsset
+Medium_PipelineAsset
+Ultra_PipelineAsset
+UniversalRenderPipelineAsset
+Very High_PipelineAsset
+Very Low_PipelineAsset
+ 
+I wasn't sure which to use so I experimented and first set all of these to CustomForwardRenderData (Universal Renderer Data) and tested and the problem was fixed.  
+ 
+I'd guessed that it would be the 
+UniversalRenderPipelineAsset that was the correct settings file for my renderer type but I was wrong.  I went back and set these one at a time and tested between each change and it was this way that I discovered it was t ended up being the Ultra_PipelineAsset that needed to be pointed to the CustomForwardRenderData (Universal Renderer Data) renderer setting file in order to enact the correct depth changes.
+ 
+As Brackley explains this removes the Non-Physics Hand Layer from the renderer and then it adds these characters back in using this renderer feature.  We then set a depth and material override (using that Non-Physics Hands layer).  I set the same material (so really no changes there but I could choose a different material/shader if I wanted) and I set the depth to greater to make sure the override makes sure the Non-Physics Hands layer always renders in front of all other layers.
+ 
+Lastly, the specific type of setting the CustomForwardRender is, is that this is a "Universal Render Data" file.  However, when I single right-click on the Settings folder in the Project window and I hover over Create I don't see this type of file creation in any of the contextual menus or sub-menus (including under Create > Rendering..., which is where I would expect to find this).  I don't recall how I came to create my Universal Renderer Data file in the first place (as it's been too long now) but if I were to guess I'd say I maybe duplicated on of the other files that had the name PipelineAsset_ForwardRenderer and then renamed it.
+ 
+But problem solved with the ghost hands rendering behind other objects when they appear.  They again appear in front of everything else and all it took was finding the correct PipelineAsset file and pointing it to my CustomForwardRenderData file again and making sure that my layer information was updated and correct in that file.  Yay!
+@mattdway mattdway committed on Feb 16
