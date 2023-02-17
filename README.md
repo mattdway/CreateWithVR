@@ -1578,3 +1578,27 @@ Lastly, the specific type of setting the CustomForwardRender is, is that this is
  
 But problem solved with the ghost hands rendering behind other objects when they appear.  They again appear in front of everything else and all it took was finding the correct PipelineAsset file and pointing it to my CustomForwardRenderData file again and making sure that my layer information was updated and correct in that file.  Yay!
 @mattdway mattdway committed on Feb 16
+
+02-18-23 v3.0.2 Commit
+* I fixed the Welcome board's HTC Vive Controller Diagram and Oculus Touch Controller Diagram by moving back the Z axis on the parent Welcome_Controller Diagrams game object and my changing the color's alpha value of each of the individual diagram game objects to 90.  This gave the effect of making the diagrams look like they were one with the main board and not a seperate board in front.  It also allows the window and sunset to be seen through the semi-transparent background of the diagrams rather than being straight black (whereas the rest of the welcome board was already transparent).
+
+I also created empty parent game objects called HTC Vive Controller Diagram and Oculus Touch Controller Diagram.  I moved the individual diagrams into these empty parent and then duplicated twice.  This gave the entire diagram more of a bold look that made it easier to see (especially with the alpha value changed).
+
+I changed the Asset > Settings > CustomForwardRendererData Depth Test (under Overrides) from Greater to Always so that the ghost hands also appear when pushing through the window.  This still acts strangely when pushing through the punch lists (which are UIs) but for everything else in the room the ghost hands appear perfectly in front of everything else.
+
+I played around with different override settings to try and fix the ghost hands appearing behind the punchlists but none of those changes made a difference, so this remains a bug for right now. I had briefly thought maybe it's the sockets my hands collide with that cause this to happen but moving the punch list my ghost hands to render above the wall and socket.  I'm not sure if there is a fix for this or what that might be.
+
+I ran into a bug play testing tonight where continuous motion didn't engage.  But I didn't pay attention to what I had done prior to that bug that might have contributed to this happening.  But I do have video footage I can go back and watch.  When I reset the room this engaged and worked again.  So I'm not sure if it's a one off issue or if there was maybe a sequence of checking other items that didn't engage that turn motion provider.  
+
+I fixed the colliders for the fireplace and I turned off Convex for its mesh collider so that the physics hands no longer clip through either the fireplace nor the pipe. This once again contains the sparks within the fireplace.
+
+The door motor didn't engage at one point but I'm not sure if that was because the door stopped before hitting that collider or if it was a bug.  I'll need to do more play testing to determine.  I trested this some more, I removed the second box collider on this came object, which was in error and I adjusted the position of that collider.  It takes a second to disenage the motors but I believe this is working correctly. I don't know if my code can be optimized to disengage these sooner but I'll take a look at that.  It's a bug for now.
+
+I readjusted the attach transform for my watermelon so that the first bite is directly in front of my face (not on top and slightly behind).  This looks much better now.
+
+The dynamic shadows are looking rough around the remote, game controllers and lamp (which should be marked as static anyway) and those need to be fixed via an update to my light map. 
+
+The bottle clipping through the floor is still an issue and needs to be solved, if at all possible.
+
+That's all for tonight.
+@mattdway mattdway committed on Feb 18

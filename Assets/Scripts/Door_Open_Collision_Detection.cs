@@ -8,21 +8,21 @@ public class Door_Open_Collision_Detection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Disable_Room_Door_Collider Trigger Entered");
+        Debug.Log("Disable_Room_Door_Collider Trigger Entered");
         if (other.gameObject.tag == "DoorHandle")
         {
             doorOpen = true;
-            //Debug.Log("We have collision! doorOpen Bool set to true");
+            Debug.Log("We have collision! doorOpen Bool set to true");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        //Debug.Log("Disable_Room_Door_Collider Trigger Exited");
+        Debug.Log("Disable_Room_Door_Collider Trigger Exited");
         if (other.gameObject.tag == "DoorHandle")
         {
             doorOpen = false;
-            //Debug.Log("Leaving collision! doorOpen Bool set to false");
+            Debug.Log("Leaving collision! doorOpen Bool set to false");
         }
     }
 }

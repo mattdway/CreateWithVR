@@ -48,7 +48,7 @@ MonoBehaviour:
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
   m_RenderingMode: 0
-  m_DepthPrimingMode: 0
+  m_DepthPrimingMode: 1
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_ClusteredRendering: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
     overrideMaterial: {fileID: 2100000, guid: 6848b505d4cc44a40b9b1b2eadf0d72a, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 1
-    depthCompareFunction: 5
+    depthCompareFunction: 7
     enableWrite: 1
     stencilSettings:
       overrideStencilState: 0
@@ -92,4 +92,4 @@ MonoBehaviour:
       overrideCamera: 0
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
-      cameraFieldOfView: 60
+      cameraFieldOfView: 65
