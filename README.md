@@ -1,4 +1,4 @@
-﻿06-11-22	v1.0.0
+06-11-22	v1.0.0
 Initial commit
  main
 @mattdway
@@ -330,6 +330,16 @@ I also made my Projectiles parent object a prefab so that my custom dart gun and
 @mattdway
 mattdway committed on Dec 18
 
+12-18-22 v2.5.4
+12-18-22 Commit
+Fixed left physics hand flipping when rotated issue.
+Fixed hands jittering when walking issue.
+Colliders may no longer be disabling when picking up an item on opposite hand.  Need to check on this tomorrow.
+Troubleshot XR Rig (head) when leaning into door causing the door to push against its hinges issue but I came to no definite conclusions or solutions.  The catalyst seems to be both the Player Controller and/or either my consumer game object or my head socket or all three.  I tried modifying my pushback script to push back more aggressively when colliding with any object with the tag of door, but this did not solve the issue.
+I also archived the handAnim.cs script by Oculus as I am not using this in my project.
+@mattdway
+mattdway committed on Dec 18
+
 12-20-22 v2.5.5
 12-20-22 Commit
 Bug fixes.
@@ -396,57 +406,39 @@ mattdway committed on Dec 23
 
 On 12-23-22 I came up with a solution for the front door physics and being able to lean into the door.  What I ended up doing was I duplicated the door and I removed everything except for the collider from that object.  I then moved that in front of the actual door and I resized it slightly to be a little wider and a little deeper than the door.  I then set its tag to Wall and its layer to Room.  This made it so that when I lean into this new collider in front of the door, I am repelled using the same pushback code that I have for all the other walls.  Note that setting the door with this tag and layer was tested and didn't work.  The physics between my pseudo body and the hinges didn't allow the code to push back.
  
-
 I then set up a collider that filled the space from when the door is half open to all the way open with a script I write that checks for OnCollisionEnter.  When entered, and if the tag match is DoorHandle, the collider is disabled.  When exited, and if the tag match is DoorHandle, the collider is re-enabled. 
  
-
 This collider's depth and width prevents not only leaning into the door to push and break the hinges open (causing janky physics as your head pushes against the door) but it also prevents the door knob from going crazy when pushing against it.  Locking the position and rotation of the door handle wasn't a solution because of how the physics of the door handle and door interact with one another to open the door (the only way around that would be to script a hidden object you pull on instead of the door handle to open the door).  
  
-
 Note that because your hands can go through this new collider you can still open the door with your hand grabbing the handle, in addition to pressing the button.  What this collider does is it stops your pseudo body from colliding with the door (especially when leaning forward) causing adverse physics interactions that cause the hinge joints to rubber band and to eventually break from the physics.  
  
-
 I also added a hidden cube with a collider and rigidbody to the back of the chairs just to give these chair backs physics.  It doesn't serve any purpose except to give these chairs more of a physical presence in the room to go with the physics hands.
  
-
 I am thinking I may use the collider idea with a public variable to determine if the door is open or closed.  This would allow me to be able to set a bool variable in my door button that detects the initial state of the door when pressing the button which could then close the door immediately if physically opened by hand.  
  
-
 I added a collision game object that collides with the door handle when the door is all the way open.  This triggers a script that sets a public bool doorOpen to from false to true.  When the door handle exits this collider it changes that book from true to false.
  
-
 I then modified my motorized front door script to read that public bool from the other script and to react in two ways.
  
-
 1.) My motorized front door script now uses that bool to determine the opening state of the door.  If open the button closes the door first.  If closed the button opens the door first.  If the door is partially open the bool still reads as closed and it opens the door fully upon press.  No longer does a Door button press ever result in trying to open the door while already open or to close the door when already closed, resulting in what looks like nothing happening when the button is pressed.
  
-
-2.) I added a coroutine to my motorized front door script and that script now waits 25 seconds for the door to fully open or close then it shuts off the motors of all three hinge joints.  This way when the button is used to either open or close the door, the user can manually adjust the door using the door knob without having the motor change that state afterwards.  Before the motor checkboxes were still checked after pressing the button and were never unchecked after the desired open or close action had completed.
+2.) I added a coroutine to my motorized front door script and that script now waits 25 seconds for the door to fully open or close then it shuts off the motors of all three hinge joints.  This way when the button is used to either open or close the door, the user can manually adjust the door using the door nob without having the motor change that state afterwards.  Before the motor checkboxes were still checked after pressing the button and were never unchecked after the desired open or close action had completed.
  
-
 At some point I may learn what property of the angular velocity can help determine if the motor is currently in motion or not and to use that (instead of a set wait time) to turn off the motors.  But for now waiting 25 seconds seems to give the motor enough time to complete (even if pressed multiple times in a row) before turning off the motors and seems OK (at least on my home gaming rig I play tested on).
  
-
 So the door and the Door button both seem to be working as expected now.
  
-
 Up next to fix:
  
-
 Physics hands and putting in a bool variable to prevent the collisions from reenacting when dropping and picking something up quickly in succession. 
  
-
 Figuring out why the whiteboard eraser is not detecting that it is touching the whiteboard, thus not erasing properly.
-
 
 Thin items like photos from the polaroid camera and my punch list sheets are still sometimes getting stuck under the floor and I need to troubleshoot that more.  
 
-
 I still need to add the version number to the opening Welcome (tutorial) board so that it's easier to see the version number and the last commit date of the version being run.
  
-
 If I get that working I feel like I have a lot of the bug pieces in my room fixed.  I'll have to go back to my bug list to check to be sure, but off the top of my head there aren't any others that are coming to mind that I need to fix.
-
 @mattdway
 mattdway committed on Dec 24
 
@@ -658,20 +650,19 @@ Now there are no colliders in the middle of the room and my Door button correctl
  
 I fixed the "Matt's Photos" red pushpin that was stretched to unrealistic proportions to make this look more like the object it is, a pushpin.
  
-I double checked the Bon Apatite sign to make sure this was readable (I had apparently fixed this prior to my 12-30-22 commit (by making this text larger and making sure it wasn't stretched via the scale and adjusting the font color and font properties), but I couldn't find mention of this in my previous log, so I might have forgotten to note that previous change.
+I double checked the Bon Apatite sign to make sure this was readable (I had apparently fixed this prior to my 12-30-22 commit by making this text larger and making sure it wasn't stretched via the scale and adjusting the font color and font properties), but I couldn't find mention of this in my previous log, so I might have forgotten to note that previous change.
  
 I play tested as much as I could in the room and eveyrthing so far is looking pretty good.  I'll play test some more tomorrow before commiting this new version to GitHub.  I want to try and make sure any other known bugs have been addressed before pushing to the cloud.
  
 That's it for tonight.
 
-I added random sounds to my Dalek figure, just because I could. :-D  I added random sounds to my Dalek figure, just because I could. :-D  When you pick up the Dalek and activate (press the trigger on the VR controller) a random Dalek clip plays (out of ten total).  I was going to write my own script to play random sounds but Unity had included their own in the CreateWithVR course so I just ended up using it instead.
+I added random sounds to my Dalek figure, just because I could. :-D  When you pick up the Dalek and activate (press the trigger on the VR controller) a random Dalek clip plays (out of ten total).  I was going to write my own script to play random sounds but Unity had included their own in the CreateWithVR course so I just ended up using it instead.
 
 Everything looks good!
  
 Door and Door button are working correctly, my two three colliders are working correctly.  
  
 I fixed the attach transform for the dart gun (as it was being picked up and pushed/clipping through where the body would be and tilted upward.  I changed this so it's straight and away from the body.  
- 
 I added an attach transform to the Dalek so that when you pick it up, it's facing you.  Pressing the trigger button plays a random clip of about 10.  
  
 I fixed the magnifying glass so that it now magnifies either direction.  There's an attach transform on it so you have to sort of bend your wrist to see the other side but before it was like a mirror (showing what was behind you) on the backside instead of being identical to the front side.  I also fixed the magnification so that it magnified more without clipping through the wall and showing outside the room.
@@ -1091,7 +1082,7 @@ If I get that working I feel like I have a lot of the bug pieces for all the cur
 Something I started to dig into was a climbing mechanic and I've created a duplicate scene of my room, I scaled it up to make it larger, I rebaked the lighting (using the MegaSun Eviorment, which gave the entire room a very cool, soothing, golden glow. I removed all the furniture and other interactables keeping only the overhead lighting and the mirror and I added a vertical ladder, horizontal ladder (across the ceiling) a climbing poll and a rock climbing wall on the east window made of different shapes and colors.  However, in writing the script I realized that my version of XRIT for this room is not new enough to contain a namespace and methods needed to create a climbing anchor and it doesn't appeear that there was a different method avaialable before.  So to proceed I'm going to have to puzzle out how to upgrade XRIT and all other Project Manager plugins and to fix all errors that occur in upgrading, before building a climbing mechanism will be possible.  This is something on my short list of things to learn sooner rather than later.
 @mattdway mattdway committed on Feb 01
 
-02-02-23 v2.11.2 02-01-23 Commit
+02-02-23 v2.11.2 Commit
 I added scripts and logic for my bottle flip challenge.
 
 using UnityEngine; public class BottleFlipChallengeWin : MonoBehaviour
@@ -1602,3 +1593,154 @@ The bottle clipping through the floor is still an issue and needs to be solved, 
 
 That's all for tonight.
 @mattdway mattdway committed on Feb 18
+
+02-27-23 v3.1.1 Commit
+[2/18 12:53 AM] Way, Matt - PRE
+To fix tomorrow: Scene Fader errorLaptop Screen/HandLightmap Shadows by TV (make lamp static.  Troubleshoot other shadow issues for game controllers and remote.Whiteboard Accessory Sockets Not Working Yet Fixed Tonight: Replaced all 1.0.0-pre6 input actions with 2.3.0-pre1 input actions and remapped everything missing.  This was causing major errors when any locomotion was engaged and/or when turning these components on and off using the Welcome Board UI.  Once this is in place I'll add poke to my punch lists as well as a scrollbar and interactable checkboxes.  Then I'll be able to reduce my five punch lists down to just one. Fixed no teleport areas around the outside of the room to be a little bit larger, so that they protruded into the room more.  I play tested and made sure that I can't partially or fully clip into any furniture around the room (media cabinet, fireplace, couch, cabinets, plant, chairs, glass table, chest by mirror). I moved the two mats by the punch lists so that they were away from the wall more.  Before it teleported me uncomfortably close to that wall. I added a bunch more no teleport areas to the room so that it's now impossible to teleport into any furniture around the room while using the Teleport Anywhere mode of transportation. I added a poke zone to my whiteboard marker color changer UI.  Need to fix (broke after remapping) and I need to continue to adjust these settings and play test to get the correct feel to this.  The poke is a new 2.3.0 feature that allows users to use VR hands to interact with UI objects directly, in addition to using the ray cast. I turned off the scene fader as that was causing all sorts of null exception errors on reload.  Will have to troubleshoot and fix that. Still need to circle back to the pyro fire script and to fix the layers error there (even though it's not my script it is producing stop errors in my scene. No longer ramping up when by media cabinet.  Not sure what I collided with before. Troubleshoot and fix the script and/or collider taking 2-5 seconds to disable the motor on the three hinges issue.
+
+2/19 9:19 PM
+Way, Matt - PRE
+2/18/2023 12:53 AM
+To fix tomorrow: Scene Fader errorLaptop Screen/HandLightmap Shadows by TV (make lamp static. Troubleshoot other shadow issues for game controllers and remote.Whiteboard Accessory Sockets Not Working Yet Fixed Tonight: Replaced all 1.0.0-pre6 input actions with 2.3.0-pre1 input actions and remappe…
+Mostly worked on getting my sockets for the whiteboard working correctly.  But in the end I decided this didn't make much sense.  The shape and orientation of each accessory is different and the rotate transform isn't the same across those three objects.  Which means I'd be snapping them into one specific spot on the tray (not very interchangeable) and the other locations on the tray wouldn't have a collider at all.  While I could have tried to come up with a creative to get around that -- the amount of gain for the amount of work wasn't worth it.  My tray has a lip collider that prevents items from falling off.  I was mostly interested in getting this to snap with a socket to prevent accidently using physics to knock things to the floor when grabbing something else.  
+
+ 
+
+The odd snapping orientation and position pretty much was because I was trying to create one game object with a socket and a game object called attach and then copy paste/reuse and modify it.  It worked much better to create these game objects with the socket one by one.  I could adjust, specifically, the Attach game object's position and rotation transform these while the game was running in the Scene view.  I could then copy that component before stopping game mode and I could paste Component Values to replace the previous values, after the game had stopped.
+
+ 
+
+This error wasn't coming from the Scene Fader script, I found out.  I think it may have been coming from the XRInteractor script and having to do with an interaction layer no longer set.  At least so far this error is no longer triggering.  We'll see if that holds.
+
+ 
+
+Assertion failed on expression: 't.GetParent() == nullptr' 0x00007ff6d61e368d (Unity) 0x00007ff6d61ea369 (Unity) 0x00007ff6d715b683 (Unity) 0x00007ff6d77f947d (Unity) 0x00007ff6d77f91a2 (Unity) 0x00007ff6d5db63da (Unity) 0x00007ff6d6ff19e1 (Unity) 0x00007ff6d6cff50f (Unity) 0x00007ff6d6d0ef41 (Unity) 0x00007ff6d6d122cd (Unity) 0x00007ff6d716181a (Unity) 0x00007ff6d71660cb (Unity) 0x00007ff6d850533e (Unity) 0x00007ffc06e87614 (KERNEL32) BaseThreadInitThunk 0x00007ffc081226a1 (ntdll) RtlUserThreadStart
+
+ 
+
+The laptop/hand idea was simply that I was thinking about making it so that the screen could be punched. But, I decided against it.  With the collider in place picking up the laptop by the top cover would count as a collision.  Also, I decided that was a little obvious.  I like the idea that those playing will have to think through the solution rather than have it thrust upon them.  Some may not find the solution and that is also humorous.  I hope they really like the Never Gonna Give You Up song, in that case, then.  😄
+
+But really the idea is that I want this to be discovery through trying lots of potentially different things in the same way that Job Simulator did this -- minus the hundreds of YouTubers who did play throughs and showed us what to do.  
+
+The lightmap I still need to fix.  I'm back... by Way, Matt - PRE
+
+Way, Matt - PRE2/19 9:20 PM
+The lightmap I still need to fix.  I'm back to trying to get current bugs I've run across fixed before trying to add a bunch new to it so that this remains a stable project without a bunch of bugs, lag/low FPS or problems.
+
+[2/23 12:10 AM] Way, Matt - PRE
+For the door collider issue ChatGPT kept telling me two items were using the same collider and I couldn’t fathom how that could be.  I knew it was the door handle causing that issue and I looked and the handle has a box collider and the door has a box collider.  The door handle is attached to the door and I also had Grab Interactables on both the door and handle and when I went into play kode under the collider section I could see two colliders auto populating in the XR Grab Interactable section.  
+So, instead of letting Unity auto populate these I explicitly set in the XR Grab Interactable that the door handle should use the door handle box collider and that the door should use the door box collider.  That solved the warning about unexpected behavior having two game objects use the same colliders.
+
+[2/25 2:04 AM] Way, Matt - PRE
+I wrote a script that changed the y rotation of my record player handle so that it moves automatically across the record as the song plays and then resets that record player handle back to the default y rotation when the song is over.   It does this by setting the transform.rotation value and it looks at a duration time (which is just how I'm setting the speed in which the record player handle moves across the record so that the handle reaches the middle of the record at the same time the song is ending) and it is looking at the eulerAngle value of the handle to determine when the song is over.  This is all keyed specifically to the song playing rather than dynamically based on the song length.  I'd need to research to see if Unity Editor can get the length of a sound file through C# or not if I wanted to update this to determine those values dynamically.  Rather than use math to figure out the angle I just used a the debug.log to output the angle to the console every frame as it rotated that game object on the Y position.  I could then see what the eulerAngle was of that handle when the song ended.  I then used an if statement to break the loop when that value was no longer less than. I also added a public bool variable and tomorrow I'm going to take that variable, feed it into the platter rotation script so that when the songOver bool variable is true, that script no longer runs the method that rotates the record.  This will allow me to stop the record spinning when the song ends, as well.  Hopefully completing the effect that the record player is playing (spinning record, moving handle) and when the song is over the record is not no longer spinning and the arm is still and back at it's starting position again. using System.Collections;
+using System.Collections.Generic;
+using UnityEngine; public class Record_Handle_Move : MonoBehaviour
+{
+    public bool songOver = false;     // Start is called before the first frame update
+    void Start()
+    {
+        // Start the coroutine to rotate the object to the desired end rotation
+        StartCoroutine(RotateObject(new Vector3(0, 68.0f, 0), 300));
+    }     // Define the coroutine to rotate the object
+    IEnumerator RotateObject(Vector3 angles, float duration)
+    {
+        // Define the starting rotation of the object
+        Quaternion startRotation = transform.rotation;         // Define the end rotation of the object based on the input angles and starting rotation
+        Quaternion endRotation = Quaternion.Euler(angles) * startRotation;         // Loop over the duration of the rotation
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            // Calculate the current rotation based on the elapsed time and duration
+            float tNormalized = t / duration;
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, tNormalized);             // Set the variable currentYRotation equal to the transform rotation of eulerAngles.y
+            float currentYRotation = transform.rotation.eulerAngles.y;
+            //Debug.Log("currentRotation = " + currentYRotation);             // Exit the loop if the exit condition is met
+            if (currentYRotation > 340.50f)
+            {
+                break;
+            }             // Wait for the next frame
+            yield return null;
+        }         // Set the Y rotation of the game object to 52.026 degrees
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 18.475f, transform.eulerAngles.z);         // Set the public variable songOver to true
+        songOver = true;
+    }
+}
+
+[2/25 2:13 AM] Way, Matt - PRE
+https://docs.unity3d.com/ScriptReference/AudioClip-length.html
+Unity - Scripting API: AudioClip.length
+
+[2/25 2:19 AM] Way, Matt - PRE
+So it looks like there is a way to read the length of an audio clip.  
+It might be a fun future project to set the speed of rotation and the angle of the handle (arm) dynamically (using math) based on the read length of the whatever audio clip is playing.  
+If I were to ever make it so you can swap records and thus swap the song playing this would be an important factor as I wouldn’t want the handle to move at a fixed rate but differently depending on how long or short the song is.
+My brain is already thinking of ways to do this.
+
+[Yesterday 12:50 AM] Way, Matt - PRE
+OK, all set.  My record player spins the record and the arm moves across the record as it spins.  When the song ends the arm transports back to its original location off the record and the record stops spinning.  The arm's duration and rotation angle are static.  The 300 duration value is right for the song being played (but not for other songs).  The angle is probably OK regardless as it simply says when the arm reaches the center part of record, don't keep rotating the arm (otherwise it's rotating through the center and to the other side and, as Carl would say, that's not how a record player works).  So really it's just the 300 that would probably need to be dynamic.   But for right now everything is working perfectly and it looks great for this song.  If this is the only song ever being played there is nothing else I'd need to do.  If I wanted this script to be sharable or if I decided to make it so players can change the song then changing this to read the audio duration and then figuring out the correct duration value to change this to would be necessary.  At the moment 300 seconds is 5 minutes.  The song itself is 1 minute and 25 seconds but if I set the duration to 75 seconds then the arm moves much too fast over the record and would reach the middle section and reset to default and stop the spinning before the song is over.  So it's not 1:1. using System.Collections;
+using System.Collections.Generic;
+using UnityEngine; public class RecordHandleMove : MonoBehaviour
+{
+    public bool songOver = false;     // Start is called before the first frame update
+    void Start()
+    {
+        // Start the coroutine to rotate the object to the desired end rotation
+        StartCoroutine(RotateObject(new Vector3(0, 68.0f, 0), 300));
+    }     // Define the coroutine to rotate the object
+    IEnumerator RotateObject(Vector3 angles, float duration)
+    {
+        // Define the starting rotation of the object
+        Quaternion startRotation = transform.rotation;         // Define the end rotation of the object based on the input angles and starting rotation
+        Quaternion endRotation = Quaternion.Euler(angles) * startRotation;         // Loop over the duration of the rotation
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            // Calculate the current rotation based on the elapsed time and duration
+            float tNormalized = t / duration;
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, tNormalized);             // Set the variable currentYRotation equal to the transform rotation of eulerAngles.y
+            float currentYRotation = transform.rotation.eulerAngles.y;
+            //Debug.Log("currentRotation = " + currentYRotation);             // Exit the loop if the exit condition is met
+            if (currentYRotation > 340.50f)
+            {
+                break;
+            }             // Wait for the next frame
+            yield return null;
+        }         // Set the Y rotation of the game object to 52.026 degrees
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y - 25.761f, transform.eulerAngles.z);         // Set the public variable songOver to true
+        songOver = true;
+    }
+} using System.Collections;
+using System.Collections.Generic;
+using UnityEngine; public class RotateGameObject : MonoBehaviour
+{
+    public Vector3 RotateAmount;
+    private RecordHandleMove _songOver;     // Start is called before the first frame update
+    void Start()
+    {
+        //Read the value of the public variable songOver from the RecordHandleMove script
+        _songOver = GameObject.Find("Speaker_RecordPlayer_Handle").GetComponent<RecordHandleMove>();
+    }     // Update is called once per frame
+    void Update()
+    {
+        //Debug.Log("_songOver.songOver = " + _songOver.songOver);
+        if (_songOver.songOver == false)
+        {
+            transform.Rotate(RotateAmount);
+        }
+        if (_songOver.songOver == true)
+        {
+            RotateAmount = new Vector3(0, 0, 0);
+            transform.Rotate(RotateAmount);
+        }
+    }
+}
+
+[Yesterday 9:02 PM] Way, Matt - PRE
+In summary 
+Record player now spins, the arm moves across the record while the song plays and it reaches the middle at the same time the song ends.  It then resets the arm back to the position to the right of the record again.  I also added art to the records.
+And, if this one doesn't make you groan, then I haven't done my job!  
+
+[Yesterday 9:02 PM] Way, Matt - PRE
+  
+
+[12:34 AM] Way, Matt - PRE
+I updated the Framework Project Manager asset and the XRIT Project Manager asset (from 2.3.0-pre1 to 2.3.0, which means we are now out of the preview asset and into a stable version.  Yay!)  I then changed all the INPUTACTIONS from XRIT 1.0.0.0-pre6 to 2.3.0 tonight and I archived the 1.0.0.0-pre6 Samples folder to another drive and with documentation (screen captures) of everything within the -- XR -- structure (all parent and child objects within this path) I then put that folder back and I went through one at a time to change each of those 1.0.0.0-pre6 input actions to 2.3.0.  I then archived the 1.0.0.0-pre6 Samples folder to the other drive again, and I again went through every parent and child object in the -- XR -- path structure looking for missing items.  I think I got them all.   This was something I did in my old project before it became corrupt (bad lightmap data).  So the only thing left to do is to fix the jagged floor lamp shadow again and that will put me back to where I was before the corruption.  But, I am not going to rebuild the lightmap again before making at least two back-ups.  Just in case.  I'm not sure how rare corrupt lightmap data is but if it were to happen again I'd like to know I can easily replace the bad data with good data to get back to where I was easily.  So I'll update to Git again tonight and then I'll make a backup copy of that folder too, just to have a second local backup while re-running the light generator wizard.
+@mattdway mattdway committed on Feb 27
