@@ -29,10 +29,11 @@ public class ExtendedFlycam : MonoBehaviour
 
 	private float rotationX = 0.0f;
 	private float rotationY = 0.0f;
+    private CursorLockMode cursorLockMode = CursorLockMode.Locked;
 
-	void Start ()
+    void Start ()
 	{
-		Screen.lockCursor = true;
+		
 	}
 
 	void Update ()
@@ -64,9 +65,17 @@ public class ExtendedFlycam : MonoBehaviour
 		if (Input.GetKey (KeyCode.Q)) {transform.position += transform.up * climbSpeed * Time.deltaTime;}
 		if (Input.GetKey (KeyCode.E)) {transform.position -= transform.up * climbSpeed * Time.deltaTime;}
 
-		if (Input.GetKeyDown (KeyCode.End))
-		{
-			Screen.lockCursor = (Screen.lockCursor == false) ? true : false;
-		}
-	}
+        if (Input.GetKeyDown(KeyCode.End))
+        {
+            if (cursorLockMode == CursorLockMode.Locked)
+            {
+                cursorLockMode = CursorLockMode.None;
+            }
+            else
+            {
+                cursorLockMode = CursorLockMode.Locked;
+            }
+            Cursor.lockState = cursorLockMode;
+        }
+    }
 }

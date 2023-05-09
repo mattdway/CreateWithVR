@@ -13,7 +13,7 @@ namespace OpenAi.Unity.V1
     /// </summary>
     public class OpenAiCompleterV1 : AMonoSingleton<OpenAiCompleterV1>
     {
-        OpenAiApiGatewayV1 _gateway = null;
+        public OpenAiApiGatewayV1 _gateway = null;
 
         EngineResourceV1 _engine = null;
 

@@ -21,12 +21,7 @@ public class ToggleRay : MonoBehaviour
     private void Awake()
     {
         rayInteractor = GetComponent<XRRayInteractor>();
-        SwitchInteractors(false); // moved to here
-    }
-
-    private void Start()
-    {
-        //SwitchInteractors(false);
+        SwitchInteractors(false);
     }
 
     public void ActivateRay()
@@ -43,7 +38,7 @@ public class ToggleRay : MonoBehaviour
 
     private bool TouchingObject()
     {
-        List<XRBaseInteractable> targets = new List<XRBaseInteractable>();
+        List<IXRInteractable> targets = new List<IXRInteractable>();
         directInteractor.GetValidTargets(targets);
         return (targets.Count > 0);
     }

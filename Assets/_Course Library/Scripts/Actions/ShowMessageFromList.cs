@@ -40,10 +40,8 @@ public class ShowMessageFromList : MonoBehaviour
 
     public void PreviousMessage()
     {
-        while (index > 0) {
-            index = --index % messages.Count;
-            ShowMessage();
-        }
+        index = --index % messages.Count;
+        ShowMessage();
     }
 
     private void ShowMessage()

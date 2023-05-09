@@ -22,7 +22,7 @@ public class XRButton : XRBaseInteractable
     private float yMin = 0.0f;
     private float yMax = 0.0f;
 
-    private XRBaseInteractor hoverInteractor = null;
+    private IXRHoverInteractor hoverInteractor = null;
 
     private float hoverHeight = 0.0f;
     private float startHeight = 0.0f;
@@ -44,7 +44,7 @@ public class XRButton : XRBaseInteractable
 
     private void StartPress(HoverEnterEventArgs eventArgs)
     {
-        hoverInteractor = eventArgs.interactor;
+        hoverInteractor = eventArgs.interactorObject;
         hoverHeight = GetLocalYPosition(hoverInteractor.transform.position);
         startHeight = buttonTransform.localPosition.y;
     }
@@ -72,7 +72,7 @@ public class XRButton : XRBaseInteractable
     {
         if(updatePhase == XRInteractionUpdateOrder.UpdatePhase.Dynamic)
         {
-            if (hoverInteractor)
+            if (isHovered)
             {
                 float height = FindButtonHeight();
                 ApplyHeight(height);
@@ -131,7 +131,7 @@ public class XRButton : XRBaseInteractable
         return buttonTransform.localPosition.y < threshold;
     }
 
-    public override bool IsSelectableBy(XRBaseInteractor interactor)
+    public override bool IsSelectableBy(IXRSelectInteractor interactor)
     {
         return false;
     }

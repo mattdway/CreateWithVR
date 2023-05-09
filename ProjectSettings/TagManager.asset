@@ -18,6 +18,9 @@ TagManager:
   - Trail
   - Box
   - Rug
+  - Dart
+  - Dart Gun
+  - Alyx
   layers:
   - Default
   - TransparentFX
@@ -48,10 +51,13 @@ TagManager:
   - Left Hand Physics
   - Right Hand Physics
   - Non Physics Hand Layer
-  - 
+  - Post Processing
   - 
   - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: LOZ_HUD
+    uniqueID: 864568863
     locked: 0

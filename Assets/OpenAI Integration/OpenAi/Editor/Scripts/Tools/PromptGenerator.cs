@@ -36,13 +36,13 @@ namespace OpenAi.Examples
             EditorWindow.GetWindow(typeof(PromptGenerator));
         }
 
-        void OnGUI()
+        async void OnGUI()
         {
             GUI.enabled = false;
             EditorGUILayout.ObjectField("Code:", MonoScript.FromScriptableObject(this), typeof(ScriptableObject), false);
             GUI.enabled = true;
 
-            SOAuthArgsV1 auth = ScriptableObject.CreateInstance<SOAuthArgsV1>();
+            SOAuthArgsV1 auth = AssetDatabase.LoadAssetAtPath<SOAuthArgsV1>("Assets/OpenAI Integration/OpenAi/Runtime/Config/DefaultAuthArgsV1.asset");
             OpenAiApiV1 api = new OpenAiApiV1(auth.ResolveAuth());
 
             if (!string.IsNullOrEmpty(_output))
@@ -59,7 +59,7 @@ namespace OpenAi.Examples
             if (api != null && GUILayout.Button("Generate Instruction Prompt"))
             {
                 Debug.Log("Performing Completion in Editor Time using the following input:");
-                DoEditorTask(api);
+                await DoEditorTask(api);
             }
 
         }

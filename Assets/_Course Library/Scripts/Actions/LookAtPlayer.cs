@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Unity.XR.CoreUtils;
+using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 /// <summary>
-/// Make the object look at the xr rig's camera
+/// Make the object look at the XR Origin's camera
 /// </summary>
 public class LookAtPlayer : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class LookAtPlayer : MonoBehaviour
 
     private void Awake()
     {
-        cameraObject = FindObjectOfType<XRRig>().cameraGameObject;
+        cameraObject = FindObjectOfType<XROrigin>().Camera.gameObject;
         originalRotation = transform.eulerAngles;
     }
 

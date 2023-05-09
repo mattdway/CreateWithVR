@@ -1,0 +1,29 @@
+- Create New Directory under CameraOffset titled NP Hand Controllers and Hands
+- Duplicate LeftHand (Smooth locomotion)
+- Rename this to NP LeftHand Controller
+- Delete all of the child objects under this game object except for LeftHand
+- Single left-click on the "NP LeftHand Controller" and in the Inspector window, remove the "Grab Move Provider" component
+- Move the NP LeftHand Controller so that it is a child object of the HP Hand Controllers and Hands game object
+- Rename LeftHand to NP_LeftHand
+- Expand NP_Left_Hand using the "Alt" + single left-click on the triangle icon trick
+- Find and delete all the game objects that have _collider in the name. Can use the "Ctrl" + single left-click on the game object trick to select and delete these all at the same time.  There should be three colliders per finger plus a palm collider that you need to delete
+- Drag the Holographic Blue Light material on top of the hands:L:hand child game object under the path NP_LeftHand > hands:hands_geom
+- Uncheck the Skinned Mesh Renderer component of the hands_L:hand child game object, so that this isn't immediately visible in the scene
+- "Alt" + collapse NP LeftHand Controller to make it easier to navigate the Hierarchy window, for the next steps
+- Duplicate RightHand (Smooth locomotion)
+- Rename this to NP RightHand Controller
+- Delete all of the child objects under this game object except for RightHand
+- Single left-click on the "NP RightHand Controller" and in the Inspector window, remove the "Grab Move Provider" component
+- Move the NP RightHand Controller so that it is a child object of the HP Hand Controllers and Hands game object
+- Rename RightHand to NP_RightHand
+- Expand NP_Right_Hand using the "Alt" + single left-click on the triangle icon trick
+- Find and delete all the game objects that have _collider in the name. Can use the "Ctrl" + single left-click on the game object trick to select and delete these all at the same time.  There should be three colliders per finger plus a palm collider that you need to delete
+- Drag the Holographic Blue Light material on top of the hands:L:hand child game object under the path NP_RightHand > hands:hands_geom
+- Uncheck the Skinned Mesh Renderer component of the hands_L:hand child game object, so that this isn't immediately visible in the scene
+- Create New Directory under CameraOffset titled Physics Hand Controllers
+- Drag LeftHand (Smooth locomotion) to make it a child object of the Physics Hand Controllers game object
+- Drag RightHand (Teleport Locomotion)to make it a child object of the Physics Hand Controllers game object
+- Rename the child game object LeftHand (under the parent game object LeftHand (Smooth locomotion) to LeftHandwPhysics
+- Drag the LeftHandwPhysics game object onto the NP LeftHand Controller game object, so that LeftHandwPhysics game object is a child of the NP LeftHand Controller game object
+- Rename the child game object RightHand (under the parent game object LeftHand (Smooth locomotion) to RightHandwPhysics
+- Drag the RightHandwPhysics game object onto the NP RightHand Controller game object.  The RightHandwPhysics game object should now be a child of the NP RightHand Controller game object

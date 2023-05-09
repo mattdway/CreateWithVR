@@ -20,7 +20,6 @@ public class ApplyPhysics : MonoBehaviour
         rigidBody.collisionDetectionMode = originalMode;
         rigidBody.useGravity = true;
         rigidBody.isKinematic = false;
-        transform.parent = null;
     }
 
     public void DisablePhysics()
