@@ -1717,3 +1717,17 @@ That's it for now. @mattdway mattdway committed on April 30
 
 That's all for now.
 @mattdway mattdway committed on May 09
+
+05/10/23 v4.0.3 Commit
+
+* Re-fixed the front door mat not being in the events for each of the three locomotiion methods.  Thus not being turned on or off.
+* Tested and tweaked setting for broken window.  If violent enough the game simply resets.  
+* Addeed || OR to code for laptop breakage.  Sword and darts now can break the laptop.
+* Added a brick with the text "IN EMERGENCY, BREAK GLASS"  Using it to throw against the window.  Sometimes doesn't break the window.
+* Adjusted the Dart Gun Mini Game activation area to make it smaller and further back.
+* Set Mesh colliders to convex then on so score activiation works.
+* Tested dart gun collision on target extensively.  There are still occasional missed score updates and sometimes odd points awarded.  Hitting the target numbers square on helps but the problem is still there and evident.
+* Updated the version number on the board.
+
+That's all for now.
+@mattdway mattdway committed on May 10

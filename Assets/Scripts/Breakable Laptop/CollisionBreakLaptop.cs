@@ -21,7 +21,7 @@ public class CollisionBreakLaptop : MonoBehaviour
     {
         //Debug.Log("CollisionBreakLaptop - Collision Detected with " + other.gameObject.name + " with tag " + other.gameObject.tag);
 
-        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Wall" || other.gameObject.tag == "Dart" || other.gameObject.tag == "Sword")
         {
             //Debug.Log("CollisionBreakLaptop - Hand Tag Check for OnTriggerEnter Passed.  Calling playVideoScript's Play() Method");
 
