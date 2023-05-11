@@ -1731,3 +1731,10 @@ That's all for now.
 
 That's all for now.
 @mattdway mattdway committed on May 10
+
+05/11/23 v4.0.4 Commit
+* Improved brick texture by trying to download a free Unity Asset 4K brick texture pack.  Download is failing so I'll try again later.  Changed tiling settings of current material to remove tiling effect and I played with maps to try and get this looking slightly better.
+* Made text on the brick look embossed/etched by changing colors, alpha and by adding a material.
+* Worked on improving code to get glass sound to play when window is broken.  Haven't yet tested but modeled after another script in which I have sound working.
+* Removed frame from broken window so that it's now just a glass pane.  Made into a new prefab and relinked to the three scripts.
+@mattdway mattdway committed on May 11
