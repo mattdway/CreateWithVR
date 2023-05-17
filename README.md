@@ -1738,3 +1738,16 @@ That's all for now.
 * Worked on improving code to get glass sound to play when window is broken.  Haven't yet tested but modeled after another script in which I have sound working.
 * Removed frame from broken window so that it's now just a glass pane.  Made into a new prefab and relinked to the three scripts.
 @mattdway mattdway committed on May 11
+
+05/17/23 v4.0.5 Commit
+* Disabled single collider for the window and I duplicated and made three individual colliders for each section of the window.  This way the script can destroy the collider for just that one section of the broken window while leaving the other in tact, at the time that section of the window has been broken.
+* I added a mesh collider to the cross section of the frame so that hands and other game objects collide when interacting with it.
+* I added a "Wall" tag" and a "Room" layer to this so that the character controller can not pass through nor lean/clip through that mesh.  Now the player can't jump out the window when it breaks, but the player can throw items through the opening where the glass pane has been broken.
+* I fixed the glass break sound issue by realizing that I had the audio source attached to the glass panes, which were being destroyed.  Thus, if I called for the audio clip to be played before the broken window it worked but after did not.  I fixed this by changing where the audio source is played from and not having it attached to the panes being destroyed.
+* I changed the logic of the broken laptop so that players can still break the screen if they shoot darts or swords at the screen or drop it on the ground or wall.  But, they can not permenently break it (to where the laptop no longer turns on) until after the rick roll video has been started.  This way, rick rolling the player is still always a posibility.  The user pressing the power button with the broken screen still plays the video but because the screen is broken, they can only hear the audio at this point.
+* In play testing I accidently forgot that the windows now break.  So throwing the laptop at the window while the rick roll video was playing broke the pane of glass and the laptop plummetted into infinity below.  However, because the video audio is 2D (not spatial) the audio continued to loop and play indefinitely.  I changed it so that the audio for the video is no longer direct but pointing to an audio source.  I then set that audio source to be spatial.  Now when the laptop plummits the sound gets fainter until it can no longer be heard/stops playing.
+* I set up grab hand poses per Valem's two part video series.  I've been troubleshooting this for several days but the posed hand child objects, so far, never reenable in the scene nor does the transition between the VR player's hands and those posed hands ever happen.  I'm still working on troubleshooting why.
+* A few assets were found accidently nested inside other folders, when they should have been at the root level.  I moved these back to their proper location.
+* I have not yet updated the version number nor date on the welcome board to reflect these changes. I'll do this the next time I am in my project and the next commit will reflect this.
+That's all for now.
+@mattdway mattdway committed on May 17

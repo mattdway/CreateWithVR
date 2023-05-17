@@ -5,6 +5,8 @@ using UnityEngine.Video;
 /// <summary>
 /// Play a single video or play from a list of videos 
 /// </summary>
+/// 
+
 [RequireComponent(typeof(VideoPlayer))]
 public class PlayVideo : MonoBehaviour
 {

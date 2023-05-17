@@ -8703,7 +8703,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayer:
-    serializedVersion: 2
     m_Bits: 2049
 --- !u!4 &3440001966048453793
 Transform:
@@ -9068,6 +9067,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 18870143
   m_RaycastTriggerInteraction: 1
+  m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 1
   m_HoverTimeToSelect: 0.8
@@ -9478,7 +9478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayer:
-    serializedVersion: 2
     m_Bits: 2049
 --- !u!114 &3440001966112087491
 MonoBehaviour:
@@ -10105,6 +10104,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 18870143
   m_RaycastTriggerInteraction: 1
+  m_RaycastSnapVolumeInteraction: 1
   m_HitClosestOnly: 0
   m_HoverToSelect: 1
   m_HoverTimeToSelect: 0.8

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CollisionLaptopOn : MonoBehaviour
 {
-    PlayVideo playVideoScript;
-    AudioSource audioSource;
+    private PlayRickRollVideo _playVideoScript;
+    private AudioSource _audioSource;
     private CollisionBreakLaptop _isBroken;
 
     //Start is called before the first frame update
     void Start()
     {
-        playVideoScript = GameObject.Find("Laptop_Screen").GetComponent<PlayVideo>();
-        audioSource = GameObject.Find("On Switch").GetComponent<AudioSource>();
+        _playVideoScript = GameObject.Find("Laptop_Screen").GetComponent<PlayRickRollVideo>();
+        _audioSource = GameObject.Find("On Switch").GetComponent<AudioSource>();
         _isBroken = GameObject.Find("Laptop_Black_Off").GetComponent<CollisionBreakLaptop>();
     }
 
@@ -28,10 +28,10 @@ public class CollisionLaptopOn : MonoBehaviour
                 //Debug.Log("CollisionLaptopOn - Hand Tag Check for OnTriggerEnter Passed.  Calling playVideoScript's Play() Method");
 
                 //Play Audio
-                audioSource.Play();
+                _audioSource.Play();
 
                 //Play Video
-                playVideoScript.Play();
+                _playVideoScript.Play();
 
                 //Exit method
                 return;

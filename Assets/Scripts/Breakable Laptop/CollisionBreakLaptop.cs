@@ -1,20 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionBreakLaptop : MonoBehaviour
 {
-    PlayVideo playVideoScript;
     AudioSource audioSource;
     public GameObject brokenLaptopScreen;
     public bool isBroken = false;
     [SerializeField] int counter;
     public Material brokenLaptopScreenOff;
+    private PlayRickRollVideo _playRickRollVideo;
 
     //Start is called before the first frame update
     void Start()
     {
         counter = 0;
+        _playRickRollVideo = GameObject.Find("Laptop_Screen").GetComponent<PlayRickRollVideo>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -23,7 +23,7 @@ public class CollisionBreakLaptop : MonoBehaviour
 
         if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Wall" || other.gameObject.tag == "Dart" || other.gameObject.tag == "Sword")
         {
-            //Debug.Log("CollisionBreakLaptop - Hand Tag Check for OnTriggerEnter Passed.  Calling playVideoScript's Play() Method");
+            //Debug.Log("CollisionBreakLaptop - Hand Tag Check for OnTriggerEnter Passed.  Calling PlayRickRollVideo's Play() Method");
 
             //Set the brokenLaptopScreen Game Object to Active
             brokenLaptopScreen.SetActive(true);
@@ -37,30 +37,30 @@ public class CollisionBreakLaptop : MonoBehaviour
             //Run CoRoutine to Wait One Second
             StartCoroutine(WaitForOneSecond());
 
-            //Get Play Video Component
-            playVideoScript = GameObject.Find("Laptop_Screen").GetComponent<PlayVideo>();
-
             //Play Video
-            //playVideoScript.Stop();
+            //PlayRickRollVideo.Stop();
 
             //Increment the counter by one
             counter++;
 
-            if(counter > 8)
+            if (_playRickRollVideo.VideoIsPlaying == true)
             {
-                Renderer renderer = GameObject.Find("Broken_Laptop_Screen").GetComponent<Renderer>();
-                renderer.material = brokenLaptopScreenOff;
+                if (counter > 8)
+                {
+                    Renderer renderer = GameObject.Find("Broken_Laptop_Screen").GetComponent<Renderer>();
+                    renderer.material = brokenLaptopScreenOff;
 
-                //Play Video
-                playVideoScript.Stop();
+                    //Stop Video
+                    _playRickRollVideo.videoPlayer.Stop();
 
-                //Set the isBroken Bool to true
-                isBroken = true;
-            }
-            else
-            {
-                //Set the isBroken Bool to false
-                isBroken = false;
+                    //Set the isBroken Bool to true
+                    isBroken = true;
+                }
+                else
+                {
+                    //Set the isBroken Bool to false
+                    isBroken = false;
+                }
             }
         }
     }
