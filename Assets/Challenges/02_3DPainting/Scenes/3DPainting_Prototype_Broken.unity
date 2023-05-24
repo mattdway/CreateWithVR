@@ -5523,6 +5523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceToggle: 1
   directInteractor: {fileID: 1563259298}
+  leftHandInteractorLineVisual: {fileID: 0}
+  rightHandInteractorLineVisual: {fileID: 0}
 --- !u!1 &1779500133
 GameObject:
   m_ObjectHideFlags: 0

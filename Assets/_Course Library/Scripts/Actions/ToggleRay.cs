@@ -18,6 +18,9 @@ public class ToggleRay : MonoBehaviour
     private XRRayInteractor rayInteractor = null;
     private bool isSwitched = false;
 
+    public XRInteractorLineVisual leftHandInteractorLineVisual;
+    public XRInteractorLineVisual rightHandInteractorLineVisual;
+
     private void Awake()
     {
         rayInteractor = GetComponent<XRRayInteractor>();
@@ -27,7 +30,11 @@ public class ToggleRay : MonoBehaviour
     public void ActivateRay()
     {
         if (!TouchingObject() || forceToggle)
+        {
+            leftHandInteractorLineVisual.enabled = true;
+            rightHandInteractorLineVisual.enabled = true;
             SwitchInteractors(true);
+        }
     }
 
     public void DeactivateRay()

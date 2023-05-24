@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6208275501828671254}
   - component: {fileID: 5232785736951675525}
   - component: {fileID: 5232785736951675522}
+  - component: {fileID: 148090368321064115}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.025
   m_TagString: Untagged
@@ -115,6 +116,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2745404606701360098, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &148090368321064115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19919471914850259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &64183642106835925
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +142,7 @@ GameObject:
   - component: {fileID: 5963309968257922426}
   - component: {fileID: 9204154429483384690}
   - component: {fileID: 5069704872210853100}
+  - component: {fileID: 507927919937167654}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.002.2
   m_TagString: Untagged
@@ -230,6 +245,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5923138842802559418, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &507927919937167654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64183642106835925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &188813242231582709
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +271,7 @@ GameObject:
   - component: {fileID: 8082232266854232863}
   - component: {fileID: 5232785737959691949}
   - component: {fileID: 5232785737959691946}
+  - component: {fileID: 9149712881269477199}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell
   m_TagString: Untagged
@@ -345,6 +374,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1729962556638580345, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &9149712881269477199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188813242231582709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &205913483722828838
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +400,7 @@ GameObject:
   - component: {fileID: 14242663348191002}
   - component: {fileID: 5232785735942572743}
   - component: {fileID: 5232785735942572740}
+  - component: {fileID: 2796382514267458478}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.066
   m_TagString: Untagged
@@ -460,6 +503,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6154005515139515850, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &2796382514267458478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205913483722828838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &241192399088482254
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +529,7 @@ GameObject:
   - component: {fileID: 8474226954026739109}
   - component: {fileID: 5232785737877433275}
   - component: {fileID: 5232785737877433272}
+  - component: {fileID: 7681389217903824212}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.069_cell
   m_TagString: Untagged
@@ -575,6 +632,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8103760704181867074, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7681389217903824212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241192399088482254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &320405279851929158
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +658,7 @@ GameObject:
   - component: {fileID: 3041936310657297244}
   - component: {fileID: 5232785736308192939}
   - component: {fileID: 5232785736308192936}
+  - component: {fileID: 9041834733294907986}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.039
   m_TagString: Untagged
@@ -690,6 +761,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6363924202699393500, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &9041834733294907986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320405279851929158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &456225703875605889
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +787,7 @@ GameObject:
   - component: {fileID: 3253694999892987168}
   - component: {fileID: 5232785737416011329}
   - component: {fileID: 5232785737416011326}
+  - component: {fileID: 3281052193292883286}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.065
   m_TagString: Untagged
@@ -805,6 +890,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8069382266958882687, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &3281052193292883286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456225703875605889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &726185146018989086
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +916,7 @@ GameObject:
   - component: {fileID: 732512956697666623}
   - component: {fileID: 5232785736053449605}
   - component: {fileID: 5232785736053449602}
+  - component: {fileID: 4585281962684970011}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.007
   m_TagString: Untagged
@@ -920,6 +1019,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6427612939260337206, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4585281962684970011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726185146018989086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &747460885833927672
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +1045,7 @@ GameObject:
   - component: {fileID: 1843765602459641511}
   - component: {fileID: 5232785736840028305}
   - component: {fileID: 5232785736840028302}
+  - component: {fileID: 9207342078250620634}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.049
   m_TagString: Untagged
@@ -1035,6 +1148,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3258818417435771092, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &9207342078250620634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747460885833927672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &817755610317945513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1174,7 @@ GameObject:
   - component: {fileID: 4234954868886274701}
   - component: {fileID: 5232785736918653380}
   - component: {fileID: 5232785736918653381}
+  - component: {fileID: 6747170542999704396}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.033_cell
   m_TagString: Untagged
@@ -1150,6 +1277,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3026945743130149373, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6747170542999704396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817755610317945513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &822906822625407641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1303,7 @@ GameObject:
   - component: {fileID: 1300281941252478723}
   - component: {fileID: 5232785736489557069}
   - component: {fileID: 5232785736489557066}
+  - component: {fileID: 7798453594114310041}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.026_cell.001
   m_TagString: Untagged
@@ -1265,6 +1406,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7665089067844396193, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7798453594114310041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822906822625407641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &837589235962108037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1432,7 @@ GameObject:
   - component: {fileID: 3606908984506318517}
   - component: {fileID: 5232785737324952517}
   - component: {fileID: 5232785737324952514}
+  - component: {fileID: 6298482902699452516}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.080
   m_TagString: Untagged
@@ -1380,6 +1535,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4676647717475258719, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6298482902699452516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837589235962108037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &865048160278493711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1561,7 @@ GameObject:
   - component: {fileID: 1085617129620499527}
   - component: {fileID: 5232785737371158808}
   - component: {fileID: 5232785737371158809}
+  - component: {fileID: 6864573189498764718}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.026_cell
   m_TagString: Untagged
@@ -1495,6 +1664,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3748663448748474158, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6864573189498764718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865048160278493711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &965193114904743056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,6 +1690,7 @@ GameObject:
   - component: {fileID: 5516044146269670144}
   - component: {fileID: 5232785736859104357}
   - component: {fileID: 5232785736859104354}
+  - component: {fileID: 6911964988372820351}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.020
   m_TagString: Untagged
@@ -1610,6 +1793,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5725933047788028845, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6911964988372820351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965193114904743056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &965232629190950884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1819,7 @@ GameObject:
   - component: {fileID: 5918014794474630389}
   - component: {fileID: 5232785737836377881}
   - component: {fileID: 5232785737836377878}
+  - component: {fileID: 1398593593116361144}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.027_cell.001
   m_TagString: Untagged
@@ -1725,6 +1922,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -291268318062947218, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1398593593116361144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965232629190950884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &1103497509425069381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1948,7 @@ GameObject:
   - component: {fileID: 6916892118258624915}
   - component: {fileID: 5232785736559883427}
   - component: {fileID: 5232785736559883424}
+  - component: {fileID: 6779438245595396063}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.009
   m_TagString: Untagged
@@ -1840,6 +2051,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3129942689618447555, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6779438245595396063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103497509425069381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &1242897260055574388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1853,6 +2077,7 @@ GameObject:
   - component: {fileID: 8804063018542606953}
   - component: {fileID: 5232785736964565894}
   - component: {fileID: 5232785736964565895}
+  - component: {fileID: 2582563974378642057}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.017
   m_TagString: Untagged
@@ -1955,6 +2180,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1166112169098600560, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &2582563974378642057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242897260055574388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &1927496134196591748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2206,7 @@ GameObject:
   - component: {fileID: 4132869290511732445}
   - component: {fileID: 5232785736461915654}
   - component: {fileID: 5232785736461915655}
+  - component: {fileID: 323624379757598110}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.070
   m_TagString: Untagged
@@ -2070,6 +2309,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1285265060512763743, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &323624379757598110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927496134196591748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &1980819347225140623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,6 +2335,7 @@ GameObject:
   - component: {fileID: 1542552056161324207}
   - component: {fileID: 5232785737152513700}
   - component: {fileID: 5232785737152513701}
+  - component: {fileID: 1222068955008222052}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.001
   m_TagString: Untagged
@@ -2185,6 +2438,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2652730412940284092, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1222068955008222052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980819347225140623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2311817853189697620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,6 +2464,7 @@ GameObject:
   - component: {fileID: 7279601804391424457}
   - component: {fileID: 5232785736890661272}
   - component: {fileID: 5232785736890661273}
+  - component: {fileID: 8664943273273646620}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.043
   m_TagString: Untagged
@@ -2300,6 +2567,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3411882974830819071, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8664943273273646620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311817853189697620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2364231856961943910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,6 +2593,7 @@ GameObject:
   - component: {fileID: 7976317351742770253}
   - component: {fileID: 5232785737731575916}
   - component: {fileID: 5232785737731575917}
+  - component: {fileID: 2010817814925572068}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.015
   m_TagString: Untagged
@@ -2415,6 +2696,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4240837619104462259, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &2010817814925572068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364231856961943910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2369547058387758384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,6 +2722,7 @@ GameObject:
   - component: {fileID: 7358753793248462854}
   - component: {fileID: 5232785737407254550}
   - component: {fileID: 5232785737407254551}
+  - component: {fileID: 50563057972170214}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.050_cell
   m_TagString: Untagged
@@ -2530,6 +2825,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1023129994064009255, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &50563057972170214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369547058387758384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2451463495107561151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,6 +2851,7 @@ GameObject:
   - component: {fileID: 8549326244012691076}
   - component: {fileID: 5232785737255531683}
   - component: {fileID: 5232785737255531680}
+  - component: {fileID: 795007228993099061}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.046
   m_TagString: Untagged
@@ -2645,6 +2954,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2183029494648700553, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &795007228993099061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451463495107561151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2594123596224512880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +2980,7 @@ GameObject:
   - component: {fileID: 6798975701369347993}
   - component: {fileID: 5232785737397238471}
   - component: {fileID: 5232785737397238468}
+  - component: {fileID: 8588246156097924643}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.022
   m_TagString: Untagged
@@ -2760,6 +3083,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8948776042124348928, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8588246156097924643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594123596224512880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2704985204468704023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,6 +3109,7 @@ GameObject:
   - component: {fileID: 8673744026933971572}
   - component: {fileID: 5232785736009852748}
   - component: {fileID: 5232785736009852749}
+  - component: {fileID: 7907772223601127599}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.060
   m_TagString: Untagged
@@ -2875,6 +3212,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -825681701544069291, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7907772223601127599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704985204468704023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &2814194510007623483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2888,6 +3238,7 @@ GameObject:
   - component: {fileID: 1924485975371640688}
   - component: {fileID: 5232785736054085684}
   - component: {fileID: 5232785736054085685}
+  - component: {fileID: 7378757030950613237}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.068
   m_TagString: Untagged
@@ -2990,6 +3341,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 691748369864832174, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7378757030950613237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814194510007623483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3177571213076309483
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,6 +3367,7 @@ GameObject:
   - component: {fileID: 2046591515058225895}
   - component: {fileID: 5232785736902878647}
   - component: {fileID: 5232785736902878644}
+  - component: {fileID: 6906767527867518689}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.053
   m_TagString: Untagged
@@ -3105,6 +3470,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8168881604213859645, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6906767527867518689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177571213076309483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3213499335638890484
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3496,7 @@ GameObject:
   - component: {fileID: 5651227457324469165}
   - component: {fileID: 5232785736590243101}
   - component: {fileID: 5232785736590243098}
+  - component: {fileID: 5992331784227372101}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.045_cell
   m_TagString: Untagged
@@ -3220,6 +3599,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -154745474343640455, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &5992331784227372101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213499335638890484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3358346962768204597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,6 +3625,7 @@ GameObject:
   - component: {fileID: 3882405197780423842}
   - component: {fileID: 5232785735934300027}
   - component: {fileID: 5232785735934300024}
+  - component: {fileID: 1193986174006211824}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.072
   m_TagString: Untagged
@@ -3335,6 +3728,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7547900124960429024, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1193986174006211824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358346962768204597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3374943916524777408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3754,7 @@ GameObject:
   - component: {fileID: 7930773399877030371}
   - component: {fileID: 5232785737012437675}
   - component: {fileID: 5232785737012437672}
+  - component: {fileID: 8987550407866323038}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.013
   m_TagString: Untagged
@@ -3450,6 +3857,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3763592910274717582, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8987550407866323038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3374943916524777408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3424543228938771929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,6 +3883,7 @@ GameObject:
   - component: {fileID: 8828036691881807422}
   - component: {fileID: 5232785736416666212}
   - component: {fileID: 5232785736416666213}
+  - component: {fileID: 380661069374760677}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.041_cell.001
   m_TagString: Untagged
@@ -3565,6 +3986,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3907726872952679678, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &380661069374760677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3424543228938771929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3499805512885448687
 GameObject:
   m_ObjectHideFlags: 0
@@ -3578,6 +4012,7 @@ GameObject:
   - component: {fileID: 5110947232063719514}
   - component: {fileID: 5232785737156415066}
   - component: {fileID: 5232785737156415067}
+  - component: {fileID: 64237804982620154}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.006
   m_TagString: Untagged
@@ -3680,6 +4115,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3927042047379052274, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &64237804982620154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499805512885448687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3505769729245809256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,6 +4141,7 @@ GameObject:
   - component: {fileID: 2117940004570983809}
   - component: {fileID: 5232785737410385322}
   - component: {fileID: 5232785737410385323}
+  - component: {fileID: 1525883336756840335}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.008
   m_TagString: Untagged
@@ -3795,6 +4244,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1013059508299768637, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1525883336756840335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505769729245809256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3568832571889757490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,6 +4270,7 @@ GameObject:
   - component: {fileID: 4535307456850821027}
   - component: {fileID: 5232785736543128210}
   - component: {fileID: 5232785736543128211}
+  - component: {fileID: 6031164312521565877}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.035
   m_TagString: Untagged
@@ -3910,6 +4373,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5386350474165088836, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6031164312521565877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3568832571889757490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3806873820400163324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,6 +4399,7 @@ GameObject:
   - component: {fileID: 6785844481519065497}
   - component: {fileID: 5232785736152179300}
   - component: {fileID: 5232785736152179301}
+  - component: {fileID: 6430624517825701617}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.030
   m_TagString: Untagged
@@ -4025,6 +4502,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7539290825344124099, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6430624517825701617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3806873820400163324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3832676284950203067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,6 +4528,7 @@ GameObject:
   - component: {fileID: 7576831629625482162}
   - component: {fileID: 5232785737124624139}
   - component: {fileID: 5232785737124624136}
+  - component: {fileID: 4547134836759470116}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.031
   m_TagString: Untagged
@@ -4140,6 +4631,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 417493408949062928, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4547134836759470116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3832676284950203067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &3903306881483585872
 GameObject:
   m_ObjectHideFlags: 0
@@ -4153,6 +4657,7 @@ GameObject:
   - component: {fileID: 3033665304375066489}
   - component: {fileID: 5232785736684427532}
   - component: {fileID: 5232785736684427533}
+  - component: {fileID: 8072043194831701023}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.051
   m_TagString: Untagged
@@ -4255,6 +4760,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2120139692844617190, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8072043194831701023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903306881483585872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4044249930638968832
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,6 +4786,7 @@ GameObject:
   - component: {fileID: 4089578493377647758}
   - component: {fileID: 5232785737092010012}
   - component: {fileID: 5232785737092010013}
+  - component: {fileID: 4619595821823888798}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.064
   m_TagString: Untagged
@@ -4370,6 +4889,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4419610513678076407, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4619595821823888798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4044249930638968832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4150238331900722780
 GameObject:
   m_ObjectHideFlags: 0
@@ -4383,6 +4915,7 @@ GameObject:
   - component: {fileID: 4579141426372953426}
   - component: {fileID: 5232785736329168123}
   - component: {fileID: 5232785736329168120}
+  - component: {fileID: 516257880081767725}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.052
   m_TagString: Untagged
@@ -4485,6 +5018,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7192227051591657067, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &516257880081767725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150238331900722780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4368583781868654477
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,6 +5044,7 @@ GameObject:
   - component: {fileID: 3513221017359513197}
   - component: {fileID: 5232785737959691951}
   - component: {fileID: 5232785737959691948}
+  - component: {fileID: 5683992538345471997}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.002
   m_TagString: Untagged
@@ -4600,6 +5147,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5923138842802559418, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &5683992538345471997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4368583781868654477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4439406475117094466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4613,6 +5173,7 @@ GameObject:
   - component: {fileID: 3633683792958602062}
   - component: {fileID: 5232785737088120949}
   - component: {fileID: 5232785737088120946}
+  - component: {fileID: 2886623484920023666}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.010
   m_TagString: Untagged
@@ -4715,6 +5276,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4535494991508934, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &2886623484920023666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4439406475117094466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4540241225784429955
 GameObject:
   m_ObjectHideFlags: 0
@@ -4728,6 +5302,7 @@ GameObject:
   - component: {fileID: 4487172481406568518}
   - component: {fileID: 5232785737810456743}
   - component: {fileID: 5232785737810456740}
+  - component: {fileID: 3545279738641830396}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.029
   m_TagString: Untagged
@@ -4830,6 +5405,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1781460581825311217, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &3545279738641830396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540241225784429955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4555040381982829382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4843,6 +5431,7 @@ GameObject:
   - component: {fileID: 3694667668971427467}
   - component: {fileID: 5232785736695349652}
   - component: {fileID: 5232785736695349653}
+  - component: {fileID: 5588862696282791442}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.075
   m_TagString: Untagged
@@ -4945,6 +5534,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2992274125871427112, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &5588862696282791442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4555040381982829382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4606467786222515929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,6 +5560,7 @@ GameObject:
   - component: {fileID: 7594532760896217929}
   - component: {fileID: 5232785736171601628}
   - component: {fileID: 5232785736171601629}
+  - component: {fileID: 4215484691422595285}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.037_cell
   m_TagString: Untagged
@@ -5060,6 +5663,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2755648979508919480, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4215484691422595285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606467786222515929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4674402841465101330
 GameObject:
   m_ObjectHideFlags: 0
@@ -5073,6 +5689,7 @@ GameObject:
   - component: {fileID: 7679497793459963221}
   - component: {fileID: 5232785737642931009}
   - component: {fileID: 5232785737642931006}
+  - component: {fileID: 1049008123503615937}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.074
   m_TagString: Untagged
@@ -5175,6 +5792,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6092208380891885601, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1049008123503615937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4674402841465101330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4851994263652424919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5188,6 +5818,7 @@ GameObject:
   - component: {fileID: 517364347408044170}
   - component: {fileID: 5232785735938463008}
   - component: {fileID: 5232785735938463009}
+  - component: {fileID: 8282264681532037746}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.014_cell
   m_TagString: Untagged
@@ -5290,6 +5921,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1405677970864387327, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8282264681532037746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851994263652424919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &4926937127391619924
 GameObject:
   m_ObjectHideFlags: 0
@@ -5418,6 +6062,7 @@ GameObject:
   - component: {fileID: 981626118169595010}
   - component: {fileID: 5232785737944100864}
   - component: {fileID: 5232785737944100865}
+  - component: {fileID: 6755254345874435390}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.061_cell
   m_TagString: Untagged
@@ -5520,6 +6165,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2865950742411394159, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6755254345874435390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085169147025925186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5144240826699696289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5533,6 +6191,7 @@ GameObject:
   - component: {fileID: 1136031430518146650}
   - component: {fileID: 5232785737201579775}
   - component: {fileID: 5232785737201579772}
+  - component: {fileID: 1187591930716265459}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.069_cell.001
   m_TagString: Untagged
@@ -5635,6 +6294,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8680791747342302675, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1187591930716265459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144240826699696289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5145116891965688788
 GameObject:
   m_ObjectHideFlags: 0
@@ -5648,6 +6320,7 @@ GameObject:
   - component: {fileID: 7173758452303543592}
   - component: {fileID: 5232785736288225543}
   - component: {fileID: 5232785736288225540}
+  - component: {fileID: 6858896742853980084}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.028
   m_TagString: Untagged
@@ -5750,6 +6423,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8730832202088392885, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6858896742853980084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145116891965688788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5244949263138310273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,6 +6449,7 @@ GameObject:
   - component: {fileID: 1620705967968914403}
   - component: {fileID: 5232785736343015383}
   - component: {fileID: 5232785736343015380}
+  - component: {fileID: 7954856729070376053}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.005
   m_TagString: Untagged
@@ -5865,6 +6552,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6772643243763327692, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7954856729070376053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5244949263138310273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5273255237932870080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5878,6 +6578,7 @@ GameObject:
   - component: {fileID: 4427104280769718031}
   - component: {fileID: 5232785736106061224}
   - component: {fileID: 5232785736106061225}
+  - component: {fileID: 5628081099948754594}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.024
   m_TagString: Untagged
@@ -5980,6 +6681,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2237019559108460115, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &5628081099948754594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273255237932870080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5273695321769717060
 GameObject:
   m_ObjectHideFlags: 0
@@ -5993,6 +6707,7 @@ GameObject:
   - component: {fileID: 7725839391382696081}
   - component: {fileID: 5232785736556376326}
   - component: {fileID: 5232785736556376327}
+  - component: {fileID: 7433320274700323971}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.079
   m_TagString: Untagged
@@ -6095,6 +6810,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3753110517444984577, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7433320274700323971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273695321769717060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5277113112976817784
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,6 +6836,7 @@ GameObject:
   - component: {fileID: 9130572881968534196}
   - component: {fileID: 5232785736132033251}
   - component: {fileID: 5232785736132033248}
+  - component: {fileID: 8834674680000052444}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.032
   m_TagString: Untagged
@@ -6210,6 +6939,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8928646037065143860, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8834674680000052444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277113112976817784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5371688474277364904
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,6 +6965,7 @@ GameObject:
   - component: {fileID: 3789610897683120522}
   - component: {fileID: 5232785736169105106}
   - component: {fileID: 5232785736169105107}
+  - component: {fileID: 2136195936867036867}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.040
   m_TagString: Untagged
@@ -6325,6 +7068,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1767910871314899341, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &2136195936867036867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371688474277364904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5467168032960617626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6338,6 +7094,7 @@ GameObject:
   - component: {fileID: 4815240868861621327}
   - component: {fileID: 5232785736207989795}
   - component: {fileID: 5232785736207989792}
+  - component: {fileID: 3878521074863955646}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.021_cell
   m_TagString: Untagged
@@ -6440,6 +7197,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 76183997273690938, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &3878521074863955646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467168032960617626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5526863417023983359
 GameObject:
   m_ObjectHideFlags: 0
@@ -6453,6 +7223,7 @@ GameObject:
   - component: {fileID: 6742700346835424480}
   - component: {fileID: 5232785737367835315}
   - component: {fileID: 5232785737367835312}
+  - component: {fileID: 4718888655832918204}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.012
   m_TagString: Untagged
@@ -6555,6 +7326,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9135226286093402995, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4718888655832918204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5526863417023983359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5581245977542808853
 GameObject:
   m_ObjectHideFlags: 0
@@ -6568,6 +7352,7 @@ GameObject:
   - component: {fileID: 1165856428430236120}
   - component: {fileID: 5232785736677097173}
   - component: {fileID: 5232785736677097170}
+  - component: {fileID: 4876454832546440440}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.054
   m_TagString: Untagged
@@ -6670,6 +7455,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6241176498598807918, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4876454832546440440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5581245977542808853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5593691847653514252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6683,6 +7481,7 @@ GameObject:
   - component: {fileID: 2680612025033120682}
   - component: {fileID: 5232785738072733585}
   - component: {fileID: 5232785738072733582}
+  - component: {fileID: 7876015271007260017}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.071
   m_TagString: Untagged
@@ -6785,6 +7584,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7555875939323195761, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7876015271007260017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593691847653514252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &5797587683179359557
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,6 +7610,7 @@ GameObject:
   - component: {fileID: 4510591617541508829}
   - component: {fileID: 5232785736245586362}
   - component: {fileID: 5232785736245586363}
+  - component: {fileID: 8602863992485894428}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.048
   m_TagString: Untagged
@@ -6900,6 +7713,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7284141339698808705, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8602863992485894428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797587683179359557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6066431877313102935
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,6 +7739,7 @@ GameObject:
   - component: {fileID: 3342550356682366485}
   - component: {fileID: 5232785736234518064}
   - component: {fileID: 5232785736234518065}
+  - component: {fileID: 2752371166508347758}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.076
   m_TagString: Untagged
@@ -7015,6 +7842,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6135967587300940430, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &2752371166508347758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066431877313102935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6214132822763895010
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,6 +7868,7 @@ GameObject:
   - component: {fileID: 3858422010088382949}
   - component: {fileID: 5232785737366360812}
   - component: {fileID: 5232785737366360813}
+  - component: {fileID: 9147490695206614991}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.059_cell
   m_TagString: Untagged
@@ -7130,6 +7971,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5915329837587567533, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &9147490695206614991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214132822763895010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6254673955708744236
 GameObject:
   m_ObjectHideFlags: 0
@@ -7143,6 +7997,7 @@ GameObject:
   - component: {fileID: 1431868458203166407}
   - component: {fileID: 5232785736908584239}
   - component: {fileID: 5232785736908584236}
+  - component: {fileID: 6591609917080314839}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.067
   m_TagString: Untagged
@@ -7245,6 +8100,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3891842818907871922, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6591609917080314839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254673955708744236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6341875931059617198
 GameObject:
   m_ObjectHideFlags: 0
@@ -7258,6 +8126,7 @@ GameObject:
   - component: {fileID: 3965551089161677144}
   - component: {fileID: 5232785736089174602}
   - component: {fileID: 5232785736089174603}
+  - component: {fileID: 1321342681095150332}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.050_cell.001
   m_TagString: Untagged
@@ -7360,6 +8229,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5696451348117794870, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1321342681095150332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341875931059617198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6503253999763155658
 GameObject:
   m_ObjectHideFlags: 0
@@ -7373,6 +8255,7 @@ GameObject:
   - component: {fileID: 4626098521078658890}
   - component: {fileID: 5232785737959691953}
   - component: {fileID: 5232785737959691950}
+  - component: {fileID: 8597936417481084099}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.004
   m_TagString: Untagged
@@ -7475,6 +8358,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2838647273518663084, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8597936417481084099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6503253999763155658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6855229405888313262
 GameObject:
   m_ObjectHideFlags: 0
@@ -7488,6 +8384,7 @@ GameObject:
   - component: {fileID: 2393420651397785671}
   - component: {fileID: 5232785737232172051}
   - component: {fileID: 5232785737232172048}
+  - component: {fileID: 7508302853064422996}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.016
   m_TagString: Untagged
@@ -7590,6 +8487,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5316466472296934227, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7508302853064422996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855229405888313262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6870903424708233917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7603,6 +8513,7 @@ GameObject:
   - component: {fileID: 5081614171398613685}
   - component: {fileID: 5232785737791195034}
   - component: {fileID: 5232785737791195035}
+  - component: {fileID: 3082445774668714202}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.019
   m_TagString: Untagged
@@ -7705,6 +8616,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3775598051506648226, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &3082445774668714202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6870903424708233917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &6872074345187281822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7718,6 +8642,7 @@ GameObject:
   - component: {fileID: 7255403660006969031}
   - component: {fileID: 5232785736947363395}
   - component: {fileID: 5232785736947363392}
+  - component: {fileID: 8988638393685733464}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.058
   m_TagString: Untagged
@@ -7820,6 +8745,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 984462538549396496, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8988638393685733464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872074345187281822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7053349470912963745
 GameObject:
   m_ObjectHideFlags: 0
@@ -7833,6 +8771,7 @@ GameObject:
   - component: {fileID: 4905127710236006837}
   - component: {fileID: 5232785737061046435}
   - component: {fileID: 5232785737061046432}
+  - component: {fileID: 5577525898708067804}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.036_cell.001
   m_TagString: Untagged
@@ -7935,6 +8874,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3208572575578265604, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &5577525898708067804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7053349470912963745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7141147015046807917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7948,6 +8900,7 @@ GameObject:
   - component: {fileID: 8029135162960238438}
   - component: {fileID: 5232785736271443099}
   - component: {fileID: 5232785736271443096}
+  - component: {fileID: 1192927764293428072}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.018
   m_TagString: Untagged
@@ -8050,6 +9003,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 61188917320787761, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1192927764293428072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141147015046807917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7150926561548316854
 GameObject:
   m_ObjectHideFlags: 0
@@ -8063,6 +9029,7 @@ GameObject:
   - component: {fileID: 1527455783365355513}
   - component: {fileID: 5232785738056307556}
   - component: {fileID: 5232785738056307557}
+  - component: {fileID: 3075352498419980135}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.044_cell
   m_TagString: Untagged
@@ -8165,6 +9132,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2283643838594991628, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &3075352498419980135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150926561548316854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7305653174780497530
 GameObject:
   m_ObjectHideFlags: 0
@@ -8178,6 +9158,7 @@ GameObject:
   - component: {fileID: 7890920990251219653}
   - component: {fileID: 5232785736444522027}
   - component: {fileID: 5232785736444522024}
+  - component: {fileID: 8684687112556020765}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.062
   m_TagString: Untagged
@@ -8280,6 +9261,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6924685536659734791, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8684687112556020765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305653174780497530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7402026221708737826
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,6 +9287,7 @@ GameObject:
   - component: {fileID: 4765075526989707137}
   - component: {fileID: 5232785736595597546}
   - component: {fileID: 5232785736595597547}
+  - component: {fileID: 8956987591354573579}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.034
   m_TagString: Untagged
@@ -8395,6 +9390,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8184082299872630755, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8956987591354573579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7402026221708737826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7590696459942870810
 GameObject:
   m_ObjectHideFlags: 0
@@ -8408,6 +9416,7 @@ GameObject:
   - component: {fileID: 1652863662392977893}
   - component: {fileID: 5232785736585185130}
   - component: {fileID: 5232785736585185131}
+  - component: {fileID: 4985706363059680329}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.003
   m_TagString: Untagged
@@ -8510,6 +9519,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 59296273767823931, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &4985706363059680329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590696459942870810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7642033793771124067
 GameObject:
   m_ObjectHideFlags: 0
@@ -8523,6 +9545,7 @@ GameObject:
   - component: {fileID: 2391911760146122266}
   - component: {fileID: 5232785736639433312}
   - component: {fileID: 5232785736639433313}
+  - component: {fileID: 3657278121502207127}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.056
   m_TagString: Untagged
@@ -8625,6 +9648,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2343969240422338807, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &3657278121502207127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642033793771124067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7686553627115726921
 GameObject:
   m_ObjectHideFlags: 0
@@ -8638,6 +9674,7 @@ GameObject:
   - component: {fileID: 7455107792793896771}
   - component: {fileID: 5232785736831966557}
   - component: {fileID: 5232785736831966554}
+  - component: {fileID: 8292718204816808766}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.038_cell
   m_TagString: Untagged
@@ -8740,6 +9777,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2409278838410610040, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8292718204816808766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686553627115726921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7786682390956970926
 GameObject:
   m_ObjectHideFlags: 0
@@ -8753,6 +9803,7 @@ GameObject:
   - component: {fileID: 5211165634451307019}
   - component: {fileID: 5232785737149402984}
   - component: {fileID: 5232785737149402985}
+  - component: {fileID: 7127035357992317111}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.042_cell
   m_TagString: Untagged
@@ -8855,6 +9906,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1016228596643577095, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7127035357992317111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786682390956970926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &7888647331807833472
 GameObject:
   m_ObjectHideFlags: 0
@@ -8868,6 +9932,7 @@ GameObject:
   - component: {fileID: 3529321499728073687}
   - component: {fileID: 5232785736421051380}
   - component: {fileID: 5232785736421051381}
+  - component: {fileID: 8701270763969568343}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.055
   m_TagString: Untagged
@@ -8970,6 +10035,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8297045680573981750, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8701270763969568343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7888647331807833472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8029196398500508467
 GameObject:
   m_ObjectHideFlags: 0
@@ -8983,6 +10061,7 @@ GameObject:
   - component: {fileID: 2955962168825857822}
   - component: {fileID: 5232785737656503341}
   - component: {fileID: 5232785737656503338}
+  - component: {fileID: 8464180583930978647}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.077
   m_TagString: Untagged
@@ -9085,6 +10164,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5150324480294087348, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &8464180583930978647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029196398500508467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8076983425535418199
 GameObject:
   m_ObjectHideFlags: 0
@@ -9098,6 +10190,7 @@ GameObject:
   - component: {fileID: 1038639349651512114}
   - component: {fileID: 5232785735948739394}
   - component: {fileID: 5232785735948739395}
+  - component: {fileID: 1093334782238480324}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.011
   m_TagString: Untagged
@@ -9200,6 +10293,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5548226970209754833, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &1093334782238480324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8076983425535418199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8329452193422922570
 GameObject:
   m_ObjectHideFlags: 0
@@ -9213,6 +10319,7 @@ GameObject:
   - component: {fileID: 8958090268650050267}
   - component: {fileID: 5232785737189889442}
   - component: {fileID: 5232785737189889443}
+  - component: {fileID: 7991177140368743286}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.078
   m_TagString: Untagged
@@ -9315,6 +10422,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6917041832055068826, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7991177140368743286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8329452193422922570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8563571783078359827
 GameObject:
   m_ObjectHideFlags: 0
@@ -9328,6 +10448,7 @@ GameObject:
   - component: {fileID: 4684817807553694396}
   - component: {fileID: 5232785738031433898}
   - component: {fileID: 5232785738031433899}
+  - component: {fileID: 5612097483138495616}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.047_cell
   m_TagString: Untagged
@@ -9430,6 +10551,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2556165102364752351, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &5612097483138495616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563571783078359827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8597123039390254335
 GameObject:
   m_ObjectHideFlags: 0
@@ -9443,6 +10577,7 @@ GameObject:
   - component: {fileID: 8656975223242583145}
   - component: {fileID: 5232785735962457449}
   - component: {fileID: 5232785735962457446}
+  - component: {fileID: 7802169323851635797}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.073
   m_TagString: Untagged
@@ -9545,6 +10680,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -503785296069941561, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &7802169323851635797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597123039390254335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8631967761565683383
 GameObject:
   m_ObjectHideFlags: 0
@@ -9558,6 +10706,7 @@ GameObject:
   - component: {fileID: 7621472311840016297}
   - component: {fileID: 5232785737276941953}
   - component: {fileID: 5232785737276942206}
+  - component: {fileID: 9163105648621411660}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.063_cell
   m_TagString: Untagged
@@ -9660,6 +10809,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3600943407458604991, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &9163105648621411660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8631967761565683383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3
 --- !u!1 &8633551426445398322
 GameObject:
   m_ObjectHideFlags: 0
@@ -9673,6 +10835,7 @@ GameObject:
   - component: {fileID: 310052335115008317}
   - component: {fileID: 5232785736014019316}
   - component: {fileID: 5232785736014019317}
+  - component: {fileID: 6210430029756485568}
   m_Layer: 0
   m_Name: Room_Modern_Window_Glass_cell.041_cell
   m_TagString: Untagged
@@ -9775,3 +10938,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2996415156018940125, guid: 91e5a6f76c1293340abf3d31c0762dad, type: 3}
+--- !u!114 &6210430029756485568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8633551426445398322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56b982c85b468f45a3260808d7ea637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 3

@@ -14,7 +14,7 @@ public class TransportZeldaCave : MonoBehaviour
         PickUpSound = GetComponent<AudioSource>();
     }
 
-    private void LinksWoodenSword()
+    public void LinksWoodenSword()
     {
         if (_firstTimePickedUp == false)
         {

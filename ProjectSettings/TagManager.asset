@@ -20,8 +20,8 @@ TagManager:
   - Rug
   - Dart
   - Dart Gun
-  - Alyx
   - Sword
+  - SocketedToHand
   layers:
   - Default
   - TransparentFX

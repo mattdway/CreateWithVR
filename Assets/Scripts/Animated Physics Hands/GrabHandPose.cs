@@ -48,29 +48,29 @@ public class GrabHandPose : MonoBehaviour
     // Set up the hand pose for the given interactor object
     public void SetupPose(BaseInteractionEventArgs arg)
     {
-        Debug.Log("Entered SetupPose Method");
+        // Debug.Log("Entered SetupPose Method");
 
         // Check if the interactor object is a XRDirectInteractor
         if (arg.interactorObject is XRDirectInteractor)
         {
-            Debug.Log("SetupPose Method is XRDirectInteractor");
+            // Debug.Log("SetupPose Method is XRDirectInteractor");
 
             // Get the HandData component from the interactable object and disable its animator
             HandData handData = arg.interactorObject.transform.GetComponentInChildren<HandData>();
             handData.animator.enabled = false;
 
-            Debug.Log("HandData component found on game object: " + handData.gameObject.name);
+            // Debug.Log("HandData component found on game object: " + handData.gameObject.name);
 
             // Set the hand data values based on whether the hand model is for the right or left hand
             if (handData.handType == HandData.HandModelType.Right)
             {
                 SetHandDataValues(handData, RightHandPose);
-                Debug.Log("Hand Type is RightHandPose");
+                // Debug.Log("Hand Type is RightHandPose");
             }
             else
             {
                 SetHandDataValues(handData, LeftHandPose);
-                Debug.Log("Hand Type is LeftHandPose");
+                // Debug.Log("Hand Type is LeftHandPose");
             }
 
             // Start a coroutine to smoothly transition to the new hand pose
@@ -81,7 +81,7 @@ public class GrabHandPose : MonoBehaviour
     // Un-set the hand pose for the given interactor object
     public void UnSetPose(BaseInteractionEventArgs arg)
     {
-        Debug.Log("Entered UnSetPose Method");
+        // Debug.Log("Entered UnSetPose Method");
 
         // Check if the interactor object is a XRDirectInteractor
         if (arg.interactorObject is XRDirectInteractor)
@@ -98,7 +98,7 @@ public class GrabHandPose : MonoBehaviour
     // This method sets the starting and final position and rotation values for two hand data objects.
     public void SetHandDataValues(HandData h1, HandData h2)
     {
-        Debug.Log("Entered SetHandDataValues Method");
+        // Debug.Log("Entered SetHandDataValues Method");
 
         // Calculate the starting hand position by dividing the local position of the hand's root by the local scale of the hand.
         _startingHandPosition = new Vector3(h1.root.localPosition.x / h1.root.localScale.x,
@@ -134,7 +134,7 @@ public class GrabHandPose : MonoBehaviour
     // This method sets the position and rotation values for a single hand data object.
     public void SetHandData(HandData h, Vector3 newPosition, Quaternion newRotation, Quaternion[] newBonesRotation)
     {
-        Debug.Log("Entered SetHandData Method");
+        // Debug.Log("Entered SetHandData Method");
 
         // Set the local position of the hand's root object to the given new position.
         h.root.localPosition = newPosition;
@@ -152,7 +152,7 @@ public class GrabHandPose : MonoBehaviour
 
     public IEnumerator SetHandDataRoutine(HandData h, Vector3 newPosition, Quaternion newRotation, Quaternion[] newBonesRotation, Vector3 startingPosition, Quaternion startingRotation, Quaternion[] startingBonesRotation)
     {
-        Debug.Log("Entered SetHandDataRoutine CoRoutine");
+        // Debug.Log("Entered SetHandDataRoutine CoRoutine");
 
         // Initialize a timer for the transition duration
         float timer = 0;
@@ -184,8 +184,8 @@ public class GrabHandPose : MonoBehaviour
 #if UNITY_EDITOR
 
     // Define a menu item that allows the user to mirror the right hand pose
-    [MenuItem("Tools/Mirror Selected Rigth Grab Pose")]
-    public static void MirrorRightPost()
+    [MenuItem("Tools/Mirror Selected Right Grab Pose")]
+    public static void MirrorRightPose()
     {
         //Debug.Log("MIRROR RIGHT POSE");
 
@@ -194,6 +194,20 @@ public class GrabHandPose : MonoBehaviour
 
         // Mirror the right hand pose based on the left hand pose
         _handPose.MirrorPose(_handPose.LeftHandPose, _handPose.RightHandPose);
+    }
+
+    // Define a menu item that allows the user to mirror the left hand pose
+    [MenuItem("Tools/Mirror Selected Left Grab Pose")]
+
+    public static void MirrorLeftPose()
+    {
+        //Debug.Log("MIRROR RIGHT POSE");
+
+        // Get the GrabHandPose script attached to the currently selected GameObject
+        GrabHandPose _handPose = Selection.activeGameObject.GetComponent<GrabHandPose>();
+
+        // Mirror the right hand pose based on the left hand pose
+        _handPose.MirrorPose(_handPose.RightHandPose, _handPose.LeftHandPose);
     }
 
 #endif
