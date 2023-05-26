@@ -14,6 +14,8 @@ public class Hand : MonoBehaviour
     private float triggerCurrent;
     private string animatorGripParam = "Grip";
     private string animatorTriggerParam = "Trigger";
+    private const bool visible = true;
+    private const bool hidden = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +46,7 @@ public class Hand : MonoBehaviour
         {
             gripCurrent = Mathf.MoveTowards(gripCurrent, gripTarget, Time.deltaTime * speed);
             animator.SetFloat(animatorGripParam, gripCurrent);
-        }        
+        }
         if (triggerCurrent != triggerTarget)
         {
             triggerCurrent = Mathf.MoveTowards(triggerCurrent, triggerTarget, Time.deltaTime * speed);
@@ -55,5 +57,20 @@ public class Hand : MonoBehaviour
     public void ToggleVisibility()
     {
         mesh.enabled = !mesh.enabled;
+    }
+
+    public void SetVisibility(bool visibility)
+    {
+        mesh.enabled = visibility;
+    }
+
+    public void ToggleVisibilityOn()
+    {
+        SetVisibility(visible);
+    }
+
+    public void ToggleVisibilityOff()
+    {
+        SetVisibility(hidden);
     }
 }
