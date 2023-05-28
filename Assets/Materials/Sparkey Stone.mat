@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sparkey Stone
-  m_Shader: {fileID: -6465566751694194690, guid: 2b49ea07e7e653844bc04dc2678ad75b, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 0c0e44ec101659840900686ba982b913, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 0

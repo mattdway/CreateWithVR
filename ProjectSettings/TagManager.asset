@@ -22,6 +22,9 @@ TagManager:
   - Dart Gun
   - Sword
   - SocketedToHand
+  - Alyx
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX
@@ -39,7 +42,7 @@ TagManager:
   - Whiteboard
   - Bottle Lid
   - Polaroid Photos
-  - Punch List
+  - Attached
   - Water Bottle
   - Non-Interactable
   - Interactable
@@ -53,7 +56,7 @@ TagManager:
   - Right Hand Physics
   - Non Physics Hand Layer
   - Post Processing
-  - 
+  - Hold
   - 
   m_SortingLayers:
   - name: Default
