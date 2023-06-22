@@ -1751,3 +1751,22 @@ That's all for now.
 * I have not yet updated the version number nor date on the welcome board to reflect these changes. I'll do this the next time I am in my project and the next commit will reflect this.
 That's all for now.
 @mattdway mattdway committed on May 17
+
+06/22/23 v4.0.6 Commit
+* Started with restoring a May 17, 2023 commit from GitHub as other changes went wonky including trying to import in packages from the Unity '23 demo scene, which created stop errors with many of those scripts and the transforms of my walls and many other objects somehow being slightly rotated.  Not much substantial had been done since before my summer '23 STEM-X class to this room.
+* In this commit I had already restored the Git files needed and I'd replacced the corrupted video files with a local copy.  I still have the original (non-working copy) on my WD HD in case I need anything from that folder.
+* I did a quick play test after restoring from the 05/17/23 commit to make sure everything was still working OK.
+I moved the reset button from the counter over to the north wall under the settings and welcome menu UI buttons.  Tested and this button still works.
+* I adjusted the X and Y position of the canvas parent for the Reset button, as it wasn't centered exactly.  I did this positioning in isometric mode.
+* I added more screens to my welcome screen in order to better explain things.
+* I redid all the buttons to incorportate showing and hidding the new screens and buttons on the welcome screen.
+* I added the text "Tutorial" to the first page of my welcome screen, the Oculus controller screen, to make it more obvious to anyone playing that the screens purpose is to orient you and to explain the controls.
+* I edited online the PDFs for the Oculus controllers and the HTC Vive controllers to make the background transparent (the layers for the main background color and the left rectangle were already there, I just had to hide these and then Save As to save a new transparent copy of the PDF back to the correct Assets folder in my project). I then needed to make these a 2D Sprite and to copy the settings as seen in other sprites so that I could select these images as my background on those welcome screen boards.
+* By selecting the transparent versions of these images and by turning the alpha all the way back up I was able to have the image appear at full brightness while still having a transparent background).  Because there are three of these images stacked, this is significantly brighter and easier to read in the VR headset (where things don't appear as bright as on a computer monitor).
+* I also added an empty parent to group the Oculus controller images and the HTC Vive controller images together.  This way all three could be deactivated or activated, appropiately, via the welcome screen's UI buttons.
+* I rearranged the Controlers text header, the Oculus button and the HTC Vive button at the top of the screen under the main controller parent object so that I could disable the parent and also disable the header text and two buttons at the same time, without having to seperately map each to be disabled/enabled seperately, via the click event.
+* I added tooltips to my Settings and Welcome wall buttons.  I added colliders (resized) and a XR Simple Interactable to both buttons and I then used its OnHoverEnter and OnHoverExit events to show and hide those tooltips, appropiately.
+* I played around with colliders on the tooltips to see if I could get these to not clip through the wall with the verticalbillboard script attached.  In the end I unchechecked to disable that script and the colldiers so that these appear flat at all angles (as those buttons are 2D and against the wall).  The colliders were also killing my FPS and causing huge lag.
+* I had to remember to set the XR Simple Interactable's Interactive Layers to Default and Raycast, as I was only able to activate these tooltips on hover if my Jedi Pull was activated before and I wanted these buttons and the OnHoverEnter and OnHoverExit to work even without distance grabbing (Jedi Pull) activated.
+* That's it for now.  Later on today I'm going to see if I can hinge the blue chest and make it interactable and I am going to continue to work on making the door lockable (only able to be opened when a key has been inserted and turned and the door handle has been pushed down) via a combination of scripts, configurable joints and sockets.
+@mattdway mattdway committed on June 22
