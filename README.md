@@ -1771,7 +1771,7 @@ I moved the reset button from the counter over to the north wall under the setti
 * That's it for now.  Later on today I'm going to see if I can hinge the blue chest and make it interactable and I am going to continue to work on making the door lockable (only able to be opened when a key has been inserted and turned and the door handle has been pushed down) via a combination of scripts, configurable joints and sockets.
 @mattdway mattdway committed on June 22
 
-06/24/23 v4.0.6 Commit
+06/24/23 v4.1.0 Commit
 * Last night I created a testing ground outside the main room with a duplicate XR Rig I can enable (after disabling the original) so that I will spawn in that new area.  It currently contains a floor, the two doors I exported (to only include the actual material, script, texture and prefab dependencies) from the Unity XRIT 2.3.1 demo scene) to study, to get working completely and to learn from so that I can better understand what each script and component is doing to create a working locking door mechanic.
 * Tonight I added a digital smart watch with the working digital time.  Tomorrow I'm going to add Valem's wrist menu to this to make a holographic menu that I think I'll add buttons to activate the Welcome Menu, Settings Menu, Interactable Menu and Reset Menus, all from that interface.  Later on I can change this to include somthing better like (maybe) an inventory system of some sort.
 * The watch is in place on the left hand and has all the necessary aesthetics needed to make this look like a digital watch with a black leather band and the script has been written and applied that adds the digital time in the hh:mm:ss tt format (tt being AM/PM as the time has been crafted to be 12 hour, not 24 hour time).
