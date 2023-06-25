@@ -1776,4 +1776,21 @@ I moved the reset button from the counter over to the north wall under the setti
 * Tonight I added a digital smart watch with the working digital time.  Tomorrow I'm going to add Valem's wrist menu to this to make a holographic menu that I think I'll add buttons to activate the Welcome Menu, Settings Menu, Interactable Menu and Reset Menus, all from that interface.  Later on I can change this to include somthing better like (maybe) an inventory system of some sort.
 * The watch is in place on the left hand and has all the necessary aesthetics needed to make this look like a digital watch with a black leather band and the script has been written and applied that adds the digital time in the hh:mm:ss tt format (tt being AM/PM as the time has been crafted to be 12 hour, not 24 hour time).
 * That's it for now.  More tomorrow.  I also need to get back to the hinged blue chest piece and then I'll maybe work on the test doors some more.
-  @mattdway mattdway committed on June 24
+@mattdway mattdway committed on June 24
+
+06/25/23 v4.1.1 Commit
+* The digital smart watch now has a hand menu that is activated by tapping or by slapping on the watch face with your right hand.  The menu has a small cone of blue light followed by a lit blue holographic (partially opaque) menu with four buttons.  
+* The font is an a free arcade font, all capital with horizontal lines running through it.  
+* The cone game object and the menu have been carefully positioned to make it appears as though it is being admitted from the watch.
+* Both the cone game object, the UI panel and the UI buttons received a custom blue transparent background.
+* The cone received it's own blue point light to make this appear as though this was a beam of light. 
+* I added a second blue light to this menu, giving it that holographic look and feel as well as that slight flickering. 
+* I also added a downloaded Star Wars esq scanlines from this website: https://www.oocities.org/~special_effect/sw_hologram.html
+* There is a MENU header at the top.
+* The four buttons at the bottoim bring up the: Settings Menu, the Tutorial (Welcome) Menu, the Interactables Menu and the last resets the room.
+* For the last one, I set this to directly run the ResetCurrentScreen method of the script rather than bring up the menu.  This makes for a quick way to reset the room if needed (or to reset in case of falling outside the room).
+* I added popup tool tips for the Settings button and the Close button for the Welcome Board.
+* I added popup tool tips to the close buttons for the Settings menu and the Interaction Menu, to be consistant.
+* Later today or tomorrow I'll work on the hinged blue chest piece.
+* That's it for now!
+@mattdway mattdway committed on June 25
