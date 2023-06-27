@@ -1795,3 +1795,14 @@ I moved the reset button from the counter over to the north wall under the setti
 * Later today or tomorrow I'll work on the hinged blue chest piece.
 * That's it for now!
 @mattdway mattdway committed on June 25
+
+06/27/23 v4.1.2 Commit
+* Hinged the blue chest so that this can open and close the lid and I  included a grab interactable handle (with a hidden mesh collider) at the front of the lid so that users have something to grab onto.  This was a minor change so I didn't include this in the version increment.
+* I had to bring back in the prefab first as the collisions on the lid and body were wrong.  Modeled the hinge after the cabinet door and the front door.  Curve side up in the direction that the cabinet lid needed to hinge.
+* I put all of the sports equipment inside the chest: the green tennis ball, the red cricket ball, the cricket bat and the tennis racket.  I laid the cricket bat and tennis racket on their sides.  This neatened up the items by the door, it adds something for others to find and it makes it easier to open the chest without having the balls and tennis racket fly everywhere (and risk breaking the window).
+* Made the Half Life Alyx base plate with the Half Life Alyx symbol much bigger.  Because it's also black metalic it looks like it is part of the chest and for those that know the game logo, who have played this game and who also see the gravity glove decal on the cube, this gives a much better indication that this is an alude to the Half Life Alyx flick mechanic.
+* I fixed the right breakable window collider as this was slightly colliding with the north wall collider, causing the window to break on game start.
+* I tried adding the teleportplayer script to each of the smart watch holographic menu button presses so that pressing either the "Settings Menu," "Tutorial Menu," "Interactions Menu" teleported the player back to the starting position (door mat by the front door) on press.  I had this idea in order to make it more understandable for the player to know that those buttons corresponded to the main welcome board by the west window (in case they were facing away from that menu when they used the smart watch buttons).  However, the teleportplayer script doesn't work this way and the teleportation never occurs when added to those button presses.  In testing it appears this only works with the button press script that directly listens for a secondary button on either VR controller to be pressed.  I haven't looked at Unity's script to see if there is a logic  reason within the script code, as to why.  As this wasn't working I went ahead and removed this event call from the button logic on those three smart watch menu buttons.  
+* I updated the version number on the main welcome board.
+* That's it for tonight.
+@mattdway mattdway committed on June 27
