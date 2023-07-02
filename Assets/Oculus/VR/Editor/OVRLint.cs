@@ -831,29 +831,31 @@ public class OVRLint : EditorWindow
 		return light.lightmapBakeType == LightmapBakeType.Baked;
 	}
 
-	static void SetAudioPreload(AudioClip clip, bool preload, bool refreshImmediately)
-	{
-		if (clip != null)
-		{
-			string assetPath = AssetDatabase.GetAssetPath(clip);
-			AudioImporter importer = AssetImporter.GetAtPath(assetPath) as AudioImporter;
-			if (importer != null)
-			{
-				if (preload != importer.preloadAudioData)
-				{
-					importer.preloadAudioData = preload;
+    static void SetAudioPreload(AudioClip clip, bool preload, bool refreshImmediately)
+    {
+        if (clip != null)
+        {
+            string assetPath = AssetDatabase.GetAssetPath(clip);
+            AudioImporter importer = AssetImporter.GetAtPath(assetPath) as AudioImporter;
+            if (importer != null)
+            {
+                AudioImporterSampleSettings sampleSettings = importer.defaultSampleSettings;
+                if (preload != (sampleSettings.loadType == AudioClipLoadType.DecompressOnLoad))
+                {
+                    sampleSettings.loadType = preload ? AudioClipLoadType.DecompressOnLoad : AudioClipLoadType.CompressedInMemory;
+                    importer.defaultSampleSettings = sampleSettings;
 
-					AssetDatabase.ImportAsset(assetPath);
-					if (refreshImmediately)
-					{
-						AssetDatabase.Refresh();
-					}
-				}
-			}
-		}
-	}
+                    AssetDatabase.ImportAsset(assetPath);
+                    if (refreshImmediately)
+                    {
+                        AssetDatabase.Refresh();
+                    }
+                }
+            }
+        }
+    }
 
-	static void SetAudioLoadType(AudioClip clip, AudioClipLoadType loadType, bool refreshImmediately)
+    static void SetAudioLoadType(AudioClip clip, AudioClipLoadType loadType, bool refreshImmediately)
 	{
 		if (clip != null)
 		{
