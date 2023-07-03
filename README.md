@@ -1,6 +1,79 @@
 ﻿Use Unity 2022.3.4f1 to open this project.  Uses XRIT 2.4.0
 
-07/02/23 v4.2.0 Commit
+07/03/23 v5.2.0 Commit
+* Added an Indiana Jones hat and bust in from Thingiverse (https://www.thingiverse.com/thing:1338860), I exported the Indiana theme song from YouTube (https://www.thingiverse.com/thing:1338860), which I then made a snippet of using Audacity.  I also slowed down the song, I lowered the pitch and and I added reverb to mimic the slower orchestra song from the movies when Indy puts on his hat.  I also grabbed a screenshot of Indiana's shadow from https://www.filmfreakcentral.net/ffc/2012/10/indiana-jones-the-complete-adventures.html.
+
+From there I constructed a pedistal out of two cylinders.  I added a material from this free asset (although I'm still looking for a better one): https://assetstore.unity.com/packages/3d/environments/ancient-jungle-temple-demo-123179
+
+I then created new materials for Indy's hat (color matched from a photo), and I created a new stone material (picking a color and using a texture to complete the stone look) for the hat and Indy bust.  I then added a socket to the top of the bust and I adjusted this until the hat sat perfectly on the bust and on my mannequin's head (although I think my maccequin head is maybe slightly large for this hat).  I then added the modified snippet of the theme and the shadow to a plane game object and I set this against the wall.  The idea is to show the shadow outline of Indi and to play the theme song whenever the hat is placed on the player's head.
+
+I wrote a script that activates the shadow and then deactivates after a set number of seconds.  I played around, briefly, with the idea of having the shadow be a child of the XR Origin so that this follows the player but decided it was simplier and easier to simply have this against the wall where the pedistal is.  It's not perfectly realistic based on where the light sources are but it hits that nolstalgic note.
+
+I first used the events for the XR Jedi Grab Interactable but decided that wasn't really right.  So I then tested by using events of XR Socket Interactor. This worked but activated whenever any hat was placed on my head so I then wrote a script that manages and calls these two events that plays the music and that runs the method that shows the shadow and then disables it after 10 seconds.
+
+Because the socket on Indy's bust is set to accept any object with a tag of Hat this also means that the player can place the other three hats (straw hat, top hat or captains hat) on top of Harrison Ford's bust. 
+
+* I also adjusted the script field settings for the breakable glass script on the potion so that this doesn't reset the scene when broken.  There are still two errors occuring due to the lack of verticises and mesh shape of that object.  I might be able to go into Blender some time to help this but for now it doesn't break quite as easily (when picked up using direct interactors) and/or when it does break it mostly doesn't crash or reset the scene.
+
+* I discovered the smart watch band was missing and I discovered this showed up when the holographic menu was activated.  This indicated that the watch band had accidently been nested under the parent for the holographic menu and sure enough, it was.  I moved this back out to the root of the parent for the smart watch so that this will no longer be deactivated.  I deactiviated the holographic menu again and tested.  All is well with the smart watch again.
+
+* I moved the third painting on the south wall forward. I also discovered the socket for that painting was also back and needed to be moved forward.  
+
+* My project became corrupt again so I downloaded last night's commit.  I added all the .git files and folders from the root of the Assets folder from my corrupted project, I made prefabs of the Indiana Jones pieces from my Hierarchy and I brought those, the materials, the scripts and the folder I created to hold the various original OBJ files and pieces into my new project.  I brought the two prefabs back into the Hierarchy in the correct place. 
+
+* I needed to fix the XRInteractorLineVisualController which I'd forgotten to map the Left Hand Interactor Line Visual and hte Right Hand Interactor Line Visual, causing repeated null exception errors and preventing me from being able to pick up Indy's hat.  Fixing this fixed those errors and allowed me to pick up the hat.  
+
+* I play tested again to make sure everything was working correctly.  The manager script worked to execute the theme song and to show and hide the shadow when placed on my head, so long as the correct hat has the correct tag of "Indiana Jones."
+
+* I fixed a bunch of stop errors having to do with negative scale for things like the top pediistal, the eraser bottom, the palm collider of my right hand, etc.  In all cases the position or scale for either X, Y or Z had a negative value.
+
+* I tried to fix the below errors by looking for the OVRPlugin.dll in my Unity project's Plugins folder, by researching this with ChatGPT and eventually by removing the com.unity.xr.oculus@4.0.0 folder, as I am using OpenXR and XRIT and not the Oculus SDK.  This worked for a little bit but ultimately when I closed and reopened Unity it recreated this folder, all of the subfolders and the error reoccured.  In my Package Manager I have the Oculus XR Plugin but not the full Oculus SDK.  
+
+Maybe by removing the Oculus folder asset this will fix the issue -- I tried the full SDK once but it generated lots of errors and crashes within my project so I removed it.  I'll need to come back to this one.
+
+Failed to load OVRPlugin.dll
+UnityEngine.Debug:LogError (object)
+Unity.XR.Oculus.OculusLoader:EditorLoadOVRPlugin () (at ./Library/PackageCache/com.unity.xr.oculus@4.0.0/Runtime/OculusLoader.cs:269)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+ToggleHandMenu Collision Occured
+UnityEngine.Debug:Log (object)
+ToggleHandMenu:OnCollisionEnter (UnityEngine.Collision) (at Assets/Scripts/Smart Watch Menu/ToggleHandMenu.cs:11)
+UnityEngine.Physics:OnSceneContact (UnityEngine.PhysicsScene,intptr,int)
+
+ToggleHandMenu Collision Occured
+UnityEngine.Debug:Log (object)
+ToggleHandMenu:OnCollisionEnter (UnityEngine.Collision) (at Assets/Scripts/Smart Watch Menu/ToggleHandMenu.cs:11)
+UnityEngine.Physics:OnSceneContact (UnityEngine.PhysicsScene,intptr,int)
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+Assertion failed on expression: 't.GetParent() == nullptr'
+
+* I copied and then pasted as a new component the single hinge joint on the blue trunk to make three.  This easy replication of the hinge joint allowed me to move the two new hinge joints to the left and right, having a total of three hinges along that edge of the trunk.  This helps to stabilize the lid and to prevent weird torque or physics when opening and closing or accidently applying pressure.
+
+* I updated the version number on the welcome board.  I changed this to 5.2.0 as yesterday's work was big enough to warrent a major version number and as I added a new feature today with the Indiana Jones hat.
+
+* That's it for tonight/this morning!
+@mattdway mattdway committed on July 3
+
+07/02/23 v5.1.0 Commit
 * Converted project from 2021.3.11.f1 using XRIT 2.4.0 from 2021.3.11f1 using XRIT 2.3.2.
 * Fixed a bunch of issues as the result of this including issues with the URP (Universal Render Pipeline with these three errors that cropped up as a result of this conversion:
 
