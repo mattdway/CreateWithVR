@@ -1,4 +1,24 @@
-﻿Use Unity 2022.3.4f1 to open this project.  Uses XRIT 2.4.0
+﻿Use Unity 2022.3.10f1 to open this project.  Uses XRIT 2.5.2.
+
+11/24/23 v5.2.2 Commit
+Fixed the issue where raycasts would latch onto buttons after a second or two of hovering, rendering the pushing of that button moot.  Updated the Welcome Board version number information.
+
+Great news regarding my demo room and a bug that has been present for a while, that made using the UI and accessing the Settings menu difficult.  I finally figured out why my raycasts were sticking to the buttons on the welcome menu and how to fix this!  Yay!
+You may have know that I had a behavior where users point to a button on my welcome board (for example the gear icon to get to the Settings menu) and it stuck after a second or two. Then as they moved it around it looked like a jump rope.  That same bug where, once it selected the button, they could no longer click on it to go to that menu.  The one that made it almost impossible for them to be able to get to the Settings menu so you could turn on Continuous Motion.  This one has bugged (no pun intended) me for a while because it made using the UI difficult for users, which also made it difficult for users to turn on Continuous Motion for better navigation through my room.
+So it turns out this was a combination of the "Select on Hover" preference in the inspector of my right and left raycast and that the buttons had colliders on it.
+Let me explain.  The "Select on Hover" preference allows you to select whatever you point your raycast (those red lines that emanate out of the controllers) on, after a specified number of seconds.  This is useful for my Jedi Force Pull script because when you point your controller at specified objects it does a couple of things.
+* It hides the raycast lines coming out of your controllers when pointing at those objects (this is part of the effect)
+* It turns on blue highlighting around the object you are pointing at, instead.
+* It auto-selects that object after a short interval (this means the user doesn't have to click anything on the controller, this is done automatically for them.
+* It automatically pulls the object towards the user after another short interval.
+It is the "Select on Hover" preference that allows the third bullet point in that list above to work.
+However, while I want users to be able to automatically be able to select a game object on hover I don't want users to be able to select a button on hover.  There's absolutely no point in selecting a button.  At least not in the sense of the VR game acting like it is an object you can "pick up." It's a user interface, not a typical game object and you can't pick up a button and you can't interact with a button (other than to click it and have it open a different UI window).  So the behavior of selecting a button (by clicking on the grip button on the VR controller or via "Select on Hover" was erroneous and something I now knew I needed to turn off.
+So I started to look at the Inspector preferences and to experiment and, as it turns out, I had a collider on the same buttons where hovering over the button for a second or two also selected it.  So I tried turning that collider off and play testing and I could no longer select that button (either via the grip button or via hovering).  I also tested to see if I could still click the button with the trigger button in order to open that interface and I could.  So, disabling or removing the collider on those buttons was the step I needed to take to prevent the user from being able to select it while hovering.  There was no real reason why a collider needed to be on those UI buttons anyway.
+This also meant I could keep the "Select on Hover" preference checked, so that my Jedi Force Pull functionality still works as I want it to.
+Problem solved.
+
+11/22/23 v5.2.1 Commit
+* All changes to my VR demo room since Jul 5, 2023.  I don't have a specific list of all the changes I made but it looks like there were some texture changes made to the magnifying glass (most likely to make this magnify on both sides), to the push pin, I started work on adding a ChatGPT NPC (named "The Curator") from Valem Tutorial's Patreon tutorials and it looks like I made changes to the Zelda fire 3D game object, to the Zelda cave game object and to Link's Wooden Sword game object.  I also added the climbing mechanism to the XR Origin in the Matt's Gym scene.
 
 07/03/23 v5.2.0 Commit
 * Added an Indiana Jones hat and bust in from Thingiverse (https://www.thingiverse.com/thing:1338860), I exported the Indiana theme song from YouTube (https://www.thingiverse.com/thing:1338860), which I then made a snippet of using Audacity.  I also slowed down the song, I lowered the pitch and and I added reverb to mimic the slower orchestra song from the movies when Indy puts on his hat.  I also grabbed a screenshot of Indiana's shadow from https://www.filmfreakcentral.net/ffc/2012/10/indiana-jones-the-complete-adventures.html.
