@@ -1,7 +1,4 @@
-﻿Use Unity 2022.3.10f1 to open this project.  Uses XRIT 2.5.0.
-
-11/22/23 v5.2.1 Commit
-* All changes to my VR demo room since Jul 5, 2023.  I don't have a specific list of all the changes I made but it looks like there were some texture changes made to the magnifying glass (most likely to make this magnify on both sides), to the push pin, I started work on adding a ChatGPT NPC (named "The Curator") from Valem Tutorial's Patreon tutorials and it looks like I made changes to the Zelda fire 3D game object, to the Zelda cave game object and to Link's Wooden Sword game object.  I also added the climbing mechanism to the XR Origin in the Matt's Gym scene.
+﻿Use Unity 2022.3.4f1 to open this project.  Uses XRIT 2.4.0
 
 07/03/23 v5.2.0 Commit
 * Added an Indiana Jones hat and bust in from Thingiverse (https://www.thingiverse.com/thing:1338860), I exported the Indiana theme song from YouTube (https://www.thingiverse.com/thing:1338860), which I then made a snippet of using Audacity.  I also slowed down the song, I lowered the pitch and and I added reverb to mimic the slower orchestra song from the movies when Indy puts on his hat.  I also grabbed a screenshot of Indiana's shadow from https://www.filmfreakcentral.net/ffc/2012/10/indiana-jones-the-complete-adventures.html.

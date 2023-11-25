@@ -20,7 +20,7 @@ public class Dart_Game_20ptDetector : MonoBehaviour
     // Called when the Collider other enters the trigger
     private void OnTriggerEnter(Collider collision)
     {
-        // Debug.Log("Collision For 10ptDetector Entered");
+        Debug.Log("Collision For 10ptDetector Entered");
 
         // Check if the other game object has a tag of "Dart"
         if (collision.gameObject.tag == "Dart")
