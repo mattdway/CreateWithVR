@@ -58,7 +58,7 @@ TagManager:
   - Non Physics Hand Layer
   - Post Processing
   - Held
-  - 
+  - Pages
   m_SortingLayers:
   - name: Default
     uniqueID: 0
